@@ -1,6 +1,6 @@
-/**
- * RKG SUIAMBU — CEO Master Control Panel Script
- * 100% Visual UI Controls — No JSON or Coding Required
+﻿/**
+ * RKG SUIAMBU â€” CEO Master Control Panel Script
+ * 100% Visual UI Controls â€” No JSON or Coding Required
  */
 
 let ceoToken = sessionStorage.getItem("rkg_ceo_token") || "";
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ── Auth Handling ───────────────────────────────────────────────────
+// â”€â”€ Auth Handling â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function showLogin() {
     document.getElementById("ceo-login-screen")?.classList.remove("hidden");
     document.getElementById("ceo-dashboard")?.classList.add("hidden");
@@ -43,7 +43,7 @@ async function handleCeoLogin(e) {
     const btn = document.getElementById("ceo-login-btn");
 
     btn.disabled = true;
-    btn.innerHTML = `<span>🔄 Authenticating...</span>`;
+    btn.innerHTML = `<span>ðŸ”„ Authenticating...</span>`;
     errDiv.classList.add("hidden");
 
     try {
@@ -82,7 +82,7 @@ function toggleCeoPassword() {
     inp.type = inp.type === "password" ? "text" : "password";
 }
 
-// ── Tab Switching ───────────────────────────────────────────────────
+// â”€â”€ Tab Switching â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function switchTab(tab) {
     const tabs = ['profile', 'products', 'stock', 'inquiries', 'users', 'audit'];
     tabs.forEach(t => {
@@ -101,7 +101,7 @@ function switchTab(tab) {
 }
 
 
-// ── TAB 1: Company Profile ──────────────────────────────────────────
+// â”€â”€ TAB 1: Company Profile â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadCompanySettings() {
     try {
         const res = await fetch("/api/ceo/company-settings", {
@@ -166,7 +166,7 @@ async function saveCompanySettings() {
     );
 }
 
-// ── TAB 2: Products Master ──────────────────────────────────────────
+// â”€â”€ TAB 2: Products Master â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadProducts() {
     const tbody = document.getElementById("products-table-body");
     try {
@@ -188,7 +188,7 @@ function renderProductsTable(prods) {
     }
 
     tbody.innerHTML = prods.map(p => {
-        const imgSrc = p.image_url || '/static/rkg-logo.png';
+        const imgSrc = p.image_url || 'rkg-logo.png';
         return `
         <tr class="hover:bg-emerald-950/40 transition">
             <td class="p-3 font-bold text-white">
@@ -201,9 +201,9 @@ function renderProductsTable(prods) {
                 </div>
             </td>
             <td class="p-3 text-emerald-300 font-semibold">${p.category}</td>
-            <td class="p-3 text-right font-mono text-slate-300">₹${p.cost_price?.toFixed(2)}</td>
-            <td class="p-3 text-right font-mono font-bold text-amber-300">₹${p.selling_price?.toFixed(2)}</td>
-            <td class="p-3 text-right font-mono font-bold text-emerald-400">₹${p.wholesale_price?.toFixed(2)}</td>
+            <td class="p-3 text-right font-mono text-slate-300">â‚¹${p.cost_price?.toFixed(2)}</td>
+            <td class="p-3 text-right font-mono font-bold text-amber-300">â‚¹${p.selling_price?.toFixed(2)}</td>
+            <td class="p-3 text-right font-mono font-bold text-emerald-400">â‚¹${p.wholesale_price?.toFixed(2)}</td>
             <td class="p-3 text-right font-mono text-slate-300">${p.tax_rate}%</td>
             <td class="p-3 font-mono text-slate-400">${p.hsn_code || '-'}</td>
             <td class="p-3 text-right font-bold text-white">${p.current_stock} <span class="text-[10px] text-slate-400">${p.unit_of_measure}</span></td>
@@ -214,7 +214,7 @@ function renderProductsTable(prods) {
             </td>
             <td class="p-3 text-center">
                 <button onclick="openEditProductModal(${p.id})" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-950 font-bold text-xs transition border border-amber-400/40">
-                    Edit Price ✏️
+                    Edit Price âœï¸
                 </button>
             </td>
         </tr>
@@ -224,7 +224,7 @@ function renderProductsTable(prods) {
     const csProdSelect = document.getElementById("cs-product");
     if (csProdSelect) {
         csProdSelect.innerHTML = prods.map(p => 
-            `<option value="${p.id}">${p.product_name} (${p.tamil_name || ''}) — Current: ${p.current_stock} ${p.unit_of_measure}</option>`
+            `<option value="${p.id}">${p.product_name} (${p.tamil_name || ''}) â€” Current: ${p.current_stock} ${p.unit_of_measure}</option>`
         ).join('');
     }
 
@@ -241,11 +241,11 @@ function renderProductsTable(prods) {
                 <td class="p-3 text-right font-bold ${isLow ? 'text-rose-400' : 'text-emerald-400'} font-mono text-sm">
                     ${p.current_stock} <span class="text-[10px] text-slate-400">${p.unit_of_measure}</span>
                 </td>
-                <td class="p-3 text-right font-mono text-slate-300">₹${(p.cost_price || 0).toFixed(2)}</td>
-                <td class="p-3 text-right font-mono font-black text-amber-300">₹${valuation.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+                <td class="p-3 text-right font-mono text-slate-300">â‚¹${(p.cost_price || 0).toFixed(2)}</td>
+                <td class="p-3 text-right font-mono font-black text-amber-300">â‚¹${valuation.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
                 <td class="p-3 text-center">
                     <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isLow ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-emerald-950 text-emerald-300 border border-emerald-800'}">
-                        ${isLow ? '⚠️ LOW STOCK' : '✅ HEALTHY'}
+                        ${isLow ? 'âš ï¸ LOW STOCK' : 'âœ… HEALTHY'}
                     </span>
                 </td>
             </tr>
@@ -268,17 +268,17 @@ async function handleCeoStockInward(e) {
     const btn = document.getElementById("cs-submit-btn");
 
     if (!pid || qty <= 0) {
-        alert("Please select a product and enter a valid quantity! (சரியான அளவை உள்ளிடுக)");
+        alert("Please select a product and enter a valid quantity! (à®šà®°à®¿à®¯à®¾à®© à®…à®³à®µà¯ˆ à®‰à®³à¯à®³à®¿à®Ÿà¯à®•)");
         return;
     }
     if (!pw) {
-        alert("CEO Master Password is required to approve stock inward! (முதன்மை நிர்வாகி கடவுச்சொல் தேவை)");
+        alert("CEO Master Password is required to approve stock inward! (à®®à¯à®¤à®©à¯à®®à¯ˆ à®¨à®¿à®°à¯à®µà®¾à®•à®¿ à®•à®Ÿà®µà¯à®šà¯à®šà¯Šà®²à¯ à®¤à¯‡à®µà¯ˆ)");
         document.getElementById("cs-ceo-password").focus();
         return;
     }
 
     btn.disabled = true;
-    btn.innerHTML = `<span>⏳ Inwarding Stock...</span>`;
+    btn.innerHTML = `<span>â³ Inwarding Stock...</span>`;
 
     try {
         const res = await fetch("/api/ceo/stock/inward", {
@@ -301,12 +301,12 @@ async function handleCeoStockInward(e) {
 
         const data = await res.json();
         if (res.ok) {
-            alert(`🎉 Success!\n+${qty} units inwarded successfully into factory warehouse!\nNew Stock Balance: ${data.new_stock}`);
+            alert(`ðŸŽ‰ Success!\n+${qty} units inwarded successfully into factory warehouse!\nNew Stock Balance: ${data.new_stock}`);
             document.getElementById("ceo-inward-form").reset();
             loadProducts();
             loadAuditLogs();
         } else {
-            alert(`❌ Authorization Failed: ${data.detail || "Failed to inward stock."}`);
+            alert(`âŒ Authorization Failed: ${data.detail || "Failed to inward stock."}`);
         }
     } catch (err) {
         alert("Server error connecting to stock API");
@@ -399,7 +399,7 @@ async function submitEditProduct() {
     }
 }
 
-// ── Add Product Handling ────────────────────────────────────────────
+// â”€â”€ Add Product Handling â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function openAddProductModal() {
     document.getElementById("ap-name").value = "";
     document.getElementById("ap-tamilname").value = "";
@@ -487,7 +487,7 @@ async function submitAddProduct() {
         return;
     }
     if (sellPrice <= 0) {
-        errDiv.textContent = "Please enter a valid target price in ₹.";
+        errDiv.textContent = "Please enter a valid target price in â‚¹.";
         errDiv.classList.remove("hidden");
         return;
     }
@@ -528,7 +528,7 @@ async function submitAddProduct() {
         });
 
         if (res.ok) {
-            alert(`✅ Product '${name}' added to catalog successfully!`);
+            alert(`âœ… Product '${name}' added to catalog successfully!`);
             closeAddProductModal();
             loadProducts();
             loadAuditLogs();
@@ -543,7 +543,7 @@ async function submitAddProduct() {
     }
 }
 
-// ── TAB 3: Website Leads & Inquiries ────────────────────────────────
+// â”€â”€ TAB 3: Website Leads & Inquiries â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadInquiries() {
     const tbody = document.getElementById("inquiries-table-body");
     try {
@@ -591,7 +591,7 @@ async function loadInquiries() {
     }
 }
 
-// ── TAB 4: Users Management ─────────────────────────────────────────
+// â”€â”€ TAB 4: Users Management â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadUsers() {
     const tbody = document.getElementById("users-table-body");
     try {
@@ -615,7 +615,7 @@ async function loadUsers() {
                     </td>
                     <td class="p-3 text-center">
                         <button onclick="promptResetPassword('${u.username}')" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-950 font-bold text-[11px] transition">
-                            Reset Password 🔑
+                            Reset Password ðŸ”‘
                         </button>
                     </td>
                 </tr>
@@ -698,7 +698,7 @@ function promptResetPassword(username) {
     );
 }
 
-// ── TAB 5: Audit Logs ───────────────────────────────────────────────
+// â”€â”€ TAB 5: Audit Logs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadAuditLogs() {
     const tbody = document.getElementById("audit-table-body");
     try {
@@ -726,7 +726,7 @@ async function loadAuditLogs() {
     } catch (e) {}
 }
 
-// ── Re-Authentication Confirm Modal ─────────────────────────────────
+// â”€â”€ Re-Authentication Confirm Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function openConfirmModal(title, desc, onExecute) {
     document.getElementById("confirm-title").textContent = title;
     document.getElementById("confirm-description").textContent = desc;
@@ -758,7 +758,7 @@ async function executeConfirmedAction() {
     }
 }
 
-// ── LIVE PASSWORD STRENGTH EVALUATOR ──────────────────────────────────────────
+// â”€â”€ LIVE PASSWORD STRENGTH EVALUATOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function evaluatePasswordLive(pw) {
     if (!pw) return { score: 0, text: "Enter Password", color: "#64748b", pct: 0, missing: ["8+ characters required"] };
     let score = 0;
@@ -776,11 +776,11 @@ function evaluatePasswordLive(pw) {
     }
 
     const levels = [
-        { text: "Very Weak (மிக பலவீனமானது)", color: "#ef4444", pct: 15 },
-        { text: "Weak (பலவீனமானது)", color: "#f97316", pct: 35 },
-        { text: "Fair (மிதமானது)", color: "#eab308", pct: 60 },
-        { text: "Strong (வலுவானது)", color: "#22c55e", pct: 85 },
-        { text: "Very Strong (மிகவும் பாதுகாப்பானது)", color: "#10b981", pct: 100 }
+        { text: "Very Weak (à®®à®¿à®• à®ªà®²à®µà¯€à®©à®®à®¾à®©à®¤à¯)", color: "#ef4444", pct: 15 },
+        { text: "Weak (à®ªà®²à®µà¯€à®©à®®à®¾à®©à®¤à¯)", color: "#f97316", pct: 35 },
+        { text: "Fair (à®®à®¿à®¤à®®à®¾à®©à®¤à¯)", color: "#eab308", pct: 60 },
+        { text: "Strong (à®µà®²à¯à®µà®¾à®©à®¤à¯)", color: "#22c55e", pct: 85 },
+        { text: "Very Strong (à®®à®¿à®•à®µà¯à®®à¯ à®ªà®¾à®¤à¯à®•à®¾à®ªà¯à®ªà®¾à®©à®¤à¯)", color: "#10b981", pct: 100 }
     ];
     const lvl = levels[Math.min(score, 4)];
     return { score, text: lvl.text, color: lvl.color, pct: lvl.pct, missing };
@@ -804,12 +804,12 @@ function handleLivePasswordStrength(inputId, barId, labelId, badgesId) {
     }
     if (badges) {
         badges.innerHTML = res.missing.map(m => 
-            `<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">⚠️ ${m}</span>`
-        ).join('') + (res.score >= 3 ? `<span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700">✅ High Security Passphrase</span>` : '');
+            `<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">âš ï¸ ${m}</span>`
+        ).join('') + (res.score >= 3 ? `<span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700">âœ… High Security Passphrase</span>` : '');
     }
 }
 
-// ── LIVE INDIAN PHONE VALIDATION ─────────────────────────────────────────────
+// â”€â”€ LIVE INDIAN PHONE VALIDATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function sanitizeAndValidatePhone(inputElem, statusElem) {
     if (!inputElem) return false;
     let digits = inputElem.value.replace(/\D/g, '');
@@ -834,7 +834,7 @@ function sanitizeAndValidatePhone(inputElem, statusElem) {
 
     if (digits.length < 10) {
         if (statusElem) {
-            statusElem.innerHTML = `<span class="text-rose-400 font-bold">❌ 10 digits required (${digits.length}/10)</span>`;
+            statusElem.innerHTML = `<span class="text-rose-400 font-bold">âŒ 10 digits required (${digits.length}/10)</span>`;
             statusElem.style.display = "block";
         }
         inputElem.style.borderColor = "#ef4444";
@@ -843,7 +843,7 @@ function sanitizeAndValidatePhone(inputElem, statusElem) {
 
     if (!['6','7','8','9'].includes(digits[0])) {
         if (statusElem) {
-            statusElem.innerHTML = `<span class="text-rose-400 font-bold">❌ Must start with 6, 7, 8, or 9</span>`;
+            statusElem.innerHTML = `<span class="text-rose-400 font-bold">âŒ Must start with 6, 7, 8, or 9</span>`;
             statusElem.style.display = "block";
         }
         inputElem.style.borderColor = "#ef4444";
@@ -852,7 +852,7 @@ function sanitizeAndValidatePhone(inputElem, statusElem) {
 
     if (uniqueDigits <= 2 || repetitivePatterns.includes(digits)) {
         if (statusElem) {
-            statusElem.innerHTML = `<span class="text-rose-400 font-bold">❌ Repetitive or invalid fake number</span>`;
+            statusElem.innerHTML = `<span class="text-rose-400 font-bold">âŒ Repetitive or invalid fake number</span>`;
             statusElem.style.display = "block";
         }
         inputElem.style.borderColor = "#ef4444";
@@ -860,14 +860,14 @@ function sanitizeAndValidatePhone(inputElem, statusElem) {
     }
 
     if (statusElem) {
-        statusElem.innerHTML = `<span class="text-emerald-400 font-bold">✅ Valid 10-Digit Mobile Number</span>`;
+        statusElem.innerHTML = `<span class="text-emerald-400 font-bold">âœ… Valid 10-Digit Mobile Number</span>`;
         statusElem.style.display = "block";
     }
     inputElem.style.borderColor = "#10b981";
     return true;
 }
 
-// ── Cloud Firestore Sync ─────────────────────────────────────────────
+// â”€â”€ Cloud Firestore Sync â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function triggerCloudSync() {
     const btn = document.getElementById("cloud-sync-btn");
     const originalHTML = btn ? btn.innerHTML : "";
@@ -883,12 +883,12 @@ async function triggerCloudSync() {
         if (data.success) {
             const counts = data.synced_counts || {};
             const total = Object.values(counts).reduce((a, b) => a + b, 0);
-            alert(`✅ Cloud Sync Success!\n\n${total} total records successfully mirrored to Google Cloud Firestore.\n\n• Products: ${counts.products || 0}\n• Invoices: ${counts.invoices || 0}\n• Customers/Parties: ${counts.parties || 0}\n• Batches: ${counts.batches || 0}\n• Purchases: ${counts.purchases || 0}\n• Inquiries: ${counts.inquiries || 0}`);
+            alert(`âœ… Cloud Sync Success!\n\n${total} total records successfully mirrored to Google Cloud Firestore.\n\nâ€¢ Products: ${counts.products || 0}\nâ€¢ Invoices: ${counts.invoices || 0}\nâ€¢ Customers/Parties: ${counts.parties || 0}\nâ€¢ Batches: ${counts.batches || 0}\nâ€¢ Purchases: ${counts.purchases || 0}\nâ€¢ Inquiries: ${counts.inquiries || 0}`);
         } else {
-            alert(`⚠️ Cloud Sync Notice:\n${data.error || data.message || "Failed to sync"}`);
+            alert(`âš ï¸ Cloud Sync Notice:\n${data.error || data.message || "Failed to sync"}`);
         }
     } catch (e) {
-        alert(`❌ Sync Request Failed: ${e.message}`);
+        alert(`âŒ Sync Request Failed: ${e.message}`);
     } finally {
         if (btn) {
             btn.disabled = false;
@@ -897,5 +897,6 @@ async function triggerCloudSync() {
         }
     }
 }
+
 
 

@@ -63,22 +63,22 @@ function resolveProductImage(p) {
   const name = (p.name || '').toLowerCase();
   const code = (p.code || p.doc_id || '').toLowerCase();
   
-  if (name.includes('velakku') || name.includes('pooja')) return '/static/images/suyambu_velakku_ennai.jpg';
-  if (name.includes('coconut oil') || code.includes('aa01') || code.includes('aa02') || code.includes('aa03')) return '/static/images/suyambu_coconut_oil.jpg';
-  if (name.includes('peanut oil') || code.includes('aa04') || code.includes('aa05') || code.includes('aa06')) return '/static/images/suyambu_peanut_oil.jpg';
-  if (name.includes('gingelly') || name.includes('sesame') || code.includes('aa07') || code.includes('aa08') || code.includes('aa09')) return '/static/images/suyambu_gingelly_oil.jpg';
-  if (name.includes('sambar') || name.includes('mutton') || name.includes('masala') || code.includes('dd01') || code.includes('dd02')) return '/static/images/suyambu_masala_powder.jpg';
-  if (name.includes('cotton seed') || code.includes('gg05') || code.includes('gg06') || code.includes('gg07') || code.includes('gg08')) return '/static/images/suyambu_cotton_seeds.jpg';
-  if (name.includes('chicken') || code.includes('gg14')) return '/static/images/krishi_chicken_feed.jpg';
-  if (name.includes('bio pass') || name.includes('pro-best') || name.includes('krishi') || code.includes('gg10') || code.includes('gg11') || code.includes('gg12') || code.includes('gg13')) return '/static/images/krishi_cattle_feed.jpg';
-  if (name.includes('nayam') || name.includes('thavudu') || name.includes('corn clay') || code.includes('gg09') || code.includes('dd03') || code.includes('dd04')) return '/static/images/suyambu_nayam_feed.jpg';
-  if (name.includes('sss') || name.includes('ponni') || code.includes('gg18') || code.includes('gg19') || code.includes('gg20')) return '/static/images/a1_sss_rice.jpg';
-  if (name.includes('sivaji') || name.includes('shivaji') || code.includes('gg21') || code.includes('gg22') || code.includes('gg23')) return '/static/images/veera_sivaji_rice.jpg';
-  if (name.includes('rice') || name.includes('veeran') || code.includes('gg15') || code.includes('gg16') || code.includes('gg17')) return '/static/images/suyambu_rice.jpg';
-  if (name.includes('cake') || name.includes('punnakku') || code.includes('cc01')) return '/static/images/punnakku.jpg';
-  if (name.includes('wheat') || name.includes('ragi') || name.includes('groundnut') || name.includes('corn') || code.includes('gg01') || code.includes('gg02') || code.includes('gg03') || code.includes('gg04')) return '/static/images/suyambu_grains.jpg';
+  if (name.includes('velakku') || name.includes('pooja')) return '/images/suyambu_velakku_ennai.jpg';
+  if (name.includes('coconut oil') || code.includes('aa01') || code.includes('aa02') || code.includes('aa03')) return '/images/suyambu_coconut_oil.jpg';
+  if (name.includes('peanut oil') || code.includes('aa04') || code.includes('aa05') || code.includes('aa06')) return '/images/suyambu_peanut_oil.jpg';
+  if (name.includes('gingelly') || name.includes('sesame') || code.includes('aa07') || code.includes('aa08') || code.includes('aa09')) return '/images/suyambu_gingelly_oil.jpg';
+  if (name.includes('sambar') || name.includes('mutton') || name.includes('masala') || code.includes('dd01') || code.includes('dd02')) return '/images/suyambu_masala_powder.jpg';
+  if (name.includes('cotton seed') || code.includes('gg05') || code.includes('gg06') || code.includes('gg07') || code.includes('gg08')) return '/images/suyambu_cotton_seeds.jpg';
+  if (name.includes('chicken') || code.includes('gg14')) return '/images/krishi_chicken_feed.jpg';
+  if (name.includes('bio pass') || name.includes('pro-best') || name.includes('krishi') || code.includes('gg10') || code.includes('gg11') || code.includes('gg12') || code.includes('gg13')) return '/images/krishi_cattle_feed.jpg';
+  if (name.includes('nayam') || name.includes('thavudu') || name.includes('corn clay') || code.includes('gg09') || code.includes('dd03') || code.includes('dd04')) return '/images/suyambu_nayam_feed.jpg';
+  if (name.includes('sss') || name.includes('ponni') || code.includes('gg18') || code.includes('gg19') || code.includes('gg20')) return '/images/a1_sss_rice.jpg';
+  if (name.includes('sivaji') || name.includes('shivaji') || code.includes('gg21') || code.includes('gg22') || code.includes('gg23')) return '/images/veera_sivaji_rice.jpg';
+  if (name.includes('rice') || name.includes('veeran') || code.includes('gg15') || code.includes('gg16') || code.includes('gg17')) return '/images/suyambu_rice.jpg';
+  if (name.includes('cake') || name.includes('punnakku') || code.includes('cc01')) return '/images/punnakku.jpg';
+  if (name.includes('wheat') || name.includes('ragi') || name.includes('groundnut') || name.includes('corn') || code.includes('gg01') || code.includes('gg02') || code.includes('gg03') || code.includes('gg04')) return '/images/suyambu_grains.jpg';
   
-  return '/static/rkg-logo.png';
+  return 'rkg-logo.png';
 }
 
 // ── View Mode Switcher (Grid vs Table) ────────────────────────────────
@@ -209,7 +209,7 @@ function renderProductsGrid() {
     const displayName = currentLang === 'ta' ? (p.tamil_name || p.name) : p.name;
     const subName = currentLang === 'ta' ? p.name : (p.tamil_name || '');
     const displayUom = p.uom || 'Unit';
-    const productImg = p.image || "/static/rkg-logo.png";
+    const productImg = p.image || "rkg-logo.png";
     const brandName = p.brand || "Suyambu";
     const uCode = p.code || p.doc_id || "";
     const isPriceAvailable = p.price && p.price > 0;
@@ -439,7 +439,7 @@ function addToInquiryCart(productId) {
       brand: p.brand,
       uom: p.uom,
       price: p.price,
-      image: p.image || "/static/rkg-logo.png",
+      image: p.image || "rkg-logo.png",
       qty: 1
     });
   }
@@ -775,7 +775,7 @@ function openQuickViewModal(productId) {
   content.innerHTML = `
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
       <div class="rounded-2xl overflow-hidden border border-emerald-800 bg-slate-950 p-3 shadow-inner">
-        <img src="${p.image || '/static/rkg-logo.png'}" alt="${p.name}" class="w-full h-64 object-contain rounded-xl">
+        <img src="${p.image || 'rkg-logo.png'}" alt="${p.name}" class="w-full h-64 object-contain rounded-xl">
       </div>
       <div class="space-y-3">
         <span class="inline-block text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950 px-2.5 py-1 rounded-full border border-amber-500/40">
@@ -974,5 +974,6 @@ setInterval(() => {
   loadCompanyInfo();
   loadProductsCatalog();
 }, 30000);
+
 
 

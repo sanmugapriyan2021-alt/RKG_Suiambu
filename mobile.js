@@ -1,5 +1,5 @@
-/**
- * RKG SUYAMBU — Universal Enterprise Security & Management Engine
+﻿/**
+ * RKG SUYAMBU â€” Universal Enterprise Security & Management Engine
  * Primary Security Gateway: User_Login (CEO & Cashier Auth)
  * Tables: User_Login, Promo_Code, Profit, products, client_order_data, Change_History
  */
@@ -9,9 +9,9 @@ const SEED_PRODUCTS = [
     "id": "aa01",
     "doc_id": "aa01",
     "code": "aa01",
-    "name": "Pure Cold-Pressed Groundnut Oil 1L (மரச்செக்கு கடலை எண்ணெய் 1லி)",
-    "product_name": "Pure Cold-Pressed Groundnut Oil 1L (மரச்செக்கு கடலை எண்ணெய் 1லி)",
-    "tamil_name": "சுத்தமான மரச்செக்கு கடலை எண்ணெய் (1 லிட்டர் பாட்டில்)",
+    "name": "Pure Cold-Pressed Groundnut Oil 1L (à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯ 1à®²à®¿)",
+    "product_name": "Pure Cold-Pressed Groundnut Oil 1L (à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯ 1à®²à®¿)",
+    "tamil_name": "à®šà¯à®¤à¯à®¤à®®à®¾à®© à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯ (1 à®²à®¿à®Ÿà¯à®Ÿà®°à¯ à®ªà®¾à®Ÿà¯à®Ÿà®¿à®²à¯)",
     "brand": "RKG Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "LITRE",
@@ -33,9 +33,9 @@ const SEED_PRODUCTS = [
     "id": "aa02",
     "doc_id": "aa02",
     "code": "aa02",
-    "name": "Pure Cold-Pressed Sesame/Gingelly Oil 1L (மரச்செக்கு நல்லெண்ணெய் 1லி)",
-    "product_name": "Pure Cold-Pressed Sesame/Gingelly Oil 1L (மரச்செக்கு நல்லெண்ணெய் 1லி)",
-    "tamil_name": "சுத்தமான மரச்செக்கு நல்லெண்ணெய் (1 லிட்டர் பாட்டில்)",
+    "name": "Pure Cold-Pressed Sesame/Gingelly Oil 1L (à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®¨à®²à¯à®²à¯†à®£à¯à®£à¯†à®¯à¯ 1à®²à®¿)",
+    "product_name": "Pure Cold-Pressed Sesame/Gingelly Oil 1L (à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®¨à®²à¯à®²à¯†à®£à¯à®£à¯†à®¯à¯ 1à®²à®¿)",
+    "tamil_name": "à®šà¯à®¤à¯à®¤à®®à®¾à®© à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®¨à®²à¯à®²à¯†à®£à¯à®£à¯†à®¯à¯ (1 à®²à®¿à®Ÿà¯à®Ÿà®°à¯ à®ªà®¾à®Ÿà¯à®Ÿà®¿à®²à¯)",
     "brand": "RKG Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "LITRE",
@@ -59,7 +59,7 @@ const SEED_PRODUCTS = [
     "code": "aa03",
     "name": "Suyambu Coconut Oil (5L Can)",
     "product_name": "Suyambu Coconut Oil (5L Can)",
-    "tamil_name": "சுயம்பு தேங்காய் எண்ணெய் (5 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¤à¯‡à®™à¯à®•à®¾à®¯à¯ à®Žà®£à¯à®£à¯†à®¯à¯ (5 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "CAN_5L",
@@ -83,7 +83,7 @@ const SEED_PRODUCTS = [
     "code": "aa04",
     "name": "Suyambu Coconut Oil (1L Bottle)",
     "product_name": "Suyambu Coconut Oil (1L Bottle)",
-    "tamil_name": "சுயம்பு தேங்காய் எண்ணெய் (1 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¤à¯‡à®™à¯à®•à®¾à®¯à¯ à®Žà®£à¯à®£à¯†à®¯à¯ (1 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "LITRE",
@@ -107,7 +107,7 @@ const SEED_PRODUCTS = [
     "code": "aa05",
     "name": "Suyambu Coconut Oil (500ml)",
     "product_name": "Suyambu Coconut Oil (500ml)",
-    "tamil_name": "சுயம்பு தேங்காய் எண்ணெய் (500 மி.லி)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¤à¯‡à®™à¯à®•à®¾à®¯à¯ à®Žà®£à¯à®£à¯†à®¯à¯ (500 à®®à®¿.à®²à®¿)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_500ML",
@@ -131,7 +131,7 @@ const SEED_PRODUCTS = [
     "code": "aa06",
     "name": "Suyambu Peanut Oil (5L Can)",
     "product_name": "Suyambu Peanut Oil (5L Can)",
-    "tamil_name": "சுயம்பு கடலை எண்ணெய் (5 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯ (5 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "CAN_5L",
@@ -155,7 +155,7 @@ const SEED_PRODUCTS = [
     "code": "aa07",
     "name": "Suyambu Peanut Oil (1L Bottle)",
     "product_name": "Suyambu Peanut Oil (1L Bottle)",
-    "tamil_name": "சுயம்பு கடலை எண்ணெய் (1 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯ (1 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "LITRE",
@@ -179,7 +179,7 @@ const SEED_PRODUCTS = [
     "code": "aa08",
     "name": "Suyambu Peanut Oil (500ml)",
     "product_name": "Suyambu Peanut Oil (500ml)",
-    "tamil_name": "சுயம்பு கடலை எண்ணெய் (500 மி.லி)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯ (500 à®®à®¿.à®²à®¿)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_500ML",
@@ -203,7 +203,7 @@ const SEED_PRODUCTS = [
     "code": "aa09",
     "name": "Suyambu Gingelly Oil (5L Can)",
     "product_name": "Suyambu Gingelly Oil (5L Can)",
-    "tamil_name": "சுயம்பு நல்லெண்ணெய் (5 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¨à®²à¯à®²à¯†à®£à¯à®£à¯†à®¯à¯ (5 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "CAN_5L",
@@ -227,7 +227,7 @@ const SEED_PRODUCTS = [
     "code": "aa10",
     "name": "Suyambu Gingelly Oil (1L Bottle)",
     "product_name": "Suyambu Gingelly Oil (1L Bottle)",
-    "tamil_name": "சுயம்பு நல்லெண்ணெய் (1 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¨à®²à¯à®²à¯†à®£à¯à®£à¯†à®¯à¯ (1 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "LITRE",
@@ -251,7 +251,7 @@ const SEED_PRODUCTS = [
     "code": "aa11",
     "name": "Suyambu Gingelly Oil (500ml)",
     "product_name": "Suyambu Gingelly Oil (500ml)",
-    "tamil_name": "சுயம்பு நல்லெண்ணெய் (500 மி.லி)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¨à®²à¯à®²à¯†à®£à¯à®£à¯†à®¯à¯ (500 à®®à®¿.à®²à®¿)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_500ML",
@@ -275,7 +275,7 @@ const SEED_PRODUCTS = [
     "code": "aa12",
     "name": "Suyambu Velakku Ennai (1L)",
     "product_name": "Suyambu Velakku Ennai (1L)",
-    "tamil_name": "சுயம்பு விளக்கு எண்ணெய் (1 லிட்டர்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®µà®¿à®³à®•à¯à®•à¯ à®Žà®£à¯à®£à¯†à®¯à¯ (1 à®²à®¿à®Ÿà¯à®Ÿà®°à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "LITRE",
@@ -299,7 +299,7 @@ const SEED_PRODUCTS = [
     "code": "aa13",
     "name": "Suyambu Velakku Ennai (500ml)",
     "product_name": "Suyambu Velakku Ennai (500ml)",
-    "tamil_name": "சுயம்பு விளக்கு எண்ணெய் (500 மி.லி)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®µà®¿à®³à®•à¯à®•à¯ à®Žà®£à¯à®£à¯†à®¯à¯ (500 à®®à®¿.à®²à®¿)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_500ML",
@@ -321,9 +321,9 @@ const SEED_PRODUCTS = [
     "id": "cc01",
     "doc_id": "cc01",
     "code": "cc01",
-    "name": "Groundnut Oil Cake / Pinac 50kg (கடலை புண்ணாக்கு)",
-    "product_name": "Groundnut Oil Cake / Pinac 50kg (கடலை புண்ணாக்கு)",
-    "tamil_name": "சுயம்பு கடலை புண்ணாக்கு (50 கிலோ மூட்டை)",
+    "name": "Groundnut Oil Cake / Pinac 50kg (à®•à®Ÿà®²à¯ˆ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯)",
+    "product_name": "Groundnut Oil Cake / Pinac 50kg (à®•à®Ÿà®²à¯ˆ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®•à®Ÿà®²à¯ˆ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯ (50 à®•à®¿à®²à¯‹ à®®à¯‚à®Ÿà¯à®Ÿà¯ˆ)",
     "brand": "RKG Suyambu",
     "category": "BY_PRODUCT",
     "uom": "BAG_50KG",
@@ -345,9 +345,9 @@ const SEED_PRODUCTS = [
     "id": "cc02",
     "doc_id": "cc02",
     "code": "cc02",
-    "name": "Sesame Oil Cake / Pinac 50kg (எள்ளு புண்ணாக்கு)",
-    "product_name": "Sesame Oil Cake / Pinac 50kg (எள்ளு புண்ணாக்கு)",
-    "tamil_name": "சுயம்பு எள்ளு புண்ணாக்கு (50 கிலோ மூட்டை)",
+    "name": "Sesame Oil Cake / Pinac 50kg (à®Žà®³à¯à®³à¯ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯)",
+    "product_name": "Sesame Oil Cake / Pinac 50kg (à®Žà®³à¯à®³à¯ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®Žà®³à¯à®³à¯ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯ (50 à®•à®¿à®²à¯‹ à®®à¯‚à®Ÿà¯à®Ÿà¯ˆ)",
     "brand": "RKG Suyambu",
     "category": "BY_PRODUCT",
     "uom": "BAG_50KG",
@@ -371,7 +371,7 @@ const SEED_PRODUCTS = [
     "code": "cc03",
     "name": "Suyambu Coconut Punnakku (1 kg)",
     "product_name": "Suyambu Coconut Punnakku (1 kg)",
-    "tamil_name": "சுயம்பு தேங்காய் புண்ணாக்கு (1 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¤à¯‡à®™à¯à®•à®¾à®¯à¯ à®ªà¯à®£à¯à®£à®¾à®•à¯à®•à¯ (1 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "BY_PRODUCT",
     "uom": "KG",
@@ -393,9 +393,9 @@ const SEED_PRODUCTS = [
     "id": "dd01",
     "doc_id": "dd01",
     "code": "dd01",
-    "name": "RKG Special Cattle Feed Mash 50kg (மாட்டுத்தீவனம் மாவு)",
-    "product_name": "RKG Special Cattle Feed Mash 50kg (மாட்டுத்தீவனம் மாவு)",
-    "tamil_name": "ஆர்.கே.ஜி ஸ்பெஷல் மாட்டுத்தீவனம் மாவு (50 கிலோ பை)",
+    "name": "RKG Special Cattle Feed Mash 50kg (à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ à®®à®¾à®µà¯)",
+    "product_name": "RKG Special Cattle Feed Mash 50kg (à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ à®®à®¾à®µà¯)",
+    "tamil_name": "à®†à®°à¯.à®•à¯‡.à®œà®¿ à®¸à¯à®ªà¯†à®·à®²à¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ à®®à®¾à®µà¯ (50 à®•à®¿à®²à¯‹ à®ªà¯ˆ)",
     "brand": "RKG",
     "category": "FINISHED_GOOD",
     "uom": "BAG_50KG",
@@ -419,7 +419,7 @@ const SEED_PRODUCTS = [
     "code": "dd02",
     "name": "Suyambu Nayam Polished Thavudu (50 kg Bag)",
     "product_name": "Suyambu Nayam Polished Thavudu (50 kg Bag)",
-    "tamil_name": "சுயம்பு நயம் தீட்டிய தவிடு (50 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¨à®¯à®®à¯ à®¤à¯€à®Ÿà¯à®Ÿà®¿à®¯ à®¤à®µà®¿à®Ÿà¯ (50 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "BY_PRODUCT",
     "uom": "BAG_50KG",
@@ -443,7 +443,7 @@ const SEED_PRODUCTS = [
     "code": "dd03",
     "name": "Suyambu Corn Powder (50 kg Bag)",
     "product_name": "Suyambu Corn Powder (50 kg Bag)",
-    "tamil_name": "சுயம்பு சோள மாவு / பொடி (50 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®šà¯‹à®³ à®®à®¾à®µà¯ / à®ªà¯Šà®Ÿà®¿ (50 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "BAG_50KG",
@@ -467,7 +467,7 @@ const SEED_PRODUCTS = [
     "code": "dd04",
     "name": "Suyambu Sambar Powder (200g Packet)",
     "product_name": "Suyambu Sambar Powder (200g Packet)",
-    "tamil_name": "சுயம்பு சாம்பார் பொடி (200 கிராம்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®šà®¾à®®à¯à®ªà®¾à®°à¯ à®ªà¯Šà®Ÿà®¿ (200 à®•à®¿à®°à®¾à®®à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_200G",
@@ -491,7 +491,7 @@ const SEED_PRODUCTS = [
     "code": "dd05",
     "name": "Suyambu Mutton Masala Powder (200g Packet)",
     "product_name": "Suyambu Mutton Masala Powder (200g Packet)",
-    "tamil_name": "சுயம்பு மட்டன் மசாலா பொடி (200 கிராம்)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®®à®Ÿà¯à®Ÿà®©à¯ à®®à®šà®¾à®²à®¾ à®ªà¯Šà®Ÿà®¿ (200 à®•à®¿à®°à®¾à®®à¯)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_200G",
@@ -513,9 +513,9 @@ const SEED_PRODUCTS = [
     "id": "gg01",
     "doc_id": "gg01",
     "code": "gg01",
-    "name": "RKG High Milk-Yield Feed Pellets 50kg (பால் பெருக்கும் தீவனம் உருண்டை)",
-    "product_name": "RKG High Milk-Yield Feed Pellets 50kg (பால் பெருக்கும் தீவனம் உருண்டை)",
-    "tamil_name": "ஆர்.கே.ஜி பால் பெருக்கும் மாட்டுத்தீவனம் உருண்டை (50 கிலோ பை)",
+    "name": "RKG High Milk-Yield Feed Pellets 50kg (à®ªà®¾à®²à¯ à®ªà¯†à®°à¯à®•à¯à®•à¯à®®à¯ à®¤à¯€à®µà®©à®®à¯ à®‰à®°à¯à®£à¯à®Ÿà¯ˆ)",
+    "product_name": "RKG High Milk-Yield Feed Pellets 50kg (à®ªà®¾à®²à¯ à®ªà¯†à®°à¯à®•à¯à®•à¯à®®à¯ à®¤à¯€à®µà®©à®®à¯ à®‰à®°à¯à®£à¯à®Ÿà¯ˆ)",
+    "tamil_name": "à®†à®°à¯.à®•à¯‡.à®œà®¿ à®ªà®¾à®²à¯ à®ªà¯†à®°à¯à®•à¯à®•à¯à®®à¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ à®‰à®°à¯à®£à¯à®Ÿà¯ˆ (50 à®•à®¿à®²à¯‹ à®ªà¯ˆ)",
     "brand": "RKG",
     "category": "FINISHED_GOOD",
     "uom": "BAG_50KG",
@@ -537,9 +537,9 @@ const SEED_PRODUCTS = [
     "id": "gg02",
     "doc_id": "gg02",
     "code": "gg02",
-    "name": "Cleaned & Packaged Kambu Rice 1kg (கம்பு அரிசி பாக்கெட்)",
-    "product_name": "Cleaned & Packaged Kambu Rice 1kg (கம்பு அரிசி பாக்கெட்)",
-    "tamil_name": "சுத்திகரிக்கப்பட்ட கம்பு அரிசி (1 கிலோ பாக்கெட்)",
+    "name": "Cleaned & Packaged Kambu Rice 1kg (à®•à®®à¯à®ªà¯ à®…à®°à®¿à®šà®¿ à®ªà®¾à®•à¯à®•à¯†à®Ÿà¯)",
+    "product_name": "Cleaned & Packaged Kambu Rice 1kg (à®•à®®à¯à®ªà¯ à®…à®°à®¿à®šà®¿ à®ªà®¾à®•à¯à®•à¯†à®Ÿà¯)",
+    "tamil_name": "à®šà¯à®¤à¯à®¤à®¿à®•à®°à®¿à®•à¯à®•à®ªà¯à®ªà®Ÿà¯à®Ÿ à®•à®®à¯à®ªà¯ à®…à®°à®¿à®šà®¿ (1 à®•à®¿à®²à¯‹ à®ªà®¾à®•à¯à®•à¯†à®Ÿà¯)",
     "brand": "RKG Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "PACKET_1KG",
@@ -563,7 +563,7 @@ const SEED_PRODUCTS = [
     "code": "gg03",
     "name": "Suyambu Cotton Seeds (50 kg Bag)",
     "product_name": "Suyambu Cotton Seeds (50 kg Bag)",
-    "tamil_name": "சுயம்பு பருத்தி விதை (50 கிலோ மூட்டை)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®ªà®°à¯à®¤à¯à®¤à®¿ à®µà®¿à®¤à¯ˆ (50 à®•à®¿à®²à¯‹ à®®à¯‚à®Ÿà¯à®Ÿà¯ˆ)",
     "brand": "Suyambu",
     "category": "RAW_MATERIAL",
     "uom": "BAG_50KG",
@@ -587,7 +587,7 @@ const SEED_PRODUCTS = [
     "code": "gg04",
     "name": "Suyambu Cotton Seeds (1 kg)",
     "product_name": "Suyambu Cotton Seeds (1 kg)",
-    "tamil_name": "சுயம்பு பருத்தி விதை (1 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®ªà®°à¯à®¤à¯à®¤à®¿ à®µà®¿à®¤à¯ˆ (1 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "RAW_MATERIAL",
     "uom": "KG",
@@ -611,7 +611,7 @@ const SEED_PRODUCTS = [
     "code": "gg05",
     "name": "Suyambu Paruthi Seeds Processed (40 kg Bag)",
     "product_name": "Suyambu Paruthi Seeds Processed (40 kg Bag)",
-    "tamil_name": "சுயம்பு பதப்படுத்திய பருத்திக் கொட்டை (40 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®ªà®¤à®ªà¯à®ªà®Ÿà¯à®¤à¯à®¤à®¿à®¯ à®ªà®°à¯à®¤à¯à®¤à®¿à®•à¯ à®•à¯Šà®Ÿà¯à®Ÿà¯ˆ (40 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "BAG_40KG",
@@ -635,7 +635,7 @@ const SEED_PRODUCTS = [
     "code": "gg06",
     "name": "Suyambu Nayam Mixed Feeds (50 kg Bag)",
     "product_name": "Suyambu Nayam Mixed Feeds (50 kg Bag)",
-    "tamil_name": "சுயம்பு நயம் கலப்பு மாட்டுத்தீவனம் (50 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®¨à®¯à®®à¯ à®•à®²à®ªà¯à®ªà¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ (50 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "FINISHED_GOOD",
     "uom": "BAG_50KG",
@@ -659,7 +659,7 @@ const SEED_PRODUCTS = [
     "code": "gg07",
     "name": "Suyambu Corn (Maize Grain - 1 kg)",
     "product_name": "Suyambu Corn (Maize Grain - 1 kg)",
-    "tamil_name": "சுயம்பு மக்காச்சோளம் (1 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®®à®•à¯à®•à®¾à®šà¯à®šà¯‹à®³à®®à¯ (1 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "RAW_MATERIAL",
     "uom": "KG",
@@ -683,7 +683,7 @@ const SEED_PRODUCTS = [
     "code": "gg08",
     "name": "Krishi Bio Pass Cattle Feed (70 kg Bag)",
     "product_name": "Krishi Bio Pass Cattle Feed (70 kg Bag)",
-    "tamil_name": "கிருஷி பயோ பாஸ் மாட்டுத்தீவனம் (70 கிலோ)",
+    "tamil_name": "à®•à®¿à®°à¯à®·à®¿ à®ªà®¯à¯‹ à®ªà®¾à®¸à¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ (70 à®•à®¿à®²à¯‹)",
     "brand": "Krishi",
     "category": "FINISHED_GOOD",
     "uom": "BAG_70KG",
@@ -707,7 +707,7 @@ const SEED_PRODUCTS = [
     "code": "gg09",
     "name": "Krishi Bio Pass Cattle Feed (50 kg Bag)",
     "product_name": "Krishi Bio Pass Cattle Feed (50 kg Bag)",
-    "tamil_name": "கிருஷி பயோ பாஸ் மாட்டுத்தீவனம் (50 கிலோ)",
+    "tamil_name": "à®•à®¿à®°à¯à®·à®¿ à®ªà®¯à¯‹ à®ªà®¾à®¸à¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ (50 à®•à®¿à®²à¯‹)",
     "brand": "Krishi",
     "category": "FINISHED_GOOD",
     "uom": "BAG_50KG",
@@ -731,7 +731,7 @@ const SEED_PRODUCTS = [
     "code": "gg10",
     "name": "Krishi Bio Pass Cattle Feed (20 kg Bag)",
     "product_name": "Krishi Bio Pass Cattle Feed (20 kg Bag)",
-    "tamil_name": "கிருஷி பயோ பாஸ் மாட்டுத்தீவனம் (20 கிலோ)",
+    "tamil_name": "à®•à®¿à®°à¯à®·à®¿ à®ªà®¯à¯‹ à®ªà®¾à®¸à¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ (20 à®•à®¿à®²à¯‹)",
     "brand": "Krishi",
     "category": "FINISHED_GOOD",
     "uom": "BAG_20KG",
@@ -755,7 +755,7 @@ const SEED_PRODUCTS = [
     "code": "gg11",
     "name": "Krishi ProBest Cattle Feed (70 kg Bag)",
     "product_name": "Krishi ProBest Cattle Feed (70 kg Bag)",
-    "tamil_name": "கிருஷி ப்ரோபெஸ்ட் மாட்டுத்தீவனம் (70 கிலோ)",
+    "tamil_name": "à®•à®¿à®°à¯à®·à®¿ à®ªà¯à®°à¯‹à®ªà¯†à®¸à¯à®Ÿà¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ (70 à®•à®¿à®²à¯‹)",
     "brand": "Krishi",
     "category": "FINISHED_GOOD",
     "uom": "BAG_70KG",
@@ -779,7 +779,7 @@ const SEED_PRODUCTS = [
     "code": "gg12",
     "name": "Krishi Chicken Feed (50 kg Bag)",
     "product_name": "Krishi Chicken Feed (50 kg Bag)",
-    "tamil_name": "கிருஷி கோழித்தீவனம் (50 கிலோ மூட்டை)",
+    "tamil_name": "à®•à®¿à®°à¯à®·à®¿ à®•à¯‹à®´à®¿à®¤à¯à®¤à¯€à®µà®©à®®à¯ (50 à®•à®¿à®²à¯‹ à®®à¯‚à®Ÿà¯à®Ÿà¯ˆ)",
     "brand": "Krishi",
     "category": "FINISHED_GOOD",
     "uom": "BAG_50KG",
@@ -803,7 +803,7 @@ const SEED_PRODUCTS = [
     "code": "gg13",
     "name": "Krishi Chicken Feed (1 kg)",
     "product_name": "Krishi Chicken Feed (1 kg)",
-    "tamil_name": "கிருஷி கோழித்தீவனம் (1 கிலோ)",
+    "tamil_name": "à®•à®¿à®°à¯à®·à®¿ à®•à¯‹à®´à®¿à®¤à¯à®¤à¯€à®µà®©à®®à¯ (1 à®•à®¿à®²à¯‹)",
     "brand": "Krishi",
     "category": "FINISHED_GOOD",
     "uom": "KG",
@@ -827,7 +827,7 @@ const SEED_PRODUCTS = [
     "code": "gg14",
     "name": "Suyambu Wheat (1 kg)",
     "product_name": "Suyambu Wheat (1 kg)",
-    "tamil_name": "சுயம்பு சம்பா கோதுமை (1 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®šà®®à¯à®ªà®¾ à®•à¯‹à®¤à¯à®®à¯ˆ (1 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "RAW_MATERIAL",
     "uom": "KG",
@@ -851,7 +851,7 @@ const SEED_PRODUCTS = [
     "code": "gg15",
     "name": "Suyambu Ragi / Finger Millet (1 kg)",
     "product_name": "Suyambu Ragi / Finger Millet (1 kg)",
-    "tamil_name": "சுயம்பு கேழ்வரகு / ராகி (1 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®•à¯‡à®´à¯à®µà®°à®•à¯ / à®°à®¾à®•à®¿ (1 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "RAW_MATERIAL",
     "uom": "KG",
@@ -875,7 +875,7 @@ const SEED_PRODUCTS = [
     "code": "gg16",
     "name": "Suyambu Groundnut / Peanut (1 kg)",
     "product_name": "Suyambu Groundnut / Peanut (1 kg)",
-    "tamil_name": "சுயம்பு வேர்க்கடலை / நிலக்கடலை (1 கிலோ)",
+    "tamil_name": "à®šà¯à®¯à®®à¯à®ªà¯ à®µà¯‡à®°à¯à®•à¯à®•à®Ÿà®²à¯ˆ / à®¨à®¿à®²à®•à¯à®•à®Ÿà®²à¯ˆ (1 à®•à®¿à®²à¯‹)",
     "brand": "Suyambu",
     "category": "RAW_MATERIAL",
     "uom": "KG",
@@ -899,7 +899,7 @@ const SEED_PRODUCTS = [
     "code": "gg17",
     "name": "Veeran Saapadu Rice (26 kg Bag)",
     "product_name": "Veeran Saapadu Rice (26 kg Bag)",
-    "tamil_name": "வீரன் சாப்பாடு அரிசி (26 கிலோ மூட்டை)",
+    "tamil_name": "à®µà¯€à®°à®©à¯ à®šà®¾à®ªà¯à®ªà®¾à®Ÿà¯ à®…à®°à®¿à®šà®¿ (26 à®•à®¿à®²à¯‹ à®®à¯‚à®Ÿà¯à®Ÿà¯ˆ)",
     "brand": "Veeran",
     "category": "FINISHED_GOOD",
     "uom": "BAG_26KG",
@@ -923,7 +923,7 @@ const SEED_PRODUCTS = [
     "code": "gg18",
     "name": "Veeran Saapadu Rice (10 kg Bag)",
     "product_name": "Veeran Saapadu Rice (10 kg Bag)",
-    "tamil_name": "வீரன் சாப்பாடு அரிசி (10 கிலோ)",
+    "tamil_name": "à®µà¯€à®°à®©à¯ à®šà®¾à®ªà¯à®ªà®¾à®Ÿà¯ à®…à®°à®¿à®šà®¿ (10 à®•à®¿à®²à¯‹)",
     "brand": "Veeran",
     "category": "FINISHED_GOOD",
     "uom": "BAG_10KG",
@@ -947,7 +947,7 @@ const SEED_PRODUCTS = [
     "code": "gg19",
     "name": "Veeran Saapadu Rice (5 kg Bag)",
     "product_name": "Veeran Saapadu Rice (5 kg Bag)",
-    "tamil_name": "வீரன் சாப்பாடு அரிசி (5 கிலோ)",
+    "tamil_name": "à®µà¯€à®°à®©à¯ à®šà®¾à®ªà¯à®ªà®¾à®Ÿà¯ à®…à®°à®¿à®šà®¿ (5 à®•à®¿à®²à¯‹)",
     "brand": "Veeran",
     "category": "FINISHED_GOOD",
     "uom": "BAG_5KG",
@@ -971,7 +971,7 @@ const SEED_PRODUCTS = [
     "code": "gg20",
     "name": "A1 SSS Black: Kollam Ponni Rice (26 kg Bag)",
     "product_name": "A1 SSS Black: Kollam Ponni Rice (26 kg Bag)",
-    "tamil_name": "A1 SSS பிளாக் கொள்ளம் பொன்னி அரிசி (26 கிலோ)",
+    "tamil_name": "A1 SSS à®ªà®¿à®³à®¾à®•à¯ à®•à¯Šà®³à¯à®³à®®à¯ à®ªà¯Šà®©à¯à®©à®¿ à®…à®°à®¿à®šà®¿ (26 à®•à®¿à®²à¯‹)",
     "brand": "A1 SSS",
     "category": "FINISHED_GOOD",
     "uom": "BAG_26KG",
@@ -995,7 +995,7 @@ const SEED_PRODUCTS = [
     "code": "gg21",
     "name": "A1 SSS Black: Kollam Ponni Rice (10 kg Bag)",
     "product_name": "A1 SSS Black: Kollam Ponni Rice (10 kg Bag)",
-    "tamil_name": "A1 SSS பிளாக் கொள்ளம் பொன்னி அரிசி (10 கிலோ)",
+    "tamil_name": "A1 SSS à®ªà®¿à®³à®¾à®•à¯ à®•à¯Šà®³à¯à®³à®®à¯ à®ªà¯Šà®©à¯à®©à®¿ à®…à®°à®¿à®šà®¿ (10 à®•à®¿à®²à¯‹)",
     "brand": "A1 SSS",
     "category": "FINISHED_GOOD",
     "uom": "BAG_10KG",
@@ -1019,7 +1019,7 @@ const SEED_PRODUCTS = [
     "code": "gg22",
     "name": "A1 SSS Black: Kollam Ponni Rice (5 kg Bag)",
     "product_name": "A1 SSS Black: Kollam Ponni Rice (5 kg Bag)",
-    "tamil_name": "A1 SSS பிளாக் கொள்ளம் பொன்னி அரிசி (5 கிலோ)",
+    "tamil_name": "A1 SSS à®ªà®¿à®³à®¾à®•à¯ à®•à¯Šà®³à¯à®³à®®à¯ à®ªà¯Šà®©à¯à®©à®¿ à®…à®°à®¿à®šà®¿ (5 à®•à®¿à®²à¯‹)",
     "brand": "A1 SSS",
     "category": "FINISHED_GOOD",
     "uom": "BAG_5KG",
@@ -1043,7 +1043,7 @@ const SEED_PRODUCTS = [
     "code": "gg23",
     "name": "Veera Shivaji IR 20 Rice (26 kg Bag)",
     "product_name": "Veera Shivaji IR 20 Rice (26 kg Bag)",
-    "tamil_name": "வீர சிவாஜி IR 20 அரிசி (26 கிலோ மூட்டை)",
+    "tamil_name": "à®µà¯€à®° à®šà®¿à®µà®¾à®œà®¿ IR 20 à®…à®°à®¿à®šà®¿ (26 à®•à®¿à®²à¯‹ à®®à¯‚à®Ÿà¯à®Ÿà¯ˆ)",
     "brand": "Veera Shivaji",
     "category": "FINISHED_GOOD",
     "uom": "BAG_26KG",
@@ -1067,7 +1067,7 @@ const SEED_PRODUCTS = [
     "code": "gg24",
     "name": "Veera Shivaji IR 20 Rice (10 kg Bag)",
     "product_name": "Veera Shivaji IR 20 Rice (10 kg Bag)",
-    "tamil_name": "வீர சிவாஜி IR 20 அரிசி (10 கிலோ)",
+    "tamil_name": "à®µà¯€à®° à®šà®¿à®µà®¾à®œà®¿ IR 20 à®…à®°à®¿à®šà®¿ (10 à®•à®¿à®²à¯‹)",
     "brand": "Veera Shivaji",
     "category": "FINISHED_GOOD",
     "uom": "BAG_10KG",
@@ -1091,7 +1091,7 @@ const SEED_PRODUCTS = [
     "code": "gg25",
     "name": "Veera Shivaji IR 20 Rice (5 kg Bag)",
     "product_name": "Veera Shivaji IR 20 Rice (5 kg Bag)",
-    "tamil_name": "வீர சிவாஜி IR 20 அரிசி (5 கிலோ)",
+    "tamil_name": "à®µà¯€à®° à®šà®¿à®µà®¾à®œà®¿ IR 20 à®…à®°à®¿à®šà®¿ (5 à®•à®¿à®²à¯‹)",
     "brand": "Veera Shivaji",
     "category": "FINISHED_GOOD",
     "uom": "BAG_5KG",
@@ -1112,7 +1112,7 @@ const SEED_PRODUCTS = [
 ];
 const SEED_COMPANY = {
   "company_name": "RKG SUYAMBU CATTLE FEED & AGRO PRODUCTS",
-  "tamil_name": "ஆர்.கே.ஜி சுயம்பு மாட்டுத்தீவனம் & ஆலை",
+  "tamil_name": "à®†à®°à¯.à®•à¯‡.à®œà®¿ à®šà¯à®¯à®®à¯à®ªà¯ à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯ & à®†à®²à¯ˆ",
   "phone": "+91 94425 76622",
   "whatsapp": "+91 94425 76622",
   "email": "contact@rkgsuyambu.com",
@@ -1128,24 +1128,24 @@ const SEED_HISTORY = [
     "changed_by": "CEO",
     "table_name": "products",
     "doc_id": "aa01",
-    "item_name": "Pure Cold-Pressed Groundnut Oil 1L (மரச்செக்கு கடலை எண்ணெய்)",
-    "field_changed": "Stock Quantity (இருப்பு)",
+    "item_name": "Pure Cold-Pressed Groundnut Oil 1L (à®®à®°à®šà¯à®šà¯†à®•à¯à®•à¯ à®•à®Ÿà®²à¯ˆ à®Žà®£à¯à®£à¯†à®¯à¯)",
+    "field_changed": "Stock Quantity (à®‡à®°à¯à®ªà¯à®ªà¯)",
     "old_value": "0 units",
-    "new_value": "15 units (Δ +15)",
+    "new_value": "15 units (Î” +15)",
     "remarks": "CEO manual stock replenishment (+15 units added to inventory)",
-    "sync_status": "🟢 Synced to Firebase"
+    "sync_status": "ðŸŸ¢ Synced to Firebase"
   },
   {
     "timestamp": "2026-08-31T10:15:00Z",
     "changed_by": "CEO",
     "table_name": "products",
     "doc_id": "gg23",
-    "item_name": "Krishi Cattle Feed Mash 70kg (மாட்டுத்தீவனம்)",
-    "field_changed": "Wholesale Price (மொத்த விலை)",
-    "old_value": "₹1300 / bag",
-    "new_value": "₹1350 / bag (Δ +₹50)",
+    "item_name": "Krishi Cattle Feed Mash 70kg (à®®à®¾à®Ÿà¯à®Ÿà¯à®¤à¯à®¤à¯€à®µà®©à®®à¯)",
+    "field_changed": "Wholesale Price (à®®à¯Šà®¤à¯à®¤ à®µà®¿à®²à¯ˆ)",
+    "old_value": "â‚¹1300 / bag",
+    "new_value": "â‚¹1350 / bag (Î” +â‚¹50)",
     "remarks": "Factory tier wholesale rate update for dairy co-operatives",
-    "sync_status": "🟢 Synced to Firebase"
+    "sync_status": "ðŸŸ¢ Synced to Firebase"
   },
   {
     "timestamp": "2026-08-31T09:30:00Z",
@@ -1153,11 +1153,11 @@ const SEED_HISTORY = [
     "table_name": "client_order_data",
     "doc_id": "ORD-REQ-2026-0831-001",
     "item_name": "Order ORD-REQ-2026-0831-001 (S. Murugesan Dairy Farm)",
-    "field_changed": "Payment Status (பணம் செலுத்திய நிலை)",
+    "field_changed": "Payment Status (à®ªà®£à®®à¯ à®šà¯†à®²à¯à®¤à¯à®¤à®¿à®¯ à®¨à®¿à®²à¯ˆ)",
     "old_value": "Pending Verification",
     "new_value": "Paid (UPI Verified)",
     "remarks": "UPI Txn ID: UPI/424908129034/GPay confirmed by CEO",
-    "sync_status": "🟢 Synced to Firebase"
+    "sync_status": "ðŸŸ¢ Synced to Firebase"
   }
 ];
 const SEED_ORDERS = [
@@ -1235,7 +1235,7 @@ const SEED_SALES = [
     "customer_name": "S. Murugesan Dairy Farm",
     "customer_phone": "+91 94425 76622",
     "billing_type": "WHOLESALE_B2B",
-    "items_summary": "Pure Cold-Pressed Groundnut Oil 1L × 5, Krishi Cattle Feed 70kg × 20",
+    "items_summary": "Pure Cold-Pressed Groundnut Oil 1L Ã— 5, Krishi Cattle Feed 70kg Ã— 20",
     "items_count": 25,
     "grand_total": 28350.0,
     "paid_amount": 28350.0,
@@ -1251,7 +1251,7 @@ const SEED_SALES = [
     "customer_name": "K. Sengottaiyan Agro Wholesales",
     "customer_phone": "+91 98421 33455",
     "billing_type": "WHOLESALE_B2B",
-    "items_summary": "Suyambu Coconut Oil 5L × 10, Gingelly Oil 5L × 15, Krishi Feed 70kg × 50",
+    "items_summary": "Suyambu Coconut Oil 5L Ã— 10, Gingelly Oil 5L Ã— 15, Krishi Feed 70kg Ã— 50",
     "items_count": 75,
     "grand_total": 82500.0,
     "paid_amount": 82500.0,
@@ -1267,7 +1267,7 @@ const SEED_SALES = [
     "customer_name": "M. Kumar (Walk-in Farmer)",
     "customer_phone": "+91 99440 22331",
     "billing_type": "RETAIL_B2C",
-    "items_summary": "Cold-Pressed Groundnut Oil 1L × 2, Sesame Oil 1L × 1",
+    "items_summary": "Cold-Pressed Groundnut Oil 1L Ã— 2, Sesame Oil 1L Ã— 1",
     "items_count": 3,
     "grand_total": 960.0,
     "paid_amount": 960.0,
@@ -1283,7 +1283,7 @@ const SEED_SALES = [
     "customer_name": "Ramasamy Gounder (Farmer)",
     "customer_phone": "+91 98423 44556",
     "billing_type": "RETAIL_B2C",
-    "items_summary": "Suyambu Nayam Cattle Feed 50kg × 3, Coconut Oil 1L × 2",
+    "items_summary": "Suyambu Nayam Cattle Feed 50kg Ã— 3, Coconut Oil 1L Ã— 2",
     "items_count": 5,
     "grand_total": 3867.0,
     "paid_amount": 3290.0,
@@ -1299,7 +1299,7 @@ const SEED_SALES = [
     "customer_name": "Murugan Dairy Farm",
     "customer_phone": "+91 94422 77889",
     "billing_type": "WHOLESALE_B2B",
-    "items_summary": "Krishi Cattle Feed Mash 70kg × 20 bags",
+    "items_summary": "Krishi Cattle Feed Mash 70kg Ã— 20 bags",
     "items_count": 20,
     "grand_total": 23595.0,
     "paid_amount": 10000.0,
@@ -1430,7 +1430,7 @@ let pendingSyncQueue = JSON.parse(localStorage.getItem("rkg_sync_queue") || "[]"
 let selectedProductForPriceEdit = null;
 
 
-// ── Initialization & Network Monitor ─────────────────────────────────
+// â”€â”€ Initialization & Network Monitor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 document.addEventListener("DOMContentLoaded", () => {
   if (window.lucide) lucide.createIcons();
   
@@ -1459,13 +1459,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function handleNetworkOnline() {
   updateNetworkStatusBadge();
-  showToast("🌐 Network active. Synchronizing with Firebase Cloud...");
+  showToast("ðŸŒ Network active. Synchronizing with Firebase Cloud...");
   flushPendingSyncQueue();
 }
 
 function handleNetworkOffline() {
   updateNetworkStatusBadge();
-  showToast("📡 Offline mode active. All operations cached locally.");
+  showToast("ðŸ“¡ Offline mode active. All operations cached locally.");
 }
 
 function updateNetworkStatusBadge() {
@@ -1483,7 +1483,7 @@ function updateNetworkStatusBadge() {
   }
 }
 
-// ── User_Login Security Gateway ──────────────────────────────────────
+// â”€â”€ User_Login Security Gateway â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function selectLoginUser(role) {
   selectedLoginUserRole = role;
   const inputUserId = document.getElementById("login-user-id");
@@ -1528,14 +1528,14 @@ function updateUserSessionUI() {
 
   const role = currentUserSession.role || "CEO";
   if (roleBadge) {
-    roleBadge.textContent = role === 'CEO' ? '👑 CEO' : '💳 Cashier';
+    roleBadge.textContent = role === 'CEO' ? 'ðŸ‘‘ CEO' : 'ðŸ’³ Cashier';
     roleBadge.className = role === 'CEO' 
       ? 'px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/40'
       : 'px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40';
   }
 
   if (userLabel) {
-    userLabel.textContent = role === 'CEO' ? 'CEO தலைமை நிர்வாகம்' : 'Cashier காசாளர் மேலாண்மை';
+    userLabel.textContent = role === 'CEO' ? 'CEO à®¤à®²à¯ˆà®®à¯ˆ à®¨à®¿à®°à¯à®µà®¾à®•à®®à¯' : 'Cashier à®•à®¾à®šà®¾à®³à®°à¯ à®®à¯‡à®²à®¾à®£à¯à®®à¯ˆ';
   }
 }
 
@@ -1547,7 +1547,7 @@ async function handleUnifiedUserLogin() {
 
   if (!password) {
     if (errEl) {
-      errEl.textContent = "Please enter password (கடவுச்சொல் தேவை)";
+      errEl.textContent = "Please enter password (à®•à®Ÿà®µà¯à®šà¯à®šà¯Šà®²à¯ à®¤à¯‡à®µà¯ˆ)";
       errEl.classList.remove("hidden");
     }
     return;
@@ -1595,7 +1595,7 @@ async function handleUnifiedUserLogin() {
     updateUserSessionUI();
     if (window.lucide) lucide.createIcons();
 
-    showToast(`✅ Welcome ${userSessionData.username || userId}! Access Granted.`);
+    showToast(`âœ… Welcome ${userSessionData.username || userId}! Access Granted.`);
     switchTab('sales');
     loadAllAppData();
   } else {
@@ -1606,7 +1606,7 @@ async function handleUnifiedUserLogin() {
   }
 }
 
-// ── Tab Navigation ───────────────────────────────────────────────────
+// â”€â”€ Tab Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function switchTab(tabId) {
   activeTab = tabId;
   const tabs = ['sales', 'inventory', 'prices', 'orders', 'company'];
@@ -1653,7 +1653,7 @@ function refreshActiveTab() {
     loadProfitAnalytics();
   }
   flushPendingSyncQueue();
-  showToast("🔄 Refreshed with latest Firebase Cloud database");
+  showToast("ðŸ”„ Refreshed with latest Firebase Cloud database");
 }
 
 function loadAllAppData() {
@@ -1668,7 +1668,7 @@ function loadAllAppData() {
   flushPendingSyncQueue();
 }
 
-// ── TAB 1: TODAY'S SALES & CALENDAR FILTER ────────────────────────────
+// â”€â”€ TAB 1: TODAY'S SALES & CALENDAR FILTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadSales(dateStr) {
   selectedSalesDate = dateStr || new Date().toISOString().slice(0, 10);
   
@@ -1764,10 +1764,10 @@ function renderSalesView(items, dateFilter, customSummary) {
     });
   }
 
-  if (revEl) revEl.textContent = `₹${totalRev.toLocaleString('en-IN')}`;
+  if (revEl) revEl.textContent = `â‚¹${totalRev.toLocaleString('en-IN')}`;
   if (cntEl) cntEl.textContent = `${filtered.length} Sales transactions`;
-  if (upiEl) upiEl.textContent = `₹${totalUPI.toLocaleString('en-IN')}`;
-  if (cashEl) cashEl.textContent = `₹${totalCash.toLocaleString('en-IN')}`;
+  if (upiEl) upiEl.textContent = `â‚¹${totalUPI.toLocaleString('en-IN')}`;
+  if (cashEl) cashEl.textContent = `â‚¹${totalCash.toLocaleString('en-IN')}`;
   if (badgeCount) badgeCount.textContent = `${filtered.length} Invoices`;
 
   if (!container) return;
@@ -1807,7 +1807,7 @@ function renderSalesView(items, dateFilter, customSummary) {
           </div>
 
           <div class="text-right space-y-1">
-            <div class="text-sm font-mono font-black text-amber-300">₹${grand}</div>
+            <div class="text-sm font-mono font-black text-amber-300">â‚¹${grand}</div>
             <span class="inline-block px-2 py-0.5 rounded-full font-bold text-[9px] uppercase border ${payBadge}">
               ${payMode}
             </span>
@@ -1830,7 +1830,7 @@ function renderSalesView(items, dateFilter, customSummary) {
   if (window.lucide) lucide.createIcons();
 }
 
-// ── TAB 2: INVENTORY STOCKS ───────────────────────────────────────────
+// â”€â”€ TAB 2: INVENTORY STOCKS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadInventory() {
   renderInventoryList(productsData);
   const badge = document.getElementById("badge-inv-count");
@@ -1956,13 +1956,13 @@ async function saveDirectStock(docId, newQty) {
   const netLabel = isOnline ? "[Cloud Sync]" : "[Offline Mobile Data]";
   const detailedRemark = `${netLabel} Stock quantity changed from ${oldQty} to ${cleanQty} units (Delta ${diffStr})`;
 
-  showToast(`✅ ${docId} Stock Updated: ${oldQty} ➔ ${cleanQty} units`);
+  showToast(`âœ… ${docId} Stock Updated: ${oldQty} âž” ${cleanQty} units`);
 
   recordDetailedHistory(
     "products",
     docId,
     item ? `${item.name} (${docId})` : docId,
-    "Stock Quantity (இருப்பு எண்ணிக்கை)",
+    "Stock Quantity (à®‡à®°à¯à®ªà¯à®ªà¯ à®Žà®£à¯à®£à®¿à®•à¯à®•à¯ˆ)",
     `${oldQty} units`,
     `${cleanQty} units (${diffStr})`,
     detailedRemark
@@ -1976,7 +1976,7 @@ async function saveDirectStock(docId, newQty) {
   }, `${API_BASE}/api/ceo/inventory/update`);
 }
 
-// ── TAB 3: PRODUCT PRICE EDITOR ───────────────────────────────────────
+// â”€â”€ TAB 3: PRODUCT PRICE EDITOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadPriceCatalog() {
   renderPriceCatalog(productsData);
 
@@ -2027,11 +2027,11 @@ function renderPriceCatalog(items) {
         <div class="flex justify-between items-center pt-2 border-t border-slate-800 text-xs">
           <div>
             <span class="text-slate-400 text-[10px]">Retail Price:</span>
-            <span class="font-mono font-black text-amber-300 ml-1">₹${p.price || p.selling_price}</span>
+            <span class="font-mono font-black text-amber-300 ml-1">â‚¹${p.price || p.selling_price}</span>
           </div>
           <div>
             <span class="text-slate-400 text-[10px]">Wholesale:</span>
-            <span class="font-mono font-bold text-emerald-400 ml-1">₹${p.wholesale_price || (p.price * 0.95).toFixed(0)}</span>
+            <span class="font-mono font-bold text-emerald-400 ml-1">â‚¹${p.wholesale_price || (p.price * 0.95).toFixed(0)}</span>
           </div>
         </div>
       </div>
@@ -2100,19 +2100,19 @@ async function submitPriceUpdate() {
 
   closePriceModal();
   renderPriceCatalog(productsData);
-  showToast(`✅ Price updated for ${docId}: ₹${oldPrice} ➔ ₹${newPrice}`);
+  showToast(`âœ… Price updated for ${docId}: â‚¹${oldPrice} âž” â‚¹${newPrice}`);
 
   const isOnline = navigator.onLine;
   const netLabel = isOnline ? "[Cloud Sync]" : "[Offline Mobile Data]";
-  const detailedRemark = `${netLabel} Retail price changed from ₹${oldPrice} to ₹${newPrice}, Wholesale from ₹${oldWholesale} to ₹${newWholesale}. Reason: ${userReason}`;
+  const detailedRemark = `${netLabel} Retail price changed from â‚¹${oldPrice} to â‚¹${newPrice}, Wholesale from â‚¹${oldWholesale} to â‚¹${newWholesale}. Reason: ${userReason}`;
 
   recordDetailedHistory(
     "products",
     docId,
     `${selectedProductForPriceEdit.name} (${docId})`,
-    "Selling & Wholesale Price (விலை மாற்றம்)",
-    `₹${oldPrice} (Wholesale: ₹${oldWholesale})`,
-    `₹${newPrice} (Wholesale: ₹${newWholesale})`,
+    "Selling & Wholesale Price (à®µà®¿à®²à¯ˆ à®®à®¾à®±à¯à®±à®®à¯)",
+    `â‚¹${oldPrice} (Wholesale: â‚¹${oldWholesale})`,
+    `â‚¹${newPrice} (Wholesale: â‚¹${newWholesale})`,
     detailedRemark
   );
 
@@ -2124,7 +2124,7 @@ async function submitPriceUpdate() {
   }, `${API_BASE}/api/ceo/products/update-price`);
 }
 
-// ── TAB 4: CHECK ORDERS (Client Order Data) ───────────────────────────
+// â”€â”€ TAB 4: CHECK ORDERS (Client Order Data) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadOrders() {
   renderOrdersList(ordersData);
 
@@ -2158,7 +2158,7 @@ function renderOrdersList(items) {
     const mode = ord.mode_of_order || "Website Cart";
     const itemsRaw = ord.items_ordered || ord.product_codes || "";
     const qty = ord.total_quantity || 1;
-    const amount = ord.total_amount ? `₹${parseFloat(ord.total_amount).toLocaleString('en-IN')}` : "₹0";
+    const amount = ord.total_amount ? `â‚¹${parseFloat(ord.total_amount).toLocaleString('en-IN')}` : "â‚¹0";
     const payMode = ord.mode_of_payment || "UPI";
     const upiTxn = ord.upi_transaction_id || "N/A";
     const payStatus = ord.payment_status || "Paid";
@@ -2178,7 +2178,7 @@ function renderOrdersList(items) {
       return `
         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950 border border-emerald-600/40 text-amber-300">
           <span class="text-emerald-400">${code}</span>
-          ${count ? `<span class="text-white font-sans font-normal">× ${count}</span>` : ''}
+          ${count ? `<span class="text-white font-sans font-normal">Ã— ${count}</span>` : ''}
           ${prod ? `<span class="text-slate-400 font-sans font-normal text-[9px]">(${prodName})</span>` : ''}
         </span>
       `;
@@ -2205,7 +2205,7 @@ function renderOrdersList(items) {
 
           <div class="text-right space-y-1">
             <span class="inline-block px-2.5 py-0.5 rounded-full font-bold text-[10px] uppercase border ${payBadge}">
-              ● ${payStatus}
+              â— ${payStatus}
             </span>
             <div class="text-xs font-mono font-black text-amber-300">${amount}</div>
           </div>
@@ -2288,7 +2288,7 @@ async function updateOrderStatus(requestId, newStatus) {
   localStorage.setItem("rkg_local_orders", JSON.stringify(ordersData));
 
   renderOrdersList(ordersData);
-  showToast(`✅ Order ${requestId} Status: ${oldStatus} ➔ ${newStatus}`);
+  showToast(`âœ… Order ${requestId} Status: ${oldStatus} âž” ${newStatus}`);
 
   const isOnline = navigator.onLine;
   const netLabel = isOnline ? "[Cloud Sync]" : "[Offline Mobile Data]";
@@ -2298,7 +2298,7 @@ async function updateOrderStatus(requestId, newStatus) {
     "client_order_data",
     requestId,
     `Order ${requestId} (${ord.client_name})`,
-    "Payment & Order Status (ஆர்டர் நிலை)",
+    "Payment & Order Status (à®†à®°à¯à®Ÿà®°à¯ à®¨à®¿à®²à¯ˆ)",
     oldStatus,
     newStatus,
     detailedRemark
@@ -2312,7 +2312,7 @@ async function updateOrderStatus(requestId, newStatus) {
   }, `${API_BASE}/api/ceo/orders/update-status`);
 }
 
-// ── TAB 5: COMPANY DATA ───────────────────────────────────────────────
+// â”€â”€ TAB 5: COMPANY DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadCompanyData() {
   document.getElementById("ceo-company-name").value = companyData.company_name || "";
   document.getElementById("ceo-tamil-name").value = companyData.tamil_name || "";
@@ -2356,7 +2356,7 @@ async function handleCompanyDataSave(e) {
 
   companyData = { ...companyData, ...payload };
   localStorage.setItem("rkg_local_company", JSON.stringify(companyData));
-  showToast("✅ Company Statutory Data saved!");
+  showToast("âœ… Company Statutory Data saved!");
 
   const isOnline = navigator.onLine;
   const netLabel = isOnline ? "[Cloud Sync]" : "[Offline Mobile Data]";
@@ -2365,7 +2365,7 @@ async function handleCompanyDataSave(e) {
   recordDetailedHistory(
     "data",
     "company_info",
-    "Company Statutory Info (நிறுவன விவரங்கள்)",
+    "Company Statutory Info (à®¨à®¿à®±à¯à®µà®© à®µà®¿à®µà®°à®™à¯à®•à®³à¯)",
     "Statutory Parameters",
     `GSTIN: ${oldGSTIN}, FSSAI: ${oldFSSAI}`,
     `GSTIN: ${payload.gstin}, FSSAI: ${payload.fssai}`,
@@ -2375,7 +2375,7 @@ async function handleCompanyDataSave(e) {
   queueAndSyncAction("company_data_update", payload, `${API_BASE}/api/ceo/company-data/update`);
 }
 
-// ── PROMO CODES & PROFIT SUB-PAGE CONTROLS ────────────────────────────
+// â”€â”€ PROMO CODES & PROFIT SUB-PAGE CONTROLS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function openPromoProfitSubPage() {
   const paneCompany = document.getElementById("pane-company");
   const panePromo = document.getElementById("pane-promo-profit");
@@ -2424,8 +2424,8 @@ function renderPromoCodes(promos) {
     const qrNum = p.qr_code_number || `QR-${codeNum}`;
     const name = p.promo_name || "Agro Promotion";
     const pct = p.validity_percentage || 10;
-    const maxDisc = p.max_discount_amount ? `Max ₹${p.max_discount_amount}` : '';
-    const minVal = p.min_order_value ? `Min Order ₹${p.min_order_value}` : '';
+    const maxDisc = p.max_discount_amount ? `Max â‚¹${p.max_discount_amount}` : '';
+    const minVal = p.min_order_value ? `Min Order â‚¹${p.min_order_value}` : '';
     const start = p.start_date || '2026-08-01';
     const end = p.end_date || '2026-12-31';
     const credits = p.number_of_purchase_credit || 100;
@@ -2507,14 +2507,14 @@ function renderProfitSummary(profits) {
   });
 
   if (grandTotalEl) {
-    grandTotalEl.textContent = `Gross Profit: ₹${totalProfit.toLocaleString('en-IN')}`;
+    grandTotalEl.textContent = `Gross Profit: â‚¹${totalProfit.toLocaleString('en-IN')}`;
   }
 
   container.innerHTML = `
     <div class="grid grid-cols-3 gap-2 pb-2 text-center">
       <div class="bg-slate-950 border border-slate-800 rounded-xl p-2">
         <span class="text-[9px] text-slate-400 uppercase font-bold block">Total Promo Sales</span>
-        <span class="text-xs font-mono font-black text-white">₹${totalRev.toLocaleString('en-IN')}</span>
+        <span class="text-xs font-mono font-black text-white">â‚¹${totalRev.toLocaleString('en-IN')}</span>
       </div>
       <div class="bg-slate-950 border border-slate-800 rounded-xl p-2">
         <span class="text-[9px] text-slate-400 uppercase font-bold block">Bills Generated</span>
@@ -2522,7 +2522,7 @@ function renderProfitSummary(profits) {
       </div>
       <div class="bg-slate-950 border border-slate-800 rounded-xl p-2">
         <span class="text-[9px] text-slate-400 uppercase font-bold block">Net Profit</span>
-        <span class="text-xs font-mono font-black text-emerald-400">₹${totalProfit.toLocaleString('en-IN')}</span>
+        <span class="text-xs font-mono font-black text-emerald-400">â‚¹${totalProfit.toLocaleString('en-IN')}</span>
       </div>
     </div>
 
@@ -2539,8 +2539,8 @@ function renderProfitSummary(profits) {
               <div class="text-slate-400 truncate max-w-[130px]">${p.promo_name}</div>
             </div>
             <div class="text-right">
-              <div class="font-mono font-bold text-white">₹${sales} (${bills} bills)</div>
-              <div class="font-mono text-emerald-400 font-black">+₹${profit} Profit</div>
+              <div class="font-mono font-bold text-white">â‚¹${sales} (${bills} bills)</div>
+              <div class="font-mono text-emerald-400 font-black">+â‚¹${profit} Profit</div>
             </div>
           </div>
         `;
@@ -2613,7 +2613,7 @@ async function submitNewPromoCode() {
   renderPromoCodes(promoData);
   renderProfitSummary(profitData);
 
-  showToast(`✅ Generated Promo ${codeNum} with QR: ${qrNum}!`);
+  showToast(`âœ… Generated Promo ${codeNum} with QR: ${qrNum}!`);
 
   recordDetailedHistory(
     "Promo_Code",
@@ -2628,7 +2628,7 @@ async function submitNewPromoCode() {
   queueAndSyncAction("promo_code_create", newPromo, `${API_BASE}/api/promo-codes/create`);
 }
 
-// ── HISTORY SUB-PAGE CONTROLS ─────────────────────────────────────────
+// â”€â”€ HISTORY SUB-PAGE CONTROLS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function openCompanyHistorySubPage() {
   const paneCompany = document.getElementById("pane-company");
   const paneHistory = document.getElementById("pane-company-history");
@@ -2686,7 +2686,7 @@ function renderChangeHistory(logs) {
     else if (log.table_name === 'Promo_Code') badgeColor = "bg-pink-950 text-pink-300 border-pink-700/60";
     else if (log.table_name === 'data') badgeColor = "bg-purple-950 text-purple-300 border-purple-700/60";
 
-    const syncBadge = log.sync_status || (navigator.onLine ? "🟢 Synced" : "🟠 Queued");
+    const syncBadge = log.sync_status || (navigator.onLine ? "ðŸŸ¢ Synced" : "ðŸŸ  Queued");
 
     return `
       <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2.5 shadow-sm">
@@ -2746,13 +2746,13 @@ function recordDetailedHistory(table, docId, itemName, field, oldVal, newVal, re
     old_value: String(oldVal),
     new_value: String(newVal),
     remarks: remarks,
-    sync_status: isOnline ? "🟢 Synced to Firebase" : "🟠 Offline Queued"
+    sync_status: isOnline ? "ðŸŸ¢ Synced to Firebase" : "ðŸŸ  Offline Queued"
   };
   changeHistoryData.unshift(newEntry);
   localStorage.setItem("rkg_local_history", JSON.stringify(changeHistoryData));
 }
 
-// ── Multi-Tier Offline Sync Queue Engine ──────────────────────────────
+// â”€â”€ Multi-Tier Offline Sync Queue Engine â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function queueAndSyncAction(actionType, payload, url) {
   const queueItem = {
     id: 'SYNC-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5),
@@ -2795,7 +2795,7 @@ async function flushPendingSyncQueue() {
   updateNetworkStatusBadge();
 }
 
-// ── Bottom Toast Banner ──────────────────────────────────────────────
+// â”€â”€ Bottom Toast Banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let toastTimeout = null;
 function showToast(msg) {
   const banner = document.getElementById("toast-banner");
@@ -2815,3 +2815,4 @@ function hideToast() {
   const banner = document.getElementById("toast-banner");
   if (banner) banner.classList.add("hidden");
 }
+

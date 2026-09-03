@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#064e3b">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>RKG SUYAMBU — Security &amp; Enterprise Management Hub</title>
+  <title>RKG SUYAMBU â€” Security &amp; Enterprise Management Hub</title>
   
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="static/rkg-logo.png">
@@ -29,9 +29,9 @@
 </head>
 <body class="h-full flex flex-col antialiased selection:bg-amber-400 selection:text-slate-950">
 
-  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <!-- 1. SECURITY GATEWAY: User_Login LOGIN SCREEN                             -->
-  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div id="ceo-login-screen" class="fixed inset-0 z-50 bg-slate-950 flex flex-col justify-center items-center px-6 py-8">
     <div class="max-w-sm w-full space-y-6 text-center">
       
@@ -56,13 +56,13 @@
         
         <!-- User ID Selector: CEO vs Cashier -->
         <div>
-          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Select User ID (பயனர்)</label>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Select User ID (à®ªà®¯à®©à®°à¯)</label>
           <div class="grid grid-cols-2 gap-2">
             <button type="button" onclick="selectLoginUser('CEO')" id="btn-user-ceo" class="py-2.5 rounded-xl font-bold text-xs bg-amber-500 text-slate-950 flex items-center justify-center gap-1.5 transition cursor-pointer">
-              <span>👑 CEO</span>
+              <span>ðŸ‘‘ CEO</span>
             </button>
             <button type="button" onclick="selectLoginUser('Cashier')" id="btn-user-cashier" class="py-2.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer">
-              <span>💳 Cashier</span>
+              <span>ðŸ’³ Cashier</span>
             </button>
           </div>
           <input type="hidden" id="login-user-id" value="CEO">
@@ -88,9 +88,9 @@
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <!-- 2. AUTHENTICATED APP SHELL                                              -->
-  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div id="authenticated-app-shell" class="hidden flex-1 flex flex-col pb-24">
 
     <!-- Top App Header -->
@@ -103,13 +103,13 @@
           <h1 class="text-sm font-black font-cinzel tracking-tight text-white flex items-center gap-1.5">
             RKG SUYAMBU
           </h1>
-          <p class="text-[10px] text-amber-300/90 font-tamil" id="header-user-label">CEO தலைமை நிர்வாகம்</p>
+          <p class="text-[10px] text-amber-300/90 font-tamil" id="header-user-label">CEO à®¤à®²à¯ˆà®®à¯ˆ à®¨à®¿à®°à¯à®µà®¾à®•à®®à¯</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
         <span id="user-role-badge" class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/40">
-          👑 CEO
+          ðŸ‘‘ CEO
         </span>
 
         <span id="net-status-badge" class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 flex items-center gap-1">
@@ -126,7 +126,7 @@
     <!-- Main Content Area -->
     <main class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
       
-      <!-- ── TAB 1: TODAY'S SALES (Default Landing Page with Calendar) ────────── -->
+      <!-- â”€â”€ TAB 1: TODAY'S SALES (Default Landing Page with Calendar) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-sales" class="space-y-4">
         
         <!-- Header -->
@@ -134,7 +134,7 @@
           <div>
             <h2 class="text-base font-black text-white flex items-center gap-1.5">
               <span>Today's Sales</span>
-              <span class="text-xs font-tamil text-amber-400 font-normal">(விற்பனை மேலாண்மை)</span>
+              <span class="text-xs font-tamil text-amber-400 font-normal">(à®µà®¿à®±à¯à®ªà®©à¯ˆ à®®à¯‡à®²à®¾à®£à¯à®®à¯ˆ)</span>
             </h2>
             <p class="text-xs text-slate-400" id="sales-date-label">Showing sales for: Today</p>
           </div>
@@ -148,7 +148,7 @@
           <div class="flex items-center justify-between gap-2">
             <label class="text-[11px] font-bold text-slate-300 flex items-center gap-1.5">
               <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
-              <span>Select Date (தேதி):</span>
+              <span>Select Date (à®¤à¯‡à®¤à®¿):</span>
             </label>
             
             <input type="date" id="sales-date-picker" onchange="handleSalesDateFilter(this.value)" class="bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-xl px-3 py-1.5 text-xs font-mono text-amber-300 focus:outline-none">
@@ -165,7 +165,7 @@
         <div class="grid grid-cols-2 gap-2.5">
           <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 space-y-1">
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Revenue</span>
-            <div class="text-lg font-black font-mono text-emerald-300" id="sales-total-revenue">₹0</div>
+            <div class="text-lg font-black font-mono text-emerald-300" id="sales-total-revenue">â‚¹0</div>
             <div class="text-[9px] text-slate-400" id="sales-total-count">0 Sales transactions</div>
           </div>
 
@@ -173,11 +173,11 @@
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Payment Breakdown</span>
             <div class="text-xs font-mono text-slate-300 flex justify-between">
               <span class="text-emerald-400 font-bold">UPI:</span>
-              <span id="sales-upi-total" class="font-bold">₹0</span>
+              <span id="sales-upi-total" class="font-bold">â‚¹0</span>
             </div>
             <div class="text-xs font-mono text-slate-300 flex justify-between">
               <span class="text-amber-400 font-bold">Cash:</span>
-              <span id="sales-cash-total" class="font-bold">₹0</span>
+              <span id="sales-cash-total" class="font-bold">â‚¹0</span>
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@
 
       </section>
 
-      <!-- ── TAB 2: INVENTORY STOCKS ─────────────────────────────────────────── -->
+      <!-- â”€â”€ TAB 2: INVENTORY STOCKS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-inventory" class="hidden space-y-4">
         <div class="flex items-center justify-between">
           <div>
@@ -214,7 +214,7 @@
         </div>
       </section>
 
-      <!-- ── TAB 3: PRODUCT PRICES ────────────────────────────────────────────── -->
+      <!-- â”€â”€ TAB 3: PRODUCT PRICES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-prices" class="hidden space-y-4">
         <div class="flex items-center justify-between">
           <div>
@@ -233,7 +233,7 @@
         </div>
       </section>
 
-      <!-- ── TAB 4: CHECK ORDERS (Client Order Data & IP Tracking) ───────────── -->
+      <!-- â”€â”€ TAB 4: CHECK ORDERS (Client Order Data & IP Tracking) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-orders" class="hidden space-y-4">
         <div class="flex items-center justify-between">
           <div>
@@ -255,14 +255,14 @@
         </div>
       </section>
 
-      <!-- ── TAB 5: COMPANY & PROMO / PROFIT / HISTORY HUB ──────────────────── -->
+      <!-- â”€â”€ TAB 5: COMPANY & PROMO / PROFIT / HISTORY HUB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-company" class="hidden space-y-4">
         <div>
           <h2 class="text-base font-black text-white">Company, Promo &amp; History Hub</h2>
           <p class="text-xs text-slate-400">Manage statutory profiles, promo codes, profits &amp; audit history</p>
         </div>
 
-        <!-- 🎁 PROMO CODES & PROFIT ANALYTICS BUTTON -->
+        <!-- ðŸŽ PROMO CODES & PROFIT ANALYTICS BUTTON -->
         <div>
           <button type="button" onclick="openPromoProfitSubPage()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-emerald-950 to-slate-900 border border-emerald-500/50 hover:border-emerald-400 text-left flex items-center justify-between group transition shadow-lg cursor-pointer">
             <div class="flex items-center gap-3">
@@ -283,7 +283,7 @@
 
         <form id="ceo-company-form" onsubmit="handleCompanyDataSave(event)" class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-4 space-y-3 text-xs">
           <div class="font-bold text-amber-400 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-800">
-            🏢 Statutory Company Information
+            ðŸ¢ Statutory Company Information
           </div>
           <div>
             <label class="block text-slate-400 mb-1">Company English Name</label>
@@ -337,7 +337,7 @@
           </button>
         </form>
 
-        <!-- 📜 AUDIT CHANGE HISTORY BUTTON (Placed at the bottom of Company Menu) -->
+        <!-- ðŸ“œ AUDIT CHANGE HISTORY BUTTON (Placed at the bottom of Company Menu) -->
         <div class="pt-2">
           <button type="button" onclick="openCompanyHistorySubPage()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 border border-amber-500/50 hover:border-amber-400 text-left flex items-center justify-between group transition shadow-lg cursor-pointer">
             <div class="flex items-center gap-3">
@@ -358,7 +358,7 @@
 
       </section>
 
-      <!-- ── SUB-PAGE: PROMO CODES & PROFIT TRACKING ──────────────────────────── -->
+      <!-- â”€â”€ SUB-PAGE: PROMO CODES & PROFIT TRACKING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-promo-profit" class="hidden space-y-4">
         <div class="flex items-center justify-between pb-1 border-b border-slate-800">
           <button onclick="closePromoProfitSubPage()" class="flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 py-1 transition cursor-pointer">
@@ -383,7 +383,7 @@
               <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
               <span>Profit &amp; Bill Credit Analytics</span>
             </h3>
-            <span class="text-[10px] font-mono text-emerald-400 font-bold" id="profit-grand-total">Revenue: ₹0</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold" id="profit-grand-total">Revenue: â‚¹0</span>
           </div>
 
           <div id="profit-summary-container" class="space-y-2">
@@ -400,7 +400,7 @@
         </div>
       </section>
 
-      <!-- ── SUB-PAGE: AUDIT CHANGE HISTORY ─────────────────────────────────── -->
+      <!-- â”€â”€ SUB-PAGE: AUDIT CHANGE HISTORY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="pane-company-history" class="hidden space-y-4">
         <div class="flex items-center justify-between pb-1 border-b border-slate-800">
           <button onclick="closeCompanyHistorySubPage()" class="flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 py-1 transition cursor-pointer">
@@ -457,9 +457,9 @@
 
     </nav>
 
-    <!-- ════════════════════════════════════════════════════════════════════════ -->
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
     <!-- BOTTOM NOTIFICATION BAR                                                  -->
-    <!-- ════════════════════════════════════════════════════════════════════════ -->
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
     <div id="toast-banner" class="hidden fixed bottom-16 left-4 right-4 z-50 p-3 rounded-2xl bg-slate-900/95 border border-amber-400 text-white text-xs font-bold shadow-2xl flex items-center justify-between transition-all transform duration-300">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-amber-400 live-pulse"></span>
@@ -483,11 +483,11 @@
 
       <div class="space-y-3">
         <div>
-          <label class="block text-[10px] font-bold text-slate-400 mb-1">New Retail Selling Price (₹)</label>
+          <label class="block text-[10px] font-bold text-slate-400 mb-1">New Retail Selling Price (â‚¹)</label>
           <input type="number" step="1" id="modal-input-price" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-base font-mono font-bold text-amber-300 focus:outline-none focus:border-amber-400">
         </div>
         <div>
-          <label class="block text-[10px] font-bold text-slate-400 mb-1">New Wholesale Price (₹)</label>
+          <label class="block text-[10px] font-bold text-slate-400 mb-1">New Wholesale Price (â‚¹)</label>
           <input type="number" step="1" id="modal-input-wholesale" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm font-mono text-emerald-400 focus:outline-none focus:border-emerald-400">
         </div>
         <div>
@@ -551,11 +551,11 @@
 
         <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="block text-[10px] font-bold text-slate-400 mb-1">Max Discount (₹)</label>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Max Discount (â‚¹)</label>
             <input type="number" id="new-promo-max-discount" value="1000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-white">
           </div>
           <div>
-            <label class="block text-[10px] font-bold text-slate-400 mb-1">Min Order Value (₹)</label>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Min Order Value (â‚¹)</label>
             <input type="number" id="new-promo-min-order" value="1500" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-white">
           </div>
         </div>
@@ -575,3 +575,4 @@
   <script src="static/mobile.js"></script>
 </body>
 </html>
+

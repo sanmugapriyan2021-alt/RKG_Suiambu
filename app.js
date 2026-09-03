@@ -1,6 +1,6 @@
-// ═══════════════════════════════════════════════════════════════════════════
-// RKG SUYAMBU — ENTERPRISE ERP APPLICATION FRONTEND ENGINE
-// ═══════════════════════════════════════════════════════════════════════════
+﻿// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// RKG SUYAMBU â€” ENTERPRISE ERP APPLICATION FRONTEND ENGINE
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 let allProducts = [];
 let allParties = [];
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await checkAuthSession();
 });
 
-// ── 1. AUTHENTICATION & PROFILE ───────────────────────────────────────────────
+// â”€â”€ 1. AUTHENTICATION & PROFILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function checkAuthSession() {
     if (!authToken) {
@@ -115,10 +115,10 @@ function updateUserProfileUI() {
     if (nameElem) nameElem.innerText = currentUser.full_name || currentUser.username;
     
     const roleLabels = {
-        'ADMIN': 'ADMIN • முதன்மை நிர்வாகி',
-        'CASHIER': 'CASHIER • விற்பனை காசாளர்',
-        'MANAGER': 'MANAGER • உற்பத்தி மேலாளர்',
-        'ACCOUNTANT': 'ACCOUNTANT • கணக்காளர்'
+        'ADMIN': 'ADMIN â€¢ à®®à¯à®¤à®©à¯à®®à¯ˆ à®¨à®¿à®°à¯à®µà®¾à®•à®¿',
+        'CASHIER': 'CASHIER â€¢ à®µà®¿à®±à¯à®ªà®©à¯ˆ à®•à®¾à®šà®¾à®³à®°à¯',
+        'MANAGER': 'MANAGER â€¢ à®‰à®±à¯à®ªà®¤à¯à®¤à®¿ à®®à¯‡à®²à®¾à®³à®°à¯',
+        'ACCOUNTANT': 'ACCOUNTANT â€¢ à®•à®£à®•à¯à®•à®¾à®³à®°à¯'
     };
 
     if (roleElem) {
@@ -153,14 +153,14 @@ async function handleLoginSubmit(event) {
     if (!username || !password) {
         if (errorBox) {
             errorBox.classList.remove("hidden");
-            errorText.innerText = "Please enter username and password (பயனர் பெயர் மற்றும் கடவுச்சொல் உள்ளிடவும்)";
+            errorText.innerText = "Please enter username and password (à®ªà®¯à®©à®°à¯ à®ªà¯†à®¯à®°à¯ à®®à®±à¯à®±à¯à®®à¯ à®•à®Ÿà®µà¯à®šà¯à®šà¯Šà®²à¯ à®‰à®³à¯à®³à®¿à®Ÿà®µà¯à®®à¯)";
         }
         return;
     }
 
     if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span class="inline-block animate-spin mr-2">⏳</span> Signing in...`;
+        submitBtn.innerHTML = `<span class="inline-block animate-spin mr-2">â³</span> Signing in...`;
     }
 
     try {
@@ -185,19 +185,19 @@ async function handleLoginSubmit(event) {
         } else {
             if (errorBox) {
                 errorBox.classList.remove("hidden");
-                errorText.innerText = data.detail || "Invalid username or password (தவறான விவரங்கள்)";
+                errorText.innerText = data.detail || "Invalid username or password (à®¤à®µà®±à®¾à®© à®µà®¿à®µà®°à®™à¯à®•à®³à¯)";
             }
         }
     } catch (err) {
         console.error("Login request failed:", err);
         if (errorBox) {
             errorBox.classList.remove("hidden");
-            errorText.innerText = "Connection error. Please check server. (இணைப்பு பிழை)";
+            errorText.innerText = "Connection error. Please check server. (à®‡à®£à¯ˆà®ªà¯à®ªà¯ à®ªà®¿à®´à¯ˆ)";
         }
     } finally {
         if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = `<i data-lucide="log-in" class="w-4 h-4"></i><span>Sign In / உள்நுழைக</span>`;
+            submitBtn.innerHTML = `<i data-lucide="log-in" class="w-4 h-4"></i><span>Sign In / à®‰à®³à¯à®¨à¯à®´à¯ˆà®•</span>`;
             if (window.lucide) lucide.createIcons();
         }
     }
@@ -248,7 +248,7 @@ async function handleResetPasswordSubmit(event) {
     const submitBtn = document.getElementById("btn-reset-submit");
 
     if (!username || !newPassword || !ceoPassword) {
-        errBox.innerText = "Please fill in all fields (அனைத்து விவரங்களையும் உள்ளிடவும்).";
+        errBox.innerText = "Please fill in all fields (à®…à®©à¯ˆà®¤à¯à®¤à¯ à®µà®¿à®µà®°à®™à¯à®•à®³à¯ˆà®¯à¯à®®à¯ à®‰à®³à¯à®³à®¿à®Ÿà®µà¯à®®à¯).";
         errBox.classList.remove("hidden");
         return;
     }
@@ -307,7 +307,7 @@ function togglePasswordVisibility() {
 }
 
 async function logoutUser() {
-    if (confirm("Are you sure you want to sign out? (வெளியேற விரும்புகிறீர்களா?)")) {
+    if (confirm("Are you sure you want to sign out? (à®µà¯†à®³à®¿à®¯à¯‡à®± à®µà®¿à®°à¯à®®à¯à®ªà¯à®•à®¿à®±à¯€à®°à¯à®•à®³à®¾?)")) {
         try {
             await fetch("/api/auth/logout", {
                 method: "POST",
@@ -340,7 +340,7 @@ function initializeAppData() {
     if (purList && purList.children.length === 0) addPurchaseItemRow();
 }
 
-// ── 2. VIEW NAVIGATION ────────────────────────────────────────────────────────
+// â”€â”€ 2. VIEW NAVIGATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function navigate(viewId) {
     document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
@@ -362,13 +362,13 @@ function navigate(viewId) {
         'reports': 'Financial Accounting & Tax Filing Hub'
     };
     const badges = {
-        'pos': 'Cattle Feed • Cold-Pressed Oils • Millets',
-        'inventory': 'கையிருப்பு நிலை & கிடங்கு மேலாண்மை',
-        'production': 'உற்பத்தி & உப பொருட்கள் மதிப்புக்கூட்டல்',
-        'purchases': 'விவசாயிகள் நேரடி கொள்முதல்',
-        'parties': 'வாடிக்கையாளர் கடன் & வரவு செலவு',
-        'expenses': 'தினசரி இயக்க செலவுகள்',
-        'reports': 'ஆண்டு வரி தாக்கல் & தணிக்கை அறிக்கை'
+        'pos': 'Cattle Feed â€¢ Cold-Pressed Oils â€¢ Millets',
+        'inventory': 'à®•à¯ˆà®¯à®¿à®°à¯à®ªà¯à®ªà¯ à®¨à®¿à®²à¯ˆ & à®•à®¿à®Ÿà®™à¯à®•à¯ à®®à¯‡à®²à®¾à®£à¯à®®à¯ˆ',
+        'production': 'à®‰à®±à¯à®ªà®¤à¯à®¤à®¿ & à®‰à®ª à®ªà¯Šà®°à¯à®Ÿà¯à®•à®³à¯ à®®à®¤à®¿à®ªà¯à®ªà¯à®•à¯à®•à¯‚à®Ÿà¯à®Ÿà®²à¯',
+        'purchases': 'à®µà®¿à®µà®šà®¾à®¯à®¿à®•à®³à¯ à®¨à¯‡à®°à®Ÿà®¿ à®•à¯Šà®³à¯à®®à¯à®¤à®²à¯',
+        'parties': 'à®µà®¾à®Ÿà®¿à®•à¯à®•à¯ˆà®¯à®¾à®³à®°à¯ à®•à®Ÿà®©à¯ & à®µà®°à®µà¯ à®šà¯†à®²à®µà¯',
+        'expenses': 'à®¤à®¿à®©à®šà®°à®¿ à®‡à®¯à®•à¯à®• à®šà¯†à®²à®µà¯à®•à®³à¯',
+        'reports': 'à®†à®£à¯à®Ÿà¯ à®µà®°à®¿ à®¤à®¾à®•à¯à®•à®²à¯ & à®¤à®£à®¿à®•à¯à®•à¯ˆ à®…à®±à®¿à®•à¯à®•à¯ˆ'
     };
 
     const titleEl = document.getElementById("page-title");
@@ -388,7 +388,7 @@ function navigate(viewId) {
     if (window.lucide) lucide.createIcons();
 }
 
-// ── 3. POS BILLING & CART ─────────────────────────────────────────────────────
+// â”€â”€ 3. POS BILLING & CART â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function loadProducts() {
     try {
@@ -432,15 +432,15 @@ function renderPosProducts() {
         let matchesCat = (currentPosCat === 'ALL');
         if (!matchesCat) {
             if (currentPosCat === 'OIL') {
-                matchesCat = pNameLower.includes("oil") || pNameLower.includes("ennai") || pTamilLower.includes("எண்ணெய்");
+                matchesCat = pNameLower.includes("oil") || pNameLower.includes("ennai") || pTamilLower.includes("à®Žà®£à¯à®£à¯†à®¯à¯");
             } else if (currentPosCat === 'CATTLE_FEED') {
                 matchesCat = (pNameLower.includes("cattle") || pNameLower.includes("bio pass") || pNameLower.includes("probest") || pNameLower.includes("feed") || pNameLower.includes("thavudu") || pNameLower.includes("punnakku") || pNameLower.includes("paruthi") || pNameLower.includes("cotton")) && !pNameLower.includes("chicken");
             } else if (currentPosCat === 'CHICKEN_FEED') {
-                matchesCat = pNameLower.includes("chicken") || pTamilLower.includes("கோழி");
+                matchesCat = pNameLower.includes("chicken") || pTamilLower.includes("à®•à¯‹à®´à®¿");
             } else if (currentPosCat === 'MILLETS') {
-                matchesCat = pNameLower.includes("rice") || pNameLower.includes("wheat") || pNameLower.includes("ragi") || pNameLower.includes("corn") || pNameLower.includes("groundnut") || pTamilLower.includes("அரிசி") || pTamilLower.includes("கோதுமை") || pTamilLower.includes("ராகி");
+                matchesCat = pNameLower.includes("rice") || pNameLower.includes("wheat") || pNameLower.includes("ragi") || pNameLower.includes("corn") || pNameLower.includes("groundnut") || pTamilLower.includes("à®…à®°à®¿à®šà®¿") || pTamilLower.includes("à®•à¯‹à®¤à¯à®®à¯ˆ") || pTamilLower.includes("à®°à®¾à®•à®¿");
             } else if (currentPosCat === 'MASALA') {
-                matchesCat = pNameLower.includes("powder") || pNameLower.includes("masala") || pNameLower.includes("sambar") || pTamilLower.includes("பொடி") || pTamilLower.includes("மசாலா");
+                matchesCat = pNameLower.includes("powder") || pNameLower.includes("masala") || pNameLower.includes("sambar") || pTamilLower.includes("à®ªà¯Šà®Ÿà®¿") || pTamilLower.includes("à®®à®šà®¾à®²à®¾");
             } else {
                 matchesCat = (p.category === currentPosCat);
             }
@@ -463,7 +463,7 @@ function renderPosProducts() {
         card.className = "bg-white p-3.5 rounded-xl border border-slate-200 hover:border-emerald-600 hover:shadow-md cursor-pointer transition-all flex flex-col justify-between";
         card.onclick = () => addToCart(p);
 
-        const imgSrc = p.image_url || '/static/rkg-logo.png';
+        const imgSrc = p.image_url || 'rkg-logo.png';
         card.innerHTML = `
             <div class="flex gap-2.5 items-start">
                 <img src="${imgSrc}" class="w-12 h-12 rounded-lg object-contain bg-slate-50 border border-slate-200 flex-shrink-0 p-0.5" alt="${p.product_name}" loading="lazy">
@@ -480,7 +480,7 @@ function renderPosProducts() {
             </div>
             <div class="flex items-baseline justify-between mt-2.5 pt-1.5 border-t border-slate-100">
                 <span class="text-[10px] text-slate-400">GST: ${p.tax_rate}%</span>
-                <span class="text-sm font-black text-emerald-800">₹ ${price.toFixed(2)}</span>
+                <span class="text-sm font-black text-emerald-800">â‚¹ ${price.toFixed(2)}</span>
             </div>
         `;
         grid.appendChild(card);
@@ -508,7 +508,7 @@ function setBillingType(type) {
 function addToCart(product) {
     if (!product || !product.id) return;
     if (product.current_stock <= 0) {
-        if (window.showToast) showToast(`⚠️ '${product.product_name}' is out of stock in inventory! (இருப்பு இல்லை)`, "warning");
+        if (window.showToast) showToast(`âš ï¸ '${product.product_name}' is out of stock in inventory! (à®‡à®°à¯à®ªà¯à®ªà¯ à®‡à®²à¯à®²à¯ˆ)`, "warning");
         return;
     }
 
@@ -597,7 +597,7 @@ function renderCart() {
         tr.innerHTML = `
             <td class="py-2 px-3">
                 <div class="font-bold text-slate-800 text-xs truncate max-w-[140px]" title="${item.product_name}">${item.product_name}</div>
-                <div class="text-[10px] text-slate-400">₹ ${item.unit_price.toFixed(2)} / ${item.unit_of_measure}</div>
+                <div class="text-[10px] text-slate-400">â‚¹ ${item.unit_price.toFixed(2)} / ${item.unit_of_measure}</div>
             </td>
             <td class="py-2 px-1 text-center">
                 <div style="display:flex;align-items:center;justify-content:center;gap:2px">
@@ -606,10 +606,10 @@ function renderCart() {
                     <button type="button" onclick="adjustCartQty(${item.product_id}, +1)" style="width:20px;height:22px;border:1px solid #cbd5e1;background:#fff;border-radius:4px;font-weight:900;font-size:11px;cursor:pointer">+</button>
                 </div>
             </td>
-            <td class="py-2 px-2 text-right font-medium text-xs">₹ ${item.unit_price.toFixed(2)}</td>
-            <td class="py-2 px-2 text-right font-bold text-slate-900 text-xs">₹ ${itemSubtotal.toFixed(2)}</td>
+            <td class="py-2 px-2 text-right font-medium text-xs">â‚¹ ${item.unit_price.toFixed(2)}</td>
+            <td class="py-2 px-2 text-right font-bold text-slate-900 text-xs">â‚¹ ${itemSubtotal.toFixed(2)}</td>
             <td class="py-2 px-1 text-center">
-                <button onclick="removeFromCart(${item.product_id})" class="text-rose-500 hover:text-rose-700 font-bold" style="cursor:pointer" title="Remove item">✕</button>
+                <button onclick="removeFromCart(${item.product_id})" class="text-rose-500 hover:text-rose-700 font-bold" style="cursor:pointer" title="Remove item">âœ•</button>
             </td>
         `;
         tbody.appendChild(tr);
@@ -637,9 +637,9 @@ function updateCartTotals() {
     const grandEl = document.getElementById("cart-grand-total");
     const paidInput = document.getElementById("cart-paid-amount");
 
-    if (subEl) subEl.innerText = `₹ ${subtotal.toFixed(2)}`;
-    if (taxEl) taxEl.innerText = `₹ ${totalTax.toFixed(2)}`;
-    if (grandEl) grandEl.innerText = `₹ ${grandTotal.toFixed(2)}`;
+    if (subEl) subEl.innerText = `â‚¹ ${subtotal.toFixed(2)}`;
+    if (taxEl) taxEl.innerText = `â‚¹ ${totalTax.toFixed(2)}`;
+    if (grandEl) grandEl.innerText = `â‚¹ ${grandTotal.toFixed(2)}`;
     
     if (paidInput && (!paidInput.value || parseFloat(paidInput.value) === 0)) {
         paidInput.value = grandTotal;
@@ -665,7 +665,7 @@ function handlePosPhoneInput(input) {
                 if (badge) {
                     badge.style.display = "block";
                     badge.style.color = "#15803d";
-                    badge.innerHTML = `✓ Registered Farmer/Party: <b>${matched.party_name}</b> (Balance: ₹${(matched.balance || 0).toFixed(2)})`;
+                    badge.innerHTML = `âœ“ Registered Farmer/Party: <b>${matched.party_name}</b> (Balance: â‚¹${(matched.balance || 0).toFixed(2)})`;
                 }
                 return;
             }
@@ -673,13 +673,13 @@ function handlePosPhoneInput(input) {
         if (badge) {
             badge.style.display = "block";
             badge.style.color = "#0369a1";
-            badge.innerHTML = `✓ 10-Digit Mobile Number Validated`;
+            badge.innerHTML = `âœ“ 10-Digit Mobile Number Validated`;
         }
     } else if (raw.length > 0) {
         if (badge) {
             badge.style.display = "block";
             badge.style.color = "#d97706";
-            badge.innerHTML = `⚠️ Enter ${10 - raw.length} more digits`;
+            badge.innerHTML = `âš ï¸ Enter ${10 - raw.length} more digits`;
         }
     } else {
         if (badge) badge.style.display = "none";
@@ -710,10 +710,10 @@ function calculateChangeReturn() {
 
     if (paid > grandTotal && grandTotal > 0) {
         const change = paid - grandTotal;
-        changeDisplay.innerHTML = `💵 Change to Return: <span style="font-weight:900;color:#047857;font-size:13px">₹ ${change.toFixed(2)}</span>`;
+        changeDisplay.innerHTML = `ðŸ’µ Change to Return: <span style="font-weight:900;color:#047857;font-size:13px">â‚¹ ${change.toFixed(2)}</span>`;
     } else if (paid < grandTotal && paid > 0) {
         const due = grandTotal - paid;
-        changeDisplay.innerHTML = `📋 Balance Due (Credit): <span style="font-weight:800;color:#b91c1c">₹ ${due.toFixed(2)}</span>`;
+        changeDisplay.innerHTML = `ðŸ“‹ Balance Due (Credit): <span style="font-weight:800;color:#b91c1c">â‚¹ ${due.toFixed(2)}</span>`;
     } else {
         changeDisplay.innerHTML = "";
     }
@@ -787,7 +787,7 @@ async function checkoutBill(printMode = 'THERMAL') {
         clearPosCart();
         loadProducts(); // Refresh stocks
         loadParties(); // Refresh balances
-        if (window.showToast) showToast(`✓ Bill #${invoice.invoice_number} created successfully!`, "success");
+        if (window.showToast) showToast(`âœ“ Bill #${invoice.invoice_number} created successfully!`, "success");
     } catch (err) {
         console.error("Checkout error:", err);
         if (window.showToast) showToast("Failed to process bill.", "error");
@@ -831,29 +831,29 @@ function showBillModal(inv) {
         document.getElementById("modal-pay-mode").innerText = inv.payment_mode || "CASH";
     }
     
-    document.getElementById("modal-subtotal").innerText = `₹ ${inv.subtotal.toFixed(2)}`;
-    document.getElementById("modal-tax").innerText = `₹ ${inv.total_tax.toFixed(2)}`;
+    document.getElementById("modal-subtotal").innerText = `â‚¹ ${inv.subtotal.toFixed(2)}`;
+    document.getElementById("modal-tax").innerText = `â‚¹ ${inv.total_tax.toFixed(2)}`;
     
     const discRow = document.getElementById("modal-discount-row");
     const discEl = document.getElementById("modal-discount");
     if (discRow && discEl) {
         if (inv.discount_amount > 0) {
             discRow.style.display = "flex";
-            discEl.innerText = `- ₹ ${inv.discount_amount.toFixed(2)}`;
+            discEl.innerText = `- â‚¹ ${inv.discount_amount.toFixed(2)}`;
         } else {
             discRow.style.display = "none";
         }
     }
 
-    document.getElementById("modal-grand-total").innerText = `₹ ${inv.grand_total.toFixed(2)}`;
-    document.getElementById("modal-paid").innerText = `₹ ${inv.paid_amount.toFixed(2)}`;
+    document.getElementById("modal-grand-total").innerText = `â‚¹ ${inv.grand_total.toFixed(2)}`;
+    document.getElementById("modal-paid").innerText = `â‚¹ ${inv.paid_amount.toFixed(2)}`;
     
     const balRow = document.getElementById("modal-balance-row");
     const balEl = document.getElementById("modal-balance");
     if (balRow && balEl) {
         if (inv.balance_due > 0) {
             balRow.style.display = "flex";
-            balEl.innerText = `₹ ${inv.balance_due.toFixed(2)}`;
+            balEl.innerText = `â‚¹ ${inv.balance_due.toFixed(2)}`;
         } else {
             balRow.style.display = "none";
         }
@@ -885,8 +885,8 @@ function showBillModal(inv) {
                     ${it.hsn_code ? `<div style="font-size:9px;color:#64748b">HSN: ${it.hsn_code}</div>` : ''}
                 </td>
                 <td style="padding:4px 0;text-align:center">${it.quantity} ${it.unit_of_measure}</td>
-                <td style="padding:4px 0;text-align:right">₹ ${it.unit_price.toFixed(2)}</td>
-                <td style="padding:4px 0;text-align:right;font-weight:700">₹ ${it.total_amount.toFixed(2)}</td>
+                <td style="padding:4px 0;text-align:right">â‚¹ ${it.unit_price.toFixed(2)}</td>
+                <td style="padding:4px 0;text-align:right;font-weight:700">â‚¹ ${it.total_amount.toFixed(2)}</td>
             `;
             tbody.appendChild(tr);
         });
@@ -1000,7 +1000,7 @@ async function downloadPdfInvoice() {
     }
 }
 
-// ── 4. PARTIES & CREDIT LEDGER ────────────────────────────────────────────────
+// â”€â”€ 4. PARTIES & CREDIT LEDGER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function loadParties() {
     try {
@@ -1010,7 +1010,7 @@ async function loadParties() {
         // Populate POS dropdown
         const select = document.getElementById("cart-party-select");
         if (select) {
-            select.innerHTML = `<option value="">— Cash Customer (சில்லறை) —</option>`;
+            select.innerHTML = `<option value="">â€” Cash Customer (à®šà®¿à®²à¯à®²à®±à¯ˆ) â€”</option>`;
             allParties.forEach(p => {
                 select.innerHTML += `<option value="${p.id}">${p.party_name} (${p.city_village || 'Local'})</option>`;
             });
@@ -1039,8 +1039,8 @@ function renderPartiesTable(filteredList = null) {
     const recvEl = document.getElementById("party-total-recv");
     const payEl = document.getElementById("party-total-payable");
     const countEl = document.getElementById("party-total-count");
-    if (recvEl) recvEl.innerText = `₹ ${totalRecv.toLocaleString('en-IN')}`;
-    if (payEl) payEl.innerText = `₹ ${totalPay.toLocaleString('en-IN')}`;
+    if (recvEl) recvEl.innerText = `â‚¹ ${totalRecv.toLocaleString('en-IN')}`;
+    if (payEl) payEl.innerText = `â‚¹ ${totalPay.toLocaleString('en-IN')}`;
     if (countEl) countEl.innerText = allParties.length;
 
     parties.forEach(p => {
@@ -1057,7 +1057,7 @@ function renderPartiesTable(filteredList = null) {
             <td class="p-3 text-xs">${p.city_village || '-'}</td>
             <td class="p-3 text-xs font-mono text-[11px]">${p.gstin || '-'}</td>
             <td class="p-3 text-right font-black ${isRecv ? 'text-emerald-700' : (isPay ? 'text-rose-600' : 'text-slate-600')} text-xs">
-                ₹ ${Math.abs(p.outstanding_balance).toFixed(2)} ${isRecv ? '(Dr)' : (isPay ? '(Cr)' : '')}
+                â‚¹ ${Math.abs(p.outstanding_balance).toFixed(2)} ${isRecv ? '(Dr)' : (isPay ? '(Cr)' : '')}
             </td>
             <td class="p-3 text-center">
                 <button onclick="recordPartyPaymentModal(${p.id}, '${p.party_name}', ${p.outstanding_balance})" class="btn btn-ghost btn-sm" style="font-size:10.5px">
@@ -1119,7 +1119,7 @@ function validatePartyPhoneLive() {
 
     if (digits.length < 10) {
         if (status) {
-            status.innerHTML = `<span style="color:#ef4444;font-weight:bold">❌ 10 Digits Required (${digits.length}/10)</span>`;
+            status.innerHTML = `<span style="color:#ef4444;font-weight:bold">âŒ 10 Digits Required (${digits.length}/10)</span>`;
             status.style.display = "inline";
         }
         input.style.borderColor = "#ef4444";
@@ -1128,7 +1128,7 @@ function validatePartyPhoneLive() {
 
     if (!['6','7','8','9'].includes(digits[0])) {
         if (status) {
-            status.innerHTML = `<span style="color:#ef4444;font-weight:bold">❌ Starts with 6,7,8,9</span>`;
+            status.innerHTML = `<span style="color:#ef4444;font-weight:bold">âŒ Starts with 6,7,8,9</span>`;
             status.style.display = "inline";
         }
         input.style.borderColor = "#ef4444";
@@ -1137,7 +1137,7 @@ function validatePartyPhoneLive() {
 
     if (uniqueDigits <= 2 || repetitivePatterns.includes(digits)) {
         if (status) {
-            status.innerHTML = `<span style="color:#ef4444;font-weight:bold">❌ Repetitive / Fake Number</span>`;
+            status.innerHTML = `<span style="color:#ef4444;font-weight:bold">âŒ Repetitive / Fake Number</span>`;
             status.style.display = "inline";
         }
         input.style.borderColor = "#ef4444";
@@ -1145,7 +1145,7 @@ function validatePartyPhoneLive() {
     }
 
     if (status) {
-        status.innerHTML = `<span style="color:#16a34a;font-weight:bold">✅ Valid 10-Digit Mobile</span>`;
+        status.innerHTML = `<span style="color:#16a34a;font-weight:bold">âœ… Valid 10-Digit Mobile</span>`;
         status.style.display = "inline";
     }
     input.style.borderColor = "#16a34a";
@@ -1206,7 +1206,7 @@ function recordPartyPaymentModal(partyId, partyName, currentBalance) {
     if (title) title.innerHTML = `<i data-lucide="banknote" class="w-4 h-4 text-emerald-700"></i> ${partyName}`;
     if (balInfo) {
         const isRecv = currentBalance > 0;
-        balInfo.innerHTML = `<strong>Current Balance:</strong> ₹ ${Math.abs(currentBalance).toFixed(2)} ${isRecv ? '(Receivable / வர வேண்டியது)' : '(Payable / தர வேண்டியது)'}`;
+        balInfo.innerHTML = `<strong>Current Balance:</strong> â‚¹ ${Math.abs(currentBalance).toFixed(2)} ${isRecv ? '(Receivable / à®µà®° à®µà¯‡à®£à¯à®Ÿà®¿à®¯à®¤à¯)' : '(Payable / à®¤à®° à®µà¯‡à®£à¯à®Ÿà®¿à®¯à®¤à¯)'}`;
     }
     
     document.getElementById("party-pay-amount").value = Math.abs(currentBalance) > 0 ? Math.abs(currentBalance) : "";
@@ -1241,7 +1241,7 @@ async function submitPartyPayment() {
         if (res.ok) {
             document.getElementById("party-payment-modal").classList.add("hidden");
             loadParties();
-            if (window.showToast) showToast(`Payment of ₹ ${amount.toFixed(2)} recorded successfully!`, "success");
+            if (window.showToast) showToast(`Payment of â‚¹ ${amount.toFixed(2)} recorded successfully!`, "success");
         } else {
             if (window.showToast) showToast("Failed to record payment", "error");
         }
@@ -1250,15 +1250,15 @@ async function submitPartyPayment() {
     }
 }
 
-// ── 5. INVENTORY, VALUATION & ADJUSTMENTS ──────────────────────────────────────
+// â”€â”€ 5. INVENTORY, VALUATION & ADJUSTMENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function loadInventoryValuation() {
     try {
         const res = await apiFetch("/api/inventory/valuation");
         const val = await res.json();
 
-        document.getElementById("inv-total-cost").innerText = `₹ ${val.total_cost_valuation.toLocaleString('en-IN')}`;
-        document.getElementById("inv-total-retail").innerText = `₹ ${val.total_retail_valuation.toLocaleString('en-IN')}`;
+        document.getElementById("inv-total-cost").innerText = `â‚¹ ${val.total_cost_valuation.toLocaleString('en-IN')}`;
+        document.getElementById("inv-total-retail").innerText = `â‚¹ ${val.total_retail_valuation.toLocaleString('en-IN')}`;
         document.getElementById("inv-total-count").innerText = val.total_products;
 
         const lowCount = val.items.filter(it => it.is_low_stock).length;
@@ -1284,8 +1284,8 @@ function renderInventoryTable() {
             <td class="p-3 text-xs"><span class="badge ${p.category === 'FINISHED_GOOD' ? 'badge-finished' : (p.category === 'BY_PRODUCT' ? 'badge-byproduct' : 'badge-raw')}">${p.category}</span></td>
             <td class="p-3 text-xs font-mono">${p.hsn_code || '-'}</td>
             <td class="p-3 text-right font-black ${isLow ? 'text-rose-600' : 'text-slate-800'} text-xs">${p.current_stock} ${p.unit_of_measure}</td>
-            <td class="p-3 text-right text-xs">₹ ${p.cost_price.toFixed(2)}</td>
-            <td class="p-3 text-right font-bold text-emerald-800 text-xs">₹ ${p.selling_price.toFixed(2)}</td>
+            <td class="p-3 text-right text-xs">â‚¹ ${p.cost_price.toFixed(2)}</td>
+            <td class="p-3 text-right font-bold text-emerald-800 text-xs">â‚¹ ${p.selling_price.toFixed(2)}</td>
             <td class="p-3 text-right text-xs">${p.tax_rate}%</td>
             <td class="p-3 text-right">
                 ${isLow ? '<span class="badge badge-low">Low Stock</span>' : '<span class="badge badge-instock">In Stock</span>'}
@@ -1302,7 +1302,7 @@ function populateProductDropdowns() {
         adjSelect.innerHTML = allProducts.map(p => `<option value="${p.id}">${p.product_name} (Current: ${p.current_stock} ${p.unit_of_measure})</option>`).join("");
     }
     if (ledgerSelect) {
-        ledgerSelect.innerHTML = `<option value="">— All Products —</option>` + allProducts.map(p => `<option value="${p.id}">${p.product_name}</option>`).join("");
+        ledgerSelect.innerHTML = `<option value="">â€” All Products â€”</option>` + allProducts.map(p => `<option value="${p.id}">${p.product_name}</option>`).join("");
     }
 }
 
@@ -1320,12 +1320,12 @@ async function submitStockAdj() {
     const ceoPassword = document.getElementById("adj-ceo-password")?.value.trim();
 
     if (!pid || qty <= 0) {
-        if (window.showToast) showToast("Please enter a valid quantity! (சரியான அளவை உள்ளிடுக)", "warning");
+        if (window.showToast) showToast("Please enter a valid quantity! (à®šà®°à®¿à®¯à®¾à®© à®…à®³à®µà¯ˆ à®‰à®³à¯à®³à®¿à®Ÿà¯à®•)", "warning");
         return;
     }
 
     if (!ceoPassword) {
-        if (window.showToast) showToast("👑 CEO Master Password required to approve stock! (முதன்மை நிர்வாகி கடவுச்சொல் தேவை)", "warning");
+        if (window.showToast) showToast("ðŸ‘‘ CEO Master Password required to approve stock! (à®®à¯à®¤à®©à¯à®®à¯ˆ à®¨à®¿à®°à¯à®µà®¾à®•à®¿ à®•à®Ÿà®µà¯à®šà¯à®šà¯Šà®²à¯ à®¤à¯‡à®µà¯ˆ)", "warning");
         document.getElementById("adj-ceo-password")?.focus();
         return;
     }
@@ -1354,7 +1354,7 @@ async function submitStockAdj() {
             if (document.getElementById("adj-ceo-password")) document.getElementById("adj-ceo-password").value = "";
             loadProducts();
             loadInventoryValuation();
-            if (window.showToast) showToast("👑 CEO Stock Inward / Adjustment Approved Successfully!", "success");
+            if (window.showToast) showToast("ðŸ‘‘ CEO Stock Inward / Adjustment Approved Successfully!", "success");
         } else {
             const errData = await res.json().catch(() => ({}));
             if (window.showToast) showToast(errData.detail || "CEO Authorization Failed. Invalid Master Password.", "error");
@@ -1435,7 +1435,7 @@ function openNewProductModal() {
     if (window.lucide) lucide.createIcons();
 }
 
-// ── REAL-TIME TAMIL AUTO-TRANSLATION & TRANSLITERATION ────────────────────────
+// â”€â”€ REAL-TIME TAMIL AUTO-TRANSLATION & TRANSLITERATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let _translateTimeout = null;
 
 async function translateEnglishToTamil(text) {
@@ -1544,7 +1544,7 @@ async function submitNewProduct() {
     const price = parseFloat(document.getElementById("np-price")?.value) || 0;
     if (price <= 0) {
         if (errBox) {
-            errBox.innerText = "Price Target must be a valid positive amount in ₹.";
+            errBox.innerText = "Price Target must be a valid positive amount in â‚¹.";
             errBox.classList.remove("hidden");
         }
         document.getElementById("np-price")?.focus();
@@ -1557,7 +1557,7 @@ async function submitNewProduct() {
 
     if (!ceoPassword) {
         if (errBox) {
-            errBox.innerText = "👑 CEO Master Password is required to authorize adding new products to inventory!";
+            errBox.innerText = "ðŸ‘‘ CEO Master Password is required to authorize adding new products to inventory!";
             errBox.classList.remove("hidden");
         }
         document.getElementById("np-ceo-password")?.focus();
@@ -1608,7 +1608,7 @@ async function submitNewProduct() {
             loadProducts();
             loadInventoryValuation();
             if (window.showToast) showToast(`Product '${data.product_name || name}' added to inventory successfully!`, "success");
-            alert(`✅ Product '${data.product_name || name}' successfully authorized by CEO and added to inventory!`);
+            alert(`âœ… Product '${data.product_name || name}' successfully authorized by CEO and added to inventory!`);
         } else {
             const msg = data.detail || "Failed to create product. Check CEO credentials.";
             if (errBox) {
@@ -1628,7 +1628,7 @@ async function submitNewProduct() {
 }
 
 
-// ── 6. PRODUCTION & BY-PRODUCT RECOVERY ────────────────────────────────────────
+// â”€â”€ 6. PRODUCTION & BY-PRODUCT RECOVERY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function addBatchInputRow() {
     const container = document.getElementById("batch-inputs-list");
@@ -1640,7 +1640,7 @@ function addBatchInputRow() {
     div.innerHTML = `
         <select class="batch-in-prod form-select p-1 text-xs" style="flex:1">${options}</select>
         <input type="number" placeholder="Qty (KG)" step="any" class="batch-in-qty form-input p-1 text-right font-bold text-xs" style="width:90px">
-        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-1">✕</button>
+        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-1">âœ•</button>
     `;
     container.appendChild(div);
 }
@@ -1655,7 +1655,7 @@ function addBatchOutputRow() {
     div.innerHTML = `
         <select class="batch-out-prod form-select p-1 text-xs" style="flex:1">${options}</select>
         <input type="number" placeholder="Qty Output" step="any" class="batch-out-qty form-input p-1 text-right font-bold text-xs" style="width:90px">
-        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-1">✕</button>
+        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-1">âœ•</button>
     `;
     container.appendChild(div);
 }
@@ -1732,7 +1732,7 @@ async function loadBatchHistory() {
                     <td class="p-3 text-right font-medium text-xs">${b.total_input_qty} KG</td>
                     <td class="p-3 text-right font-black text-emerald-700 text-xs">${b.total_output_qty}</td>
                     <td class="p-3 text-right font-bold text-xs">${b.recovery_percentage}%</td>
-                    <td class="p-3 text-right font-medium text-xs">₹ ${b.total_production_cost.toFixed(2)}</td>
+                    <td class="p-3 text-right font-medium text-xs">â‚¹ ${b.total_production_cost.toFixed(2)}</td>
                 `;
                 tbody.appendChild(tr);
             }
@@ -1755,7 +1755,7 @@ async function loadBatchHistory() {
     }
 }
 
-// ── 7. PROCUREMENT / PURCHASES ────────────────────────────────────────────────
+// â”€â”€ 7. PROCUREMENT / PURCHASES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function addPurchaseItemRow() {
     const container = document.getElementById("purchase-items-list");
@@ -1769,8 +1769,8 @@ function addPurchaseItemRow() {
     div.innerHTML = `
         <select class="pur-in-prod form-select p-1 text-xs" style="flex:1">${options}</select>
         <input type="number" placeholder="Qty (KG)" step="any" class="pur-in-qty form-input p-1 text-right font-bold text-xs" style="width:90px">
-        <input type="number" placeholder="Rate/KG (₹)" step="any" class="pur-in-price form-input p-1 text-right font-bold text-xs" style="width:90px">
-        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-1">✕</button>
+        <input type="number" placeholder="Rate/KG (â‚¹)" step="any" class="pur-in-price form-input p-1 text-right font-bold text-xs" style="width:90px">
+        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-1">âœ•</button>
     `;
     container.appendChild(div);
 }
@@ -1844,10 +1844,10 @@ async function loadPurchases() {
                 <td class="p-3 text-xs text-slate-500">${p.purchase_date}</td>
                 <td class="p-3 text-xs font-semibold">${p.supplier_name}</td>
                 <td class="p-3 text-xs font-mono">${p.vehicle_number || '-'}</td>
-                <td class="p-3 text-right text-xs">₹ ${p.subtotal.toFixed(2)}</td>
-                <td class="p-3 text-right font-black text-xs">₹ ${p.grand_total.toFixed(2)}</td>
-                <td class="p-3 text-right text-emerald-700 font-bold text-xs">₹ ${p.paid_amount.toFixed(2)}</td>
-                <td class="p-3 text-right ${p.balance_due > 0 ? 'text-rose-600 font-bold' : 'text-slate-600'} text-xs">₹ ${p.balance_due.toFixed(2)}</td>
+                <td class="p-3 text-right text-xs">â‚¹ ${p.subtotal.toFixed(2)}</td>
+                <td class="p-3 text-right font-black text-xs">â‚¹ ${p.grand_total.toFixed(2)}</td>
+                <td class="p-3 text-right text-emerald-700 font-bold text-xs">â‚¹ ${p.paid_amount.toFixed(2)}</td>
+                <td class="p-3 text-right ${p.balance_due > 0 ? 'text-rose-600 font-bold' : 'text-slate-600'} text-xs">â‚¹ ${p.balance_due.toFixed(2)}</td>
             `;
             tbody.appendChild(tr);
         });
@@ -1856,7 +1856,7 @@ async function loadPurchases() {
     }
 }
 
-// ── 8. EXPENSES ───────────────────────────────────────────────────────────────
+// â”€â”€ 8. EXPENSES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function loadExpenses() {
     try {
@@ -1876,12 +1876,12 @@ async function loadExpenses() {
                 <td class="p-3 font-semibold text-xs text-slate-800">${e.category}</td>
                 <td class="p-3 text-xs">${e.paid_to || '-'}</td>
                 <td class="p-3 text-xs text-slate-400">${e.notes || '-'}</td>
-                <td class="p-3 text-right font-bold text-rose-600 text-xs">₹ ${e.amount.toFixed(2)}</td>
+                <td class="p-3 text-right font-bold text-rose-600 text-xs">â‚¹ ${e.amount.toFixed(2)}</td>
             `;
             tbody.appendChild(tr);
         });
 
-        if (badge) badge.innerText = `Total: ₹ ${total.toLocaleString('en-IN')}`;
+        if (badge) badge.innerText = `Total: â‚¹ ${total.toLocaleString('en-IN')}`;
     } catch (err) {
         console.error("Error loading expenses:", err);
     }
@@ -1917,13 +1917,13 @@ async function saveExpense() {
         document.getElementById("exp-paid-to").value = "";
         document.getElementById("exp-notes").value = "";
         loadExpenses();
-        if (window.showToast) showToast(`Expense of ₹ ${amount.toFixed(2)} recorded!`, "success");
+        if (window.showToast) showToast(`Expense of â‚¹ ${amount.toFixed(2)} recorded!`, "success");
     } catch (err) {
         console.error("Save expense error:", err);
     }
 }
 
-// ── 9. FINANCIAL REPORTS & AUDIT ──────────────────────────────────────────────
+// â”€â”€ 9. FINANCIAL REPORTS & AUDIT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function loadReports() {
     const startDate = document.getElementById("rep-start-date")?.value;
@@ -1936,19 +1936,19 @@ async function loadReports() {
         const resSum = await fetch(`/api/reports/financial-summary?${params.toString()}`);
         const sum = await resSum.json();
 
-        document.getElementById("rep-total-sales").innerText = `₹ ${sum.sales_summary.gross_turnover.toLocaleString('en-IN')}`;
-        document.getElementById("rep-total-purchases").innerText = `₹ ${sum.purchases_summary.gross_purchases.toLocaleString('en-IN')}`;
-        document.getElementById("rep-total-expenses").innerText = `₹ ${sum.expense_summary.total_expenses.toLocaleString('en-IN')}`;
-        document.getElementById("rep-net-profit").innerText = `₹ ${sum.profit_and_loss.net_profit.toLocaleString('en-IN')}`;
+        document.getElementById("rep-total-sales").innerText = `â‚¹ ${sum.sales_summary.gross_turnover.toLocaleString('en-IN')}`;
+        document.getElementById("rep-total-purchases").innerText = `â‚¹ ${sum.purchases_summary.gross_purchases.toLocaleString('en-IN')}`;
+        document.getElementById("rep-total-expenses").innerText = `â‚¹ ${sum.expense_summary.total_expenses.toLocaleString('en-IN')}`;
+        document.getElementById("rep-net-profit").innerText = `â‚¹ ${sum.profit_and_loss.net_profit.toLocaleString('en-IN')}`;
 
         // Income Statement Rows
         const plInc = document.getElementById("pl-income-rows");
         if (plInc) {
             plInc.innerHTML = `
-                <tr class="border-b"><td class="py-2 text-slate-600">Gross Sales Revenue:</td><td class="py-2 text-right font-bold text-slate-800">₹ ${sum.sales_summary.gross_turnover.toLocaleString('en-IN')}</td></tr>
-                <tr class="border-b"><td class="py-2 text-slate-600">Total GST Collected (Output):</td><td class="py-2 text-right font-semibold text-emerald-700">₹ ${sum.sales_summary.total_tax_collected.toLocaleString('en-IN')}</td></tr>
-                <tr class="border-b"><td class="py-2 text-slate-600">Raw Material COGS (Purchases):</td><td class="py-2 text-right font-bold text-amber-800">- ₹ ${sum.purchases_summary.gross_purchases.toLocaleString('en-IN')}</td></tr>
-                <tr class="border-b bg-emerald-50"><td class="py-2 font-bold text-emerald-900">Gross Margin:</td><td class="py-2 text-right font-black text-emerald-800">₹ ${sum.profit_and_loss.gross_profit.toLocaleString('en-IN')}</td></tr>
+                <tr class="border-b"><td class="py-2 text-slate-600">Gross Sales Revenue:</td><td class="py-2 text-right font-bold text-slate-800">â‚¹ ${sum.sales_summary.gross_turnover.toLocaleString('en-IN')}</td></tr>
+                <tr class="border-b"><td class="py-2 text-slate-600">Total GST Collected (Output):</td><td class="py-2 text-right font-semibold text-emerald-700">â‚¹ ${sum.sales_summary.total_tax_collected.toLocaleString('en-IN')}</td></tr>
+                <tr class="border-b"><td class="py-2 text-slate-600">Raw Material COGS (Purchases):</td><td class="py-2 text-right font-bold text-amber-800">- â‚¹ ${sum.purchases_summary.gross_purchases.toLocaleString('en-IN')}</td></tr>
+                <tr class="border-b bg-emerald-50"><td class="py-2 font-bold text-emerald-900">Gross Margin:</td><td class="py-2 text-right font-black text-emerald-800">â‚¹ ${sum.profit_and_loss.gross_profit.toLocaleString('en-IN')}</td></tr>
             `;
         }
 
@@ -1957,11 +1957,11 @@ async function loadReports() {
         if (plExp) {
             let catRows = '';
             for (const [k, v] of Object.entries(sum.expense_summary.by_category || {})) {
-                catRows += `<tr class="border-b"><td class="py-1.5 text-slate-600">${k}:</td><td class="py-1.5 text-right font-semibold">₹ ${v.toLocaleString('en-IN')}</td></tr>`;
+                catRows += `<tr class="border-b"><td class="py-1.5 text-slate-600">${k}:</td><td class="py-1.5 text-right font-semibold">â‚¹ ${v.toLocaleString('en-IN')}</td></tr>`;
             }
             plExp.innerHTML = catRows + `
-                <tr class="border-b bg-rose-50"><td class="py-2 font-bold text-rose-900">Total Operating Expenses:</td><td class="py-2 text-right font-black text-rose-700">- ₹ ${sum.expense_summary.total_expenses.toLocaleString('en-IN')}</td></tr>
-                <tr class="bg-emerald-100"><td class="py-2.5 font-black text-emerald-900 text-sm">Net Profit (EBIT):</td><td class="py-2.5 text-right font-black text-emerald-900 text-sm">₹ ${sum.profit_and_loss.net_profit.toLocaleString('en-IN')}</td></tr>
+                <tr class="border-b bg-rose-50"><td class="py-2 font-bold text-rose-900">Total Operating Expenses:</td><td class="py-2 text-right font-black text-rose-700">- â‚¹ ${sum.expense_summary.total_expenses.toLocaleString('en-IN')}</td></tr>
+                <tr class="bg-emerald-100"><td class="py-2.5 font-black text-emerald-900 text-sm">Net Profit (EBIT):</td><td class="py-2.5 text-right font-black text-emerald-900 text-sm">â‚¹ ${sum.profit_and_loss.net_profit.toLocaleString('en-IN')}</td></tr>
             `;
         }
 
@@ -1976,10 +1976,10 @@ async function loadReports() {
                 tr.innerHTML = `
                     <td class="p-3 font-bold text-slate-900 text-xs">${h.year} - ${h.year + 1}</td>
                     <td class="p-3 text-right text-xs">${h.invoices_count}</td>
-                    <td class="p-3 text-right font-bold text-xs">₹ ${h.sales_turnover.toLocaleString('en-IN')}</td>
-                    <td class="p-3 text-right text-xs">₹ ${h.purchase_total.toLocaleString('en-IN')}</td>
-                    <td class="p-3 text-right text-xs">₹ ${h.expenses_total.toLocaleString('en-IN')}</td>
-                    <td class="p-3 text-right font-black text-emerald-700 text-xs">₹ ${h.net_profit.toLocaleString('en-IN')}</td>
+                    <td class="p-3 text-right font-bold text-xs">â‚¹ ${h.sales_turnover.toLocaleString('en-IN')}</td>
+                    <td class="p-3 text-right text-xs">â‚¹ ${h.purchase_total.toLocaleString('en-IN')}</td>
+                    <td class="p-3 text-right text-xs">â‚¹ ${h.expenses_total.toLocaleString('en-IN')}</td>
+                    <td class="p-3 text-right font-black text-emerald-700 text-xs">â‚¹ ${h.net_profit.toLocaleString('en-IN')}</td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -2021,9 +2021,9 @@ async function loadSalesRegisterReport() {
                 <td class="p-2.5 text-xs text-slate-500">${inv.invoice_date}</td>
                 <td class="p-2.5 text-xs font-semibold">${inv.customer_name}</td>
                 <td class="p-2.5 text-xs"><span class="badge ${inv.billing_type === 'WHOLESALE_B2B' ? 'badge-finished' : 'badge-pkg'}">${inv.billing_type}</span></td>
-                <td class="p-2.5 text-right text-xs">₹ ${inv.taxable_amount.toFixed(2)}</td>
-                <td class="p-2.5 text-right font-semibold text-emerald-700 text-xs">₹ ${inv.total_tax.toFixed(2)}</td>
-                <td class="p-2.5 text-right font-black text-slate-900 text-xs">₹ ${inv.grand_total.toFixed(2)}</td>
+                <td class="p-2.5 text-right text-xs">â‚¹ ${inv.taxable_amount.toFixed(2)}</td>
+                <td class="p-2.5 text-right font-semibold text-emerald-700 text-xs">â‚¹ ${inv.total_tax.toFixed(2)}</td>
+                <td class="p-2.5 text-right font-black text-slate-900 text-xs">â‚¹ ${inv.grand_total.toFixed(2)}</td>
                 <td class="p-2.5 text-xs">${inv.payment_mode}</td>
             `;
             tbody.appendChild(tr);
@@ -2046,9 +2046,9 @@ async function loadStockValReport() {
                 <td class="p-2.5 text-xs"><span class="badge badge-finished">${it.category}</span></td>
                 <td class="p-2.5 text-xs font-mono">${it.hsn_code || '-'}</td>
                 <td class="p-2.5 text-right font-bold text-xs">${it.stock_qty}</td>
-                <td class="p-2.5 text-right text-xs">₹ ${it.cost_price.toFixed(2)}</td>
-                <td class="p-2.5 text-right font-bold text-slate-800 text-xs">₹ ${it.cost_value.toFixed(2)}</td>
-                <td class="p-2.5 text-right font-black text-emerald-800 text-xs">₹ ${it.retail_value.toFixed(2)}</td>
+                <td class="p-2.5 text-right text-xs">â‚¹ ${it.cost_price.toFixed(2)}</td>
+                <td class="p-2.5 text-right font-bold text-slate-800 text-xs">â‚¹ ${it.cost_value.toFixed(2)}</td>
+                <td class="p-2.5 text-right font-black text-emerald-800 text-xs">â‚¹ ${it.retail_value.toFixed(2)}</td>
             `;
             tbody.appendChild(tr);
         });
@@ -2069,10 +2069,10 @@ async function loadPartyBalanceReport() {
             <td class="p-2.5 text-xs">${p.party_type.replace('_', ' ')}</td>
             <td class="p-2.5 text-xs">${p.phone || '-'}</td>
             <td class="p-2.5 text-right font-black text-xs ${isRecv ? 'text-emerald-700' : (isPay ? 'text-rose-600' : 'text-slate-600')}">
-                ₹ ${Math.abs(p.outstanding_balance).toFixed(2)}
+                â‚¹ ${Math.abs(p.outstanding_balance).toFixed(2)}
             </td>
             <td class="p-2.5 text-xs">
-                ${isRecv ? '<span class="badge badge-instock">Receivable (கடன் வரவு)</span>' : (isPay ? '<span class="badge badge-low">Payable (செலுத்த வேண்டியது)</span>' : '<span class="badge badge-finished">Settled</span>')}
+                ${isRecv ? '<span class="badge badge-instock">Receivable (à®•à®Ÿà®©à¯ à®µà®°à®µà¯)</span>' : (isPay ? '<span class="badge badge-low">Payable (à®šà¯†à®²à¯à®¤à¯à®¤ à®µà¯‡à®£à¯à®Ÿà®¿à®¯à®¤à¯)</span>' : '<span class="badge badge-finished">Settled</span>')}
             </td>
         `;
         tbody.appendChild(tr);
@@ -2093,12 +2093,12 @@ async function loadGstReport() {
             <div class="grid-3 mb-4">
                 <div class="card p-4">
                     <div class="text-xs text-slate-500 font-bold uppercase">Total Taxable Turnover</div>
-                    <div class="text-xl font-black text-slate-900 mt-1">₹ ${gst.taxable_sales.toLocaleString('en-IN')}</div>
+                    <div class="text-xl font-black text-slate-900 mt-1">â‚¹ ${gst.taxable_sales.toLocaleString('en-IN')}</div>
                 </div>
                 <div class="card p-4">
                     <div class="text-xs text-slate-500 font-bold uppercase">Output GST Liability (GSTR-1)</div>
-                    <div class="text-xl font-black text-emerald-700 mt-1">₹ ${gst.total_output_gst.toLocaleString('en-IN')}</div>
-                    <div class="text-[10px] text-slate-400 mt-1">CGST: ₹ ${gst.cgst.toLocaleString('en-IN')} | SGST: ₹ ${gst.sgst.toLocaleString('en-IN')}</div>
+                    <div class="text-xl font-black text-emerald-700 mt-1">â‚¹ ${gst.total_output_gst.toLocaleString('en-IN')}</div>
+                    <div class="text-[10px] text-slate-400 mt-1">CGST: â‚¹ ${gst.cgst.toLocaleString('en-IN')} | SGST: â‚¹ ${gst.sgst.toLocaleString('en-IN')}</div>
                 </div>
                 <div class="card p-4">
                     <div class="text-xs text-slate-500 font-bold uppercase">Total Invoices Filed</div>
@@ -2114,7 +2114,7 @@ async function loadGstReport() {
     }
 }
 
-// ── 10. USER MANAGEMENT & PASSWORD MODALS ──────────────────────────────────────
+// â”€â”€ 10. USER MANAGEMENT & PASSWORD MODALS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function openUserMgmtModal() {
     loadUserMgmtTable();
@@ -2268,7 +2268,7 @@ async function downloadCaAuditExcel() {
     }
 }
 
-// ── POS Cashier Keyboard Shortcuts ──────────────────────────────────────────
+// â”€â”€ POS Cashier Keyboard Shortcuts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 window.addEventListener("keydown", (e) => {
     // Only trigger if POS section is active and no modal is open
     const posSection = document.getElementById("section-pos");
@@ -2292,7 +2292,7 @@ window.addEventListener("keydown", (e) => {
         checkoutBill('THERMAL');
     } else if (e.key === "Escape") {
         if (cart.length > 0) {
-            if (confirm("Reset current bill / காலி செய்?")) {
+            if (confirm("Reset current bill / à®•à®¾à®²à®¿ à®šà¯†à®¯à¯?")) {
                 clearPosCart();
             }
         } else {
@@ -2301,5 +2301,6 @@ window.addEventListener("keydown", (e) => {
         }
     }
 });
+
 
 
