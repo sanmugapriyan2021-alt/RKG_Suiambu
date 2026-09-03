@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#064e3b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>RKG SUYAMBU — Security &amp; Enterprise Management Hub</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="static/rkg-logo.png">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Mukta+Malar:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+    .font-tamil { font-family: 'Mukta Malar', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .card-gradient { background: linear-gradient(135deg, rgba(6, 78, 59, 0.7) 0%, rgba(2, 44, 34, 0.9) 100%); }
+    .gold-gradient { background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); }
+    @keyframes pulse-subtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .live-pulse { animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="h-full flex flex-col antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <!-- 1. SECURITY GATEWAY: User_Login LOGIN SCREEN                             -->
+  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <div id="ceo-login-screen" class="fixed inset-0 z-50 bg-slate-950 flex flex-col justify-center items-center px-6 py-8">
+    <div class="max-w-sm w-full space-y-6 text-center">
+      
+      <!-- Brand Seal Logo -->
+      <div class="inline-block p-1 bg-gradient-to-tr from-amber-500 to-amber-300 rounded-full shadow-2xl shadow-amber-500/20">
+        <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center p-1 overflow-hidden border-2 border-amber-400">
+          <img src="static/rkg-logo.png" 
+               onerror="this.onerror=null; this.src='rkg-logo.png';" 
+               alt="RKG Suyambu" 
+               class="w-full h-full object-contain">
+        </div>
+      </div>
+
+      <!-- App Title -->
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-cinzel font-black text-white tracking-wider">RKG SUYAMBU</h1>
+        <p class="text-xs text-amber-400 font-bold uppercase tracking-widest pt-1">Security Login Gateway</p>
+      </div>
+
+      <!-- Clean Login Card with User Selector (CEO / Cashier) -->
+      <div class="bg-slate-900 border border-emerald-800/80 rounded-3xl p-6 shadow-2xl space-y-4 text-left">
+        
+        <!-- User ID Selector: CEO vs Cashier -->
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Select User ID (பயனர்)</label>
+          <div class="grid grid-cols-2 gap-2">
+            <button type="button" onclick="selectLoginUser('CEO')" id="btn-user-ceo" class="py-2.5 rounded-xl font-bold text-xs bg-amber-500 text-slate-950 flex items-center justify-center gap-1.5 transition cursor-pointer">
+              <span>👑 CEO</span>
+            </button>
+            <button type="button" onclick="selectLoginUser('Cashier')" id="btn-user-cashier" class="py-2.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer">
+              <span>💳 Cashier</span>
+            </button>
+          </div>
+          <input type="hidden" id="login-user-id" value="CEO">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Password</label>
+          <input type="password" id="login-pin-input" 
+                 placeholder="Enter Password (CEO: 1234, Cashier: 5678)" 
+                 onkeydown="if(event.key==='Enter') handleUnifiedUserLogin()"
+                 class="w-full bg-slate-950 border border-emerald-700 focus:border-amber-400 rounded-xl px-4 py-3 text-center text-lg font-mono tracking-widest text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400/20 transition">
+        </div>
+
+        <button onclick="handleUnifiedUserLogin()" id="btn-login" 
+                class="w-full py-3.5 rounded-xl font-black text-sm uppercase tracking-wider bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-lg shadow-amber-500/25 active:scale-95 transition flex items-center justify-center gap-2 cursor-pointer">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>Authorize &amp; Login</span>
+        </button>
+
+        <p id="login-error-msg" class="hidden text-xs font-bold text-rose-400 text-center"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <!-- 2. AUTHENTICATED APP SHELL                                              -->
+  <!-- ════════════════════════════════════════════════════════════════════════ -->
+  <div id="authenticated-app-shell" class="hidden flex-1 flex flex-col pb-24">
+
+    <!-- Top App Header -->
+    <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-emerald-900/60 px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-full bg-white border border-amber-400 flex items-center justify-center p-0.5 overflow-hidden shadow-md">
+          <img src="static/rkg-logo.png" onerror="this.src='rkg-logo.png'" alt="RKG" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <h1 class="text-sm font-black font-cinzel tracking-tight text-white flex items-center gap-1.5">
+            RKG SUYAMBU
+          </h1>
+          <p class="text-[10px] text-amber-300/90 font-tamil" id="header-user-label">CEO தலைமை நிர்வாகம்</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span id="user-role-badge" class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/40">
+          👑 CEO
+        </span>
+
+        <span id="net-status-badge" class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 live-pulse"></span>
+          <span id="net-status-text">Cloud Sync</span>
+        </span>
+
+        <button onclick="refreshActiveTab()" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 active:scale-95 transition" title="Refresh">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+      
+      <!-- ── TAB 1: TODAY'S SALES (Default Landing Page with Calendar) ────────── -->
+      <section id="pane-sales" class="space-y-4">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-black text-white flex items-center gap-1.5">
+              <span>Today's Sales</span>
+              <span class="text-xs font-tamil text-amber-400 font-normal">(விற்பனை மேலாண்மை)</span>
+            </h2>
+            <p class="text-xs text-slate-400" id="sales-date-label">Showing sales for: Today</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/40" id="badge-sales-count">
+            0 Invoices
+          </span>
+        </div>
+
+        <!-- Interactive Calendar Date Picker & Quick Selectors -->
+        <div class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-3 space-y-2.5 shadow-sm">
+          <div class="flex items-center justify-between gap-2">
+            <label class="text-[11px] font-bold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+              <span>Select Date (தேதி):</span>
+            </label>
+            
+            <input type="date" id="sales-date-picker" onchange="handleSalesDateFilter(this.value)" class="bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-xl px-3 py-1.5 text-xs font-mono text-amber-300 focus:outline-none">
+          </div>
+
+          <div class="flex gap-1.5 pt-1 border-t border-slate-800/80">
+            <button onclick="setSalesDatePreset('today')" id="btn-date-today" class="flex-1 py-1 rounded-lg text-[10px] font-bold bg-amber-500 text-slate-950 transition">Today</button>
+            <button onclick="setSalesDatePreset('yesterday')" id="btn-date-yesterday" class="flex-1 py-1 rounded-lg text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Yesterday</button>
+            <button onclick="setSalesDatePreset('all')" id="btn-date-all" class="flex-1 py-1 rounded-lg text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">All Dates</button>
+          </div>
+        </div>
+
+        <!-- Summary KPI Metrics Cards -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 space-y-1">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Revenue</span>
+            <div class="text-lg font-black font-mono text-emerald-300" id="sales-total-revenue">₹0</div>
+            <div class="text-[9px] text-slate-400" id="sales-total-count">0 Sales transactions</div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 space-y-1">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Payment Breakdown</span>
+            <div class="text-xs font-mono text-slate-300 flex justify-between">
+              <span class="text-emerald-400 font-bold">UPI:</span>
+              <span id="sales-upi-total" class="font-bold">₹0</span>
+            </div>
+            <div class="text-xs font-mono text-slate-300 flex justify-between">
+              <span class="text-amber-400 font-bold">Cash:</span>
+              <span id="sales-cash-total" class="font-bold">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales Invoices & Transactions List -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Itemized Sales Orders</h3>
+          <div id="sales-items-container" class="space-y-3">
+            <div class="text-center py-8 text-slate-500 text-xs">Loading sales records for chosen date...</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── TAB 2: INVENTORY STOCKS ─────────────────────────────────────────── -->
+      <section id="pane-inventory" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-black text-white">Inventory Stock Control</h2>
+            <p class="text-xs text-slate-400">Master stock counts in Firebase products table</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/40" id="badge-inv-count">
+            61 Items
+          </span>
+        </div>
+
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="search-inv" oninput="filterInventoryList()" placeholder="Search item by name or code (aa01)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div id="inventory-items-container" class="space-y-3">
+          <div class="text-center py-8 text-slate-500 text-xs">Loading live inventory...</div>
+        </div>
+      </section>
+
+      <!-- ── TAB 3: PRODUCT PRICES ────────────────────────────────────────────── -->
+      <section id="pane-prices" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-black text-white">Live Price Editor</h2>
+            <p class="text-xs text-slate-400">Edit retail and wholesale product rates</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="search-price" oninput="filterPriceCatalog()" placeholder="Search product to edit price..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div id="price-items-container" class="space-y-3">
+          <div class="text-center py-8 text-slate-500 text-xs">Loading price catalog...</div>
+        </div>
+      </section>
+
+      <!-- ── TAB 4: CHECK ORDERS (Client Order Data & IP Tracking) ───────────── -->
+      <section id="pane-orders" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-black text-white">Check Client Orders</h2>
+            <p class="text-xs text-slate-400">Firebase: client_order_data &amp; IP Serial Link</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40" id="badge-orders-count">
+            Live Feed
+          </span>
+        </div>
+
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="search-orders" oninput="filterOrdersList()" placeholder="Search by Request ID, Name, Phone, Code, or IP Serial..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div id="orders-items-container" class="space-y-3">
+          <div class="text-center py-8 text-slate-500 text-xs">Loading client orders from Firebase...</div>
+        </div>
+      </section>
+
+      <!-- ── TAB 5: COMPANY & PROMO / PROFIT / HISTORY HUB ──────────────────── -->
+      <section id="pane-company" class="hidden space-y-4">
+        <div>
+          <h2 class="text-base font-black text-white">Company, Promo &amp; History Hub</h2>
+          <p class="text-xs text-slate-400">Manage statutory profiles, promo codes, profits &amp; audit history</p>
+        </div>
+
+        <!-- 🎁 PROMO CODES & PROFIT ANALYTICS BUTTON -->
+        <div>
+          <button type="button" onclick="openPromoProfitSubPage()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-emerald-950 to-slate-900 border border-emerald-500/50 hover:border-emerald-400 text-left flex items-center justify-between group transition shadow-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-900 border border-emerald-500/60 flex items-center justify-center text-emerald-300 shadow-sm">
+                <i data-lucide="ticket" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-black text-white group-hover:text-emerald-300 transition flex items-center gap-1.5">
+                  <span>Promo Codes &amp; Profit Tracking</span>
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-500/40">Firebase</span>
+                </div>
+                <div class="text-[10px] text-slate-400">Manage QR promo sequences, discounts &amp; bill purchase credits</div>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-5 h-5 text-emerald-400 group-hover:translate-x-1 transition"></i>
+          </button>
+        </div>
+
+        <form id="ceo-company-form" onsubmit="handleCompanyDataSave(event)" class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-4 space-y-3 text-xs">
+          <div class="font-bold text-amber-400 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-800">
+            🏢 Statutory Company Information
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Company English Name</label>
+            <input type="text" id="ceo-company-name" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-bold">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Company Tamil Name</label>
+            <input type="text" id="ceo-tamil-name" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-tamil">
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-slate-400 mb-1">GSTIN Number</label>
+              <input type="text" id="ceo-gstin" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-amber-300 font-mono font-bold">
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">FSSAI Number</label>
+              <input type="text" id="ceo-fssai" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-slate-400 mb-1">Official Phone</label>
+              <input type="text" id="ceo-phone" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono">
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">WhatsApp Number</label>
+              <input type="text" id="ceo-whatsapp" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono">
+            </div>
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Email Address</label>
+            <input type="email" id="ceo-email" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Mill Location Address</label>
+            <textarea id="ceo-address" rows="2" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white"></textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-slate-400 mb-1">Dispatch Hours</label>
+              <input type="text" id="ceo-hours" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white">
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">Working Days</label>
+              <input type="text" id="ceo-days" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg active:scale-95 transition">
+            Save Company Data to Firebase
+          </button>
+        </form>
+
+        <!-- 📜 AUDIT CHANGE HISTORY BUTTON (Placed at the bottom of Company Menu) -->
+        <div class="pt-2">
+          <button type="button" onclick="openCompanyHistorySubPage()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 border border-amber-500/50 hover:border-amber-400 text-left flex items-center justify-between group transition shadow-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-950 border border-amber-500/60 flex items-center justify-center text-amber-300 shadow-sm">
+                <i data-lucide="history" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-black text-white group-hover:text-amber-300 transition flex items-center gap-1.5">
+                  <span>Audit Change History</span>
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-950 text-amber-400 border border-amber-500/40">CEO Log</span>
+                </div>
+                <div class="text-[10px] text-slate-400">View complete timestamped modifications made by CEO</div>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-5 h-5 text-amber-400 group-hover:translate-x-1 transition"></i>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ── SUB-PAGE: PROMO CODES & PROFIT TRACKING ──────────────────────────── -->
+      <section id="pane-promo-profit" class="hidden space-y-4">
+        <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+          <button onclick="closePromoProfitSubPage()" class="flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 py-1 transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Back to Company Details</span>
+          </button>
+          <button onclick="openCreatePromoModal()" class="px-2.5 py-1 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1 shadow-sm">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Generate Promo</span>
+          </button>
+        </div>
+
+        <div>
+          <h2 class="text-base font-black text-white">Promo Codes &amp; Profit Tracking</h2>
+          <p class="text-xs text-slate-400">Alphanumeric Promo sequences, QR Code numbers, and purchase credit analytics</p>
+        </div>
+
+        <!-- Profit Table Summary -->
+        <div class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-4 space-y-3 shadow-md">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+              <span>Profit &amp; Bill Credit Analytics</span>
+            </h3>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold" id="profit-grand-total">Revenue: ₹0</span>
+          </div>
+
+          <div id="profit-summary-container" class="space-y-2">
+            <div class="text-center py-4 text-slate-500 text-xs">Loading profit analytics...</div>
+          </div>
+        </div>
+
+        <!-- Promo Codes List -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Active Alphanumeric Promo Codes</h3>
+          <div id="promo-codes-container" class="space-y-3">
+            <div class="text-center py-6 text-slate-500 text-xs">Loading promo codes...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SUB-PAGE: AUDIT CHANGE HISTORY ─────────────────────────────────── -->
+      <section id="pane-company-history" class="hidden space-y-4">
+        <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+          <button onclick="closeCompanyHistorySubPage()" class="flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 py-1 transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Back to Company Details</span>
+          </button>
+          <span class="text-[10px] font-mono text-slate-400" id="badge-history-count">Logs</span>
+        </div>
+
+        <div>
+          <h2 class="text-base font-black text-white">Audit Change History</h2>
+          <p class="text-xs text-slate-400">Detailed record of what was changed, old/new values, and network status</p>
+        </div>
+
+        <div id="history-container" class="space-y-3">
+          <div class="text-center py-8 text-slate-500 text-xs">Loading change audit logs...</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (5 Primary Tabs with Sales as Default) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-md border-t border-emerald-900/60 px-2 py-2 flex justify-around max-w-md mx-auto">
+      
+      <!-- 1: Today's Sales (Default Landing Tab) -->
+      <button onclick="switchTab('sales')" id="nav-sales" class="flex flex-col items-center gap-1 text-amber-400 text-[10px] font-bold transition cursor-pointer">
+        <i data-lucide="trending-up" class="w-4 h-4"></i>
+        <span>Sales</span>
+      </button>
+
+      <!-- 2: Stocks -->
+      <button onclick="switchTab('inventory')" id="nav-inventory" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white text-[10px] font-semibold transition cursor-pointer">
+        <i data-lucide="boxes" class="w-4 h-4"></i>
+        <span>Stocks</span>
+      </button>
+
+      <!-- 3: Prices -->
+      <button onclick="switchTab('prices')" id="nav-prices" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white text-[10px] font-semibold transition cursor-pointer">
+        <i data-lucide="tag" class="w-4 h-4"></i>
+        <span>Prices</span>
+      </button>
+
+      <!-- 4: Check Orders -->
+      <button onclick="switchTab('orders')" id="nav-orders" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white text-[10px] font-semibold transition cursor-pointer">
+        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+        <span>Orders</span>
+      </button>
+
+      <!-- 5: Company & History Hub -->
+      <button onclick="switchTab('company')" id="nav-company" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white text-[10px] font-semibold transition cursor-pointer">
+        <i data-lucide="building" class="w-4 h-4"></i>
+        <span>Company</span>
+      </button>
+
+    </nav>
+
+    <!-- ════════════════════════════════════════════════════════════════════════ -->
+    <!-- BOTTOM NOTIFICATION BAR                                                  -->
+    <!-- ════════════════════════════════════════════════════════════════════════ -->
+    <div id="toast-banner" class="hidden fixed bottom-16 left-4 right-4 z-50 p-3 rounded-2xl bg-slate-900/95 border border-amber-400 text-white text-xs font-bold shadow-2xl flex items-center justify-between transition-all transform duration-300">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-amber-400 live-pulse"></span>
+        <span id="toast-msg">Action completed.</span>
+      </div>
+      <button onclick="hideToast()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+    </div>
+
+  </div>
+
+  <!-- Price Edit Modal -->
+  <div id="price-edit-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-emerald-700/80 rounded-2xl p-5 max-w-sm w-full shadow-2xl space-y-4">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-[10px] font-mono font-bold text-amber-400" id="modal-edit-code">aa01</span>
+          <h3 class="text-sm font-black text-white" id="modal-edit-name">Product Name</h3>
+        </div>
+        <button onclick="closePriceModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+
+      <div class="space-y-3">
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 mb-1">New Retail Selling Price (₹)</label>
+          <input type="number" step="1" id="modal-input-price" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-base font-mono font-bold text-amber-300 focus:outline-none focus:border-amber-400">
+        </div>
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 mb-1">New Wholesale Price (₹)</label>
+          <input type="number" step="1" id="modal-input-wholesale" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm font-mono text-emerald-400 focus:outline-none focus:border-emerald-400">
+        </div>
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 mb-1">Change Reason / Remarks</label>
+          <input type="text" id="modal-input-reason" placeholder="e.g. Market Rate Update" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-slate-500">
+        </div>
+      </div>
+
+      <div class="flex gap-2 pt-2">
+        <button onclick="closePriceModal()" class="w-1/3 py-2.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-300">
+          Cancel
+        </button>
+        <button onclick="submitPriceUpdate()" class="w-2/3 py-2.5 rounded-xl font-black text-xs bg-emerald-500 text-slate-950 shadow-md">
+          Save &amp; Log History
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generate Promo Code Modal -->
+  <div id="create-promo-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-emerald-700/80 rounded-2xl p-5 max-w-sm w-full shadow-2xl space-y-3.5">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-sm font-black text-white flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            <span>Generate New Promo Code</span>
+          </h3>
+          <p class="text-[10px] text-slate-400">Sequential alphanumeric sequence &amp; QR code</p>
+        </div>
+        <button onclick="closeCreatePromoModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+
+      <div class="space-y-2.5 text-xs">
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 mb-1">Promo Offer Name</label>
+          <input type="text" id="new-promo-name" placeholder="e.g. Pongal Harvest Mega Offer" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Validity % (Discount)</label>
+            <input type="number" step="0.5" id="new-promo-percentage" value="10.0" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-amber-300 font-bold">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Purchase Credits Limit</label>
+            <input type="number" step="1" id="new-promo-credits" value="100" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-emerald-400 font-bold">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Starting Date</label>
+            <input type="date" id="new-promo-start" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-slate-200">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Ending Date</label>
+            <input type="date" id="new-promo-end" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-slate-200">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Max Discount (₹)</label>
+            <input type="number" id="new-promo-max-discount" value="1000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Min Order Value (₹)</label>
+            <input type="number" id="new-promo-min-order" value="1500" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-white">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-2 pt-2">
+        <button onclick="closeCreatePromoModal()" class="w-1/3 py-2.5 rounded-xl font-bold text-xs bg-slate-800 text-slate-300">
+          Cancel
+        </button>
+        <button onclick="submitNewPromoCode()" class="w-2/3 py-2.5 rounded-xl font-black text-xs bg-emerald-500 text-slate-950 shadow-md">
+          Save &amp; Generate QR
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/mobile.js"></script>
+</body>
+</html>

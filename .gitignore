@@ -1,0 +1,11 @@
+﻿# Ignore Android APK
+*.apk
+
+# Ignore backend folder
+RKG_Suyambu_Web_ERP_Backend/
+
+# Ignore Windows scripts
+*.bat
+
+# Ignore node_modules if any
+node_modules/

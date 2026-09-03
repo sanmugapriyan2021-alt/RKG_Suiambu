@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE881"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14603B"/>
+      <stop offset="50%" stop-color="#0B4226"/>
+      <stop offset="100%" stop-color="#052816"/>
+    </linearGradient>
+    <linearGradient id="lingamGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEAA7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .brand-title { font-family: 'Montserrat', 'Arial Black', sans-serif; font-weight: 900; fill: #0B4226; letter-spacing: 12px; }
+    .brand-sub { font-family: 'Cinzel', 'Trajan Pro', 'Georgia', serif; font-weight: 800; fill: #FFFFFF; letter-spacing: 8px; }
+    .brand-tagline { font-family: 'Montserrat', 'Segoe UI', sans-serif; font-weight: 700; fill: #D4AF37; letter-spacing: 4px; font-size: 15px; }
+  </style>
+
+  <!-- Clean Background -->
+  <circle cx="400" cy="400" r="390" fill="#FFFFFF"/>
+  <circle cx="400" cy="400" r="375" fill="none" stroke="url(#greenGrad)" stroke-width="16" filter="url(#badgeShadow)"/>
+  <circle cx="400" cy="400" r="356" fill="none" stroke="url(#goldGrad)" stroke-width="5"/>
+  <circle cx="400" cy="400" r="346" fill="none" stroke="#0B4226" stroke-width="2" stroke-dasharray="6,6"/>
+  <circle cx="400" cy="400" r="338" fill="#FBFDFB"/>
+
+  <!-- Halo behind Lingam -->
+  <circle cx="400" cy="380" r="140" fill="url(#lingamGlow)"/>
+
+  <!-- TOP BRAND TEXT: RKG -->
+  <path id="topCurve" d="M 180,270 A 260,260 0 0,1 620,270" fill="none" />
+  <text font-size="76" class="brand-title" text-anchor="middle">
+    <textPath href="#topCurve" startOffset="50%">RKG</textPath>
+  </text>
+
+  <!-- LEFT ICON: DAIRY COW -->
+  <g id="cowGroup" transform="translate(140, 310) scale(0.65)">
+    <path d="M 80 180 C 70 160, 50 140, 40 120 C 30 100, 35 70, 55 50 C 65 40, 85 45, 95 60 C 105 50, 120 40, 140 45 C 160 30, 190 20, 220 30 C 240 25, 270 40, 290 70 C 320 100, 330 150, 320 200 C 310 240, 300 270, 280 290 L 280 340 L 260 340 L 260 280 L 220 280 L 220 340 L 200 340 L 190 270 C 170 280, 150 280, 130 270 L 120 340 L 100 340 L 110 260 C 90 240, 80 210, 80 180 Z" 
+          fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <path d="M 60 45 C 50 20, 30 10, 20 15 C 30 30, 45 40, 55 50 Z" fill="url(#goldGrad)"/>
+    <path d="M 85 40 C 95 15, 115 10, 125 15 C 115 30, 100 40, 90 48 Z" fill="url(#goldGrad)"/>
+    <path d="M 60 110 Q 75 130 90 120" fill="none" stroke="url(#goldGrad)" stroke-width="5"/>
+    <circle cx="75" cy="130" r="7" fill="url(#goldGrad)"/>
+    <text x="180" y="380" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" fill="#0B4226" text-anchor="middle">LIVESTOCK</text>
+  </g>
+
+  <!-- CENTER ICON: SACRED SHIVA LINGAM -->
+  <g id="shivaLingam" transform="translate(400, 390)">
+    <path d="M -85 70 L 85 70 L 70 95 L -70 95 Z" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="2"/>
+    <path d="M -65 45 C -45 58, 45 58, 65 45 L 75 70 L -75 70 Z" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="2"/>
+    <path d="M -90 15 C -90 -10, -50 -18, 0 -18 C 50 -18, 90 -10, 95 15 L 155 15 C 160 20, 160 30, 155 35 L 90 35 C 70 50, -70 50, -90 15 Z" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="3"/>
+    <path d="M -36 15 L -36 -60 C -36 -105, 36 -105, 36 -60 L 36 15 Z" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="3"/>
+    <line x1="-22" y1="-62" x2="22" y2="-62" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-24" y1="-53" x2="24" y2="-53" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-22" y1="-44" x2="22" y2="-44" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="-53" r="4.5" fill="#C0392B"/>
+  </g>
+
+  <!-- RIGHT ICON: GRAIN MILLING MACHINE -->
+  <g id="millMachineGroup" transform="translate(480, 310) scale(0.65)">
+    <polygon points="120,40 240,40 205,100 155,100" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <rect x="150" y="100" width="60" height="15" fill="url(#goldGrad)"/>
+    <rect x="120" y="115" width="120" height="110" rx="10" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <circle cx="180" cy="170" r="36" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="3"/>
+    <circle cx="180" cy="170" r="18" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+    <circle cx="180" cy="170" r="6" fill="#FFFFFF"/>
+    <circle cx="232" cy="195" r="20" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="2"/>
+    <polygon points="120,200 80,230 95,250 140,225" fill="url(#goldGrad)" stroke="#7A4E0B" stroke-width="3"/>
+    <rect x="135" y="225" width="16" height="115" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+    <rect x="209" y="225" width="16" height="115" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="110" y1="280" x2="250" y2="280" stroke="url(#goldGrad)" stroke-width="4"/>
+    <rect x="100" y="335" width="160" height="12" rx="4" fill="url(#goldGrad)"/>
+    <text x="180" y="380" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" fill="#0B4226" text-anchor="middle">GRAIN MILL</text>
+  </g>
+
+  <!-- BOTTOM BANNER: SUIAMBU -->
+  <g id="bottomBanner" transform="translate(400, 600)">
+    <path d="M -260 25 L -290 -10 L -250 -25 L -230 0 L 230 0 L 250 -25 L 290 -10 L 260 25 L 240 50 L -240 50 Z" fill="#072C18" filter="url(#badgeShadow)"/>
+    <path d="M -235 5 C -120 -15, 120 -15, 235 5 L 220 52 C 110 35, -110 35, -220 52 Z" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <path d="M -220 12 C -110 -6, 110 -6, 220 12" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <text x="0" y="38" font-size="46" class="brand-sub" text-anchor="middle">SUIAMBU</text>
+    <text x="0" y="90" class="brand-tagline" text-anchor="middle">CATTLE FEEDS &amp; GRAIN MILL</text>
+  </g>
+</svg>

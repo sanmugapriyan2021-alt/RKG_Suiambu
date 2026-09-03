@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6d365" />
+      <stop offset="100%" stop-color="#fda085" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b4332" />
+      <stop offset="100%" stop-color="#2d6a4f" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a373" />
+      <stop offset="100%" stop-color="#e9c46a" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#081c15" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Emblem Background / Shield -->
+  <rect x="4" y="6" width="68" height="68" rx="16" fill="url(#emeraldGrad)" filter="url(#shadow)" />
+  <rect x="6" y="8" width="64" height="64" rx="14" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" stroke-opacity="0.6" />
+
+  <!-- Agricultural & Feed Icon inside Emblem -->
+  <!-- Wheat / Millet Grain Stalks -->
+  <g transform="translate(18, 16)">
+    <!-- Central Sprout / Millet Ear -->
+    <path d="M20 44 C20 30, 20 18, 20 8" stroke="#f6d365" stroke-width="2.5" stroke-linecap="round" />
+    
+    <!-- Left grains -->
+    <ellipse cx="14" cy="14" rx="4" ry="7" transform="rotate(-30 14 14)" fill="url(#accentGrad)" />
+    <ellipse cx="12" cy="24" rx="4" ry="7" transform="rotate(-35 12 24)" fill="url(#accentGrad)" />
+    <ellipse cx="13" cy="34" rx="3.5" ry="6" transform="rotate(-35 13 34)" fill="url(#accentGrad)" />
+    
+    <!-- Right grains -->
+    <ellipse cx="26" cy="14" rx="4" ry="7" transform="rotate(30 26 14)" fill="url(#goldGrad)" />
+    <ellipse cx="28" cy="24" rx="4" ry="7" transform="rotate(35 28 24)" fill="url(#goldGrad)" />
+    <ellipse cx="27" cy="34" rx="3.5" ry="6" transform="rotate(35 27 34)" fill="url(#goldGrad)" />
+    
+    <!-- Center top grain -->
+    <ellipse cx="20" cy="8" rx="3.5" ry="6.5" fill="#f6d365" />
+    
+    <!-- Oil Droplet / Nutrition base -->
+    <path d="M20 42 C16 42, 13 45, 13 48 C13 52, 20 56, 20 56 C20 56, 27 52, 27 48 C27 45, 24 42, 20 42 Z" fill="url(#goldGrad)" opacity="0.9" />
+  </g>
+
+  <!-- Typography: English & Tamil Brand Name -->
+  <text x="84" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="900" fill="#1b4332" letter-spacing="1">
+    RKG SUYAMBU
+  </text>
+  
+  <text x="84" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#2d6a4f" letter-spacing="0.5">
+    ஆர்.கே.ஜி சுயம்பு
+  </text>
+  
+  <text x="84" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#8d99ae" letter-spacing="1.2">
+    AGRO &amp; CATTLE FEED ENTERPRISE
+  </text>
+
+  <!-- Decorative Green/Gold separator dot -->
+  <circle cx="270" cy="27" r="3" fill="#d4a373" />
+</svg>

@@ -1,0 +1,685 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RKG SUIAMBU — Cattle Feeds, Cold-Pressed Oils & Organic Millets</title>
+  
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/static/rkg-logo.png">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Mukta+Malar:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-tamil { font-family: 'Mukta Malar', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    .hero-bg-gradient {
+      background: radial-gradient(circle at 50% 20%, rgba(6, 78, 59, 0.45) 0%, rgba(2, 44, 34, 0.85) 60%, rgba(2, 6, 23, 1) 100%);
+    }
+    .gradient-text-gold {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .seal-gold-border {
+      box-shadow: 0 0 0 3px #fbbf24, 0 10px 25px -5px rgba(251, 191, 36, 0.3);
+    }
+    .glass-panel-dark {
+      background: rgba(2, 35, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       1. CLIENT-FACING HEADER (Clean Left Logo + Top Right Menu & Cart)
+  ══════════════════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════════════════════
+       1. CLIENT-FACING HEADER (Menu on Left, Logo + English Title, Cart on Right)
+  ══════════════════════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-emerald-800/60 shadow-lg transition duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Left Side: Dashboard Menu Button [≡] + Clean Logo + English Title -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Dashboard Menu Button (Placed on Left Side of Screen) -->
+        <button onclick="openNavDrawer()" class="p-2.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 border border-emerald-700/80 text-amber-400 hover:text-amber-300 transition shadow-md flex items-center justify-center cursor-pointer group" title="Open Navigation Menu">
+          <i data-lucide="menu" class="w-5 h-5 group-hover:scale-110 transition"></i>
+        </button>
+
+        <a href="#hero" class="flex items-center gap-3 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full seal-gold-border flex items-center justify-center bg-white overflow-hidden p-0.5 flex-shrink-0 group-hover:scale-105 transition duration-300">
+            <img src="/static/rkg-logo.png" alt="RKG Suyambu" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <div class="font-cinzel font-black tracking-wider text-base sm:text-xl text-white group-hover:text-amber-300 transition company-name-text">
+              RKG SUYAMBU
+            </div>
+            <div class="text-[11px] sm:text-xs font-bold text-amber-300/90 tracking-wide uppercase">
+              Cattle Feeds &amp; Agro Products
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right Side Controls: Inquiry Cart Button Only -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Inquiry Cart Button -->
+        <button onclick="toggleCartDrawer()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-black text-xs transition shadow-md flex items-center gap-2 cursor-pointer">
+          <i data-lucide="shopping-cart" class="w-4 h-4 text-slate-950"></i>
+          <span class="hidden sm:inline">Cart</span>
+          <span id="cart-count-badge" class="w-5 h-5 rounded-full bg-slate-950 text-amber-400 font-black text-[11px] flex items-center justify-center">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       2. DASHBOARD NAVIGATION DRAWER (OPENS FROM RIGHT TO LEFT)
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div id="nav-drawer-backdrop" onclick="closeNavDrawer()" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300"></div>
+  
+  <div id="nav-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-[#02231a] text-white shadow-2xl border-l border-amber-400/40 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+    
+    <!-- Drawer Top Brand Header with Close Button -->
+    <div class="p-5 border-b border-emerald-800 flex items-center justify-between bg-emerald-950/90">
+      <div class="flex items-center gap-3">
+        <img src="/static/rkg-logo.png" alt="RKG Suyambu" class="w-10 h-10 rounded-full seal-gold-border object-contain bg-white">
+        <div>
+          <div class="font-cinzel font-black text-sm text-white tracking-wider company-name-text">RKG SUIAMBU</div>
+          <div class="text-[10px] text-amber-300 font-semibold tracking-wide">Navigation Dashboard</div>
+        </div>
+      </div>
+      <button onclick="closeNavDrawer()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900 transition" title="Close Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Navigation Category Links (Fully English) -->
+    <div class="flex-1 overflow-y-auto p-5 space-y-1.5">
+      <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400/80 px-3 py-1">Company Sections</div>
+      
+      <a href="#hero" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="home" class="w-4 h-4 text-amber-400"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="#products" onclick="selectDrawerCategory('ALL')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="grid" class="w-4 h-4 text-emerald-400"></i>
+        <span>All Products Catalog</span>
+      </a>
+
+      <a href="#products" onclick="selectDrawerCategory('FEEDS')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
+        <span>Cattle Feeds &amp; Pellets</span>
+      </a>
+
+      <a href="#products" onclick="selectDrawerCategory('OILS')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="droplet" class="w-4 h-4 text-amber-300"></i>
+        <span>Cold-Pressed Oils (Chekku)</span>
+      </a>
+
+      <a href="#products" onclick="selectDrawerCategory('GRAINS_RICE')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="wheat" class="w-4 h-4 text-emerald-300"></i>
+        <span>Traditional Rice &amp; Millets</span>
+      </a>
+
+      <a href="#products" onclick="selectDrawerCategory('MASALA')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="flame" class="w-4 h-4 text-rose-400"></i>
+        <span>Masalas &amp; Spices</span>
+      </a>
+
+      <div class="pt-3 border-t border-emerald-800/80 text-[11px] font-bold uppercase tracking-wider text-amber-400/80 px-3 py-1">Partnerships &amp; Sourcing</div>
+
+      <a href="#dealership" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="truck" class="w-4 h-4 text-amber-400"></i>
+        <span>Wholesale &amp; Dealership</span>
+      </a>
+
+      <a href="#farmers" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="sprout" class="w-4 h-4 text-emerald-400"></i>
+        <span>Farmer Hub &amp; Direct Sourcing</span>
+      </a>
+
+      <a href="#location-inquiry" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="map-pin" class="w-4 h-4 text-rose-400"></i>
+        <span>Mill Location &amp; Contact</span>
+      </a>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-5 border-t border-emerald-800 bg-emerald-950/95 space-y-2">
+      <button onclick="closeNavDrawer(); toggleCartDrawer()" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+        <span>Open Inquiry Cart</span>
+      </button>
+
+      <a href="https://wa.me/919442576622" target="_blank" class="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs transition flex items-center justify-center gap-2">
+        <i data-lucide="message-circle" class="w-4 h-4 text-amber-300"></i>
+        <span>WhatsApp: <span class="company-phone-text font-mono">+91 94425 76622</span></span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       3. HERO SECTION (COMPANY INTRODUCTION + OFFICIAL GST/FSSAI DETAILS)
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section id="hero" class="hero-bg-gradient py-12 lg:py-18 relative overflow-hidden border-b border-emerald-800/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/90 border border-amber-400/40 text-amber-300 text-xs font-extrabold tracking-wide shadow-md">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>Kongu Agro-Industrial Corridor &bull; 100% Direct From Farmers</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            <span class="text-white">High Milk-Yield</span><br>
+            <span class="gradient-text-gold font-cinzel tracking-wide">Cattle Feed, Cold-Pressed Oils &amp; Millets</span>
+          </h1>
+
+          <p class="text-xs sm:text-sm text-emerald-100/90 leading-relaxed max-w-2xl">
+            Tamil Nadu's trusted agro-manufacturing mill: Formulating scientifically balanced high-protein cattle feeds, 100% pure traditional Vaagai wood-pressed oils, and processed organic millets.
+          </p>
+
+          <!-- Official Company &amp; Statutory Compliance Details -->
+          <div class="bg-[#021f17] p-4 rounded-2xl border border-emerald-700/80 shadow-md space-y-2 text-xs">
+            <div class="text-[11px] font-black uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
+              <span>Registered Enterprise Details &amp; Compliance</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-200">
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-400 font-bold">GSTIN:</span>
+                <span class="font-mono font-bold text-white company-gstin-text">33AAAAA9999Z1M8</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-400 font-bold">FSSAI:</span>
+                <span class="font-mono font-bold text-white company-fssai-text">12424005000124</span>
+              </div>
+              <div class="sm:col-span-2 text-emerald-200/90 text-[11px] flex items-start gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                <span class="company-address-text">SF No. 142/2, Main Road, Erode-Tirupur Agri Corridor, Tamil Nadu 638056</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-1">
+            <a href="#products" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-xl flex items-center gap-2">
+              <i data-lucide="shopping-bag" class="w-4 h-4 text-slate-950"></i>
+              <span>View Products &amp; Pricing</span>
+            </a>
+            <a href="https://wa.me/919442576622?text=Hello%20RKG%20Suyambu!%20I%20want%20to%20order%20cattle%20feed." target="_blank"
+               class="px-5 py-3.5 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-white font-extrabold text-xs uppercase tracking-wider transition border border-emerald-600 flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-amber-400"></i>
+              <span>Direct WhatsApp Chat</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="glass-panel-dark rounded-3xl p-6 sm:p-7 text-white relative shadow-2xl max-w-md w-full border border-amber-400/40">
+            <div class="text-center mb-5">
+              <img src="/static/rkg-logo.png" alt="RKG Suyambu" class="w-32 h-32 mx-auto rounded-full seal-gold-border object-contain bg-white mb-3 shadow-lg">
+              <h2 class="text-lg font-cinzel font-black tracking-wide text-amber-300 company-name-text">RKG SUYAMBU</h2>
+              <div class="text-xs font-bold text-emerald-200 mt-0.5">Cattle Feed &amp; Wood-Pressed Oil Mill</div>
+            </div>
+
+            <!-- Stats Matrix -->
+            <div class="grid grid-cols-2 gap-2.5 mb-3 text-center">
+              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+                <div class="text-xl font-black text-amber-400">1,500+</div>
+                <div class="text-[10px] font-bold text-emerald-200">Farmers &amp; Dairies</div>
+              </div>
+              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+                <div class="text-xl font-black text-amber-400">32+</div>
+                <div class="text-[10px] font-bold text-emerald-200">Factory Direct Products</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       4. PRODUCTS CATALOG & FIREBASE INTERACTIVE DATA TABLE
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section id="products" class="py-14 sm:py-18 bg-slate-950 border-b border-emerald-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title & Active Filter Badge -->
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full mb-2" data-i18n="prod_badge" data-i18n-en="Master Products Catalog" data-i18n-ta="முதன்மை தயாரிப்புகள் பட்டியல்">
+          Master Products Catalog
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight" data-i18n="prod_title" data-i18n-en="Cattle Feeds, Cold-Pressed Oils, Rice &amp; Millets" data-i18n-ta="மாட்டுத்தீவனம், மரச்செக்கு எண்ணெய், அரிசி &amp; தானியங்கள்">
+          Cattle Feeds, Cold-Pressed Oils, Rice &amp; Millets
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2" data-i18n="prod_desc" data-i18n-en="Google Cloud Firebase live inventory stock and factory pricing." data-i18n-ta="Google Cloud Firebase நேரடி விலைப்பட்டியல் மற்றும் இருப்பு விபரம்.">
+          Google Cloud Firebase live inventory stock and factory pricing.
+        </p>
+      </div>
+
+      <!-- Clean Search Bar + View Switcher (Cards / Table) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
+        
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-80">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="product-search-input" oninput="onSearchProducts(event)" placeholder="Search product name, code (aa01, rice, oil...)"
+                 class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900 text-white text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-400">
+        </div>
+
+        <!-- View Mode Switcher -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-400 font-bold hidden sm:inline" data-i18n="view_lbl" data-i18n-en="View:" data-i18n-ta="பார்வை:">View:</span>
+          <div class="inline-flex bg-slate-900 p-1 rounded-xl border border-slate-800">
+            <button id="view-mode-grid" onclick="switchProductViewMode('grid')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition flex items-center gap-1">
+              <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+              <span data-i18n="view_cards" data-i18n-en="Cards" data-i18n-ta="கார்டுகள்">Cards</span>
+            </button>
+            <button id="view-mode-table" onclick="switchProductViewMode('table')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition flex items-center gap-1">
+              <i data-lucide="table" class="w-3.5 h-3.5"></i>
+              <span data-i18n="view_table" data-i18n-en="Table" data-i18n-ta="அட்டவணை">Table</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Product Cards View Container -->
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="col-span-full py-16 text-center text-slate-400 flex items-center justify-center gap-2">
+          <i data-lucide="loader-2" class="w-5 h-5 text-amber-400 animate-spin"></i>
+          <span>Loading Cloud Products Catalog...</span>
+        </div>
+      </div>
+
+      <!-- Product Table View Container (Direct Firebase Data Table) -->
+      <div id="products-table-wrap" class="hidden overflow-x-auto bg-[#021f17] rounded-3xl border border-emerald-800 p-4 shadow-xl">
+        <table class="w-full text-left text-xs text-slate-200">
+          <thead class="text-[11px] font-black uppercase text-amber-300 bg-emerald-950/90 border-b border-emerald-800">
+            <tr>
+              <th class="p-3.5" data-i18n="th_code" data-i18n-en="Unique Code" data-i18n-ta="தயாரிப்பு குறியீடு">Unique Code</th>
+              <th class="p-3.5" data-i18n="th_prod" data-i18n-en="Product" data-i18n-ta="தயாரிப்பு">Product</th>
+              <th class="p-3.5" data-i18n="th_brand" data-i18n-en="Brand" data-i18n-ta="பிராண்ட்">Brand</th>
+              <th class="p-3.5" data-i18n="th_pack" data-i18n-en="Pack" data-i18n-ta="அளவு">Pack</th>
+              <th class="p-3.5" data-i18n="th_price" data-i18n-en="Price" data-i18n-ta="விலை">Price</th>
+              <th class="p-3.5" data-i18n="th_stock" data-i18n-en="Stock Status" data-i18n-ta="இருப்பு நிலை">Stock Status</th>
+              <th class="p-3.5 text-center" data-i18n="th_action" data-i18n-en="Action" data-i18n-ta="செயல்">Action</th>
+            </tr>
+          </thead>
+          <tbody id="products-table-body" class="divide-y divide-emerald-900/60">
+            <!-- Injected by website.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       5. CIRCULAR AGRO-PROCESSING & WHOLESALE DEALERSHIP
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section id="dealership" class="py-14 sm:py-18 bg-slate-900 border-b border-emerald-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-6 space-y-5">
+          <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full" data-i18n="dlr_badge" data-i18n-en="Distributor &amp; Farm Partner Program" data-i18n-ta="விநியோகஸ்தர் மற்றும் பண்ணை கூட்டாளர் திட்டம்">
+            Distributor &amp; Farm Partner Program
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight" data-i18n="dlr_title" data-i18n-en="Join As An Authorized Dealer of RKG Suyambu" data-i18n-ta="ஆர்.கே.ஜி சுயம்பு அங்கீகரிக்கப்பட்ட டீலராக இணையுங்கள்">
+            Join As An Authorized Dealer of RKG Suyambu
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="dlr_desc" data-i18n-en="Direct factory-gate supply at wholesale rates for dairy farmers, veterinary dispensaries, and retail grocers." data-i18n-ta="பால் பண்ணையாளர்கள், கால்நடை மருந்து கடைகள் மற்றும் மளிகை மொத்த வியாபாரிகளுக்கு குறைந்த ஆலை விலையில் நேரடி விநியோகம்.">
+            Direct factory-gate supply at wholesale rates for dairy farmers, veterinary dispensaries, and retail grocers.
+          </p>
+
+          <div class="space-y-2.5 pt-2 text-xs font-bold text-amber-200">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+              <span data-i18n="dlr_point_1" data-i18n-en="Direct factory pricing with maximum profit margin" data-i18n-ta="நேரடி ஆலை விலை மற்றும் அதிக லாப வரம்பு">Direct factory pricing with maximum profit margin</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+              <span data-i18n="dlr_point_2" data-i18n-en="Express truckload delivery across Tamil Nadu &amp; Kerala" data-i18n-ta="தமிழ்நாடு மற்றும் கேரளா முழுவதும் விரைவான லாரி டெலிவரி">Express truckload delivery across Tamil Nadu &amp; Kerala</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+              <span data-i18n="dlr_point_3" data-i18n-en="Complimentary store branding signboards and sales marketing support" data-i18n-ta="இலவச கடை பெயர் பலகை மற்றும் விற்பனை ஆதரவு">Complimentary store branding signboards and sales marketing support</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-[#02231a] p-6 sm:p-7 rounded-3xl border border-amber-400/40 shadow-xl space-y-4">
+            <h3 class="text-base font-black text-white" data-i18n="dlr_box_title" data-i18n-en="Direct Mill Supply &amp; Bulk Procurement" data-i18n-ta="ஆலை நேரடி விநியோகம் &amp; மொத்த கொள்முதல்">
+              Direct Mill Supply &amp; Bulk Procurement
+            </h3>
+            <p class="text-xs text-emerald-200 leading-relaxed" data-i18n="dlr_box_desc" data-i18n-en="Special discounted commercial tier rates and direct truckload delivery for orders of 50 bags and above." data-i18n-ta="50 மூட்டைகள் அல்லது அதற்கு மேற்பட்ட மொத்த ஆர்டர்களுக்கு சிறப்பு சலுகை விலையும் நேரடி லாரி விநியோகமும் வழங்கப்படுகிறது.">
+              Special discounted commercial tier rates and direct truckload delivery for orders of 50 bags and above.
+            </p>
+            <a href="https://wa.me/919442576622?text=Hello%20RKG%20Suyambu!%20I%20want%20to%20apply%20for%20Wholesale%20/%20Dealership." target="_blank"
+               class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-md flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span data-i18n="dlr_box_btn" data-i18n-en="Contact Wholesale Manager on WhatsApp" data-i18n-ta="வாட்ஸ்அப்பில் மொத்த விற்பனை மேலாளரைத் தொடர்பு கொள்ளவும்">Contact Wholesale Manager on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       6. FARMER PROCUREMENT HUB
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section id="farmers" class="py-14 bg-[#04281f] text-white border-b border-emerald-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full mb-2" data-i18n="frm_badge" data-i18n-en="Fair Harvest Sourcing" data-i18n-ta="நேர்மையான நேரடி கொள்முதல்">
+          Fair Harvest Sourcing
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight" data-i18n="frm_title" data-i18n-en="Are you a Farmer? Sell your agricultural harvest directly to our mill" data-i18n-ta="விவசாயியா? உங்கள் விளைச்சலை நேரடியாக விற்பனை செய்யுங்கள்">
+          Are you a Farmer? Sell your agricultural harvest directly to our mill
+        </h2>
+        <p class="text-xs sm:text-sm text-emerald-200 mt-1" data-i18n="frm_desc" data-i18n-en="We procure Pearl Millet (Kambu), Finger Millet (Ragi), Groundnut pods, and Sesame seeds without middlemen at the best rates." data-i18n-ta="கம்பு, கேழ்வரகு, நிலக்கடலை மற்றும் எள்ளு விளைச்சலை இடைத்தரகர்கள் இன்றி சிறந்த விலையில் வாங்குகிறோம்.">
+          We procure Pearl Millet (Kambu), Finger Millet (Ragi), Groundnut pods, and Sesame seeds without middlemen at the best rates.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
+        <div class="bg-[#021f17] p-5 rounded-2xl border border-emerald-800">
+          <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black mx-auto mb-3">
+            <i data-lucide="scale" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-extrabold mb-1" data-i18n="frm_f1_t" data-i18n-en="Digital Weighing &amp; Moisture Testing" data-i18n-ta="டிஜிட்டல் எடை &amp; ஈரப்பதம் பரிசோதனை">Digital Weighing &amp; Moisture Testing</h3>
+          <p class="text-xs text-emerald-200/90" data-i18n="frm_f1_d" data-i18n-en="Computerized precision weighbridge and instant laboratory testing." data-i18n-ta="கணினி வழி துல்லிய எடை மற்றும் பரிசோதனை.">Computerized precision weighbridge and instant laboratory testing.</p>
+        </div>
+
+        <div class="bg-[#021f17] p-5 rounded-2xl border border-emerald-800">
+          <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black mx-auto mb-3">
+            <i data-lucide="indian-rupee" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-extrabold mb-1" data-i18n="frm_f2_t" data-i18n-en="Instant Direct Bank Settlement" data-i18n-ta="உடனடி பணப்பரிவர்த்தனை">Instant Direct Bank Settlement</h3>
+          <p class="text-xs text-emerald-200/90" data-i18n="frm_f2_d" data-i18n-en="Direct payment transferred to your bank account within 30 minutes of unloading." data-i18n-ta="சரக்கு இறக்கிய 30 நிமிடங்களில் வங்கிக் கணக்கில் தீர்வு.">Direct payment transferred to your bank account within 30 minutes of unloading.</p>
+        </div>
+
+        <div class="bg-[#021f17] p-5 rounded-2xl border border-emerald-800">
+          <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black mx-auto mb-3">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-extrabold mb-1" data-i18n="frm_f3_t" data-i18n-en="Transparent Regulated Pricing" data-i18n-ta="அரசு ஒழுங்குமுறை விலை">Transparent Regulated Pricing</h3>
+          <p class="text-xs text-emerald-200/90" data-i18n="frm_f3_d" data-i18n-en="Premium fair rates above prevailing open market wholesale rates." data-i18n-ta="சந்தை நிலவரத்தை விட கூடுதல் நியாய விலை.">Premium fair rates above prevailing open market wholesale rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       7. MILL LOCATION (LEFT) & INQUIRY FORM (RIGHT) - 2 COLUMN LAYOUT
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section id="location-inquiry" class="py-16 bg-[#021f17] border-t border-emerald-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Half: Mill Map & Location Details -->
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full mb-2" data-i18n="loc_badge" data-i18n-en="Mill Location &amp; Directions" data-i18n-ta="ஆலை இருப்பிடம் &amp; வழிகாட்டல்">
+              Mill Location &amp; Directions
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight" data-i18n="loc_title" data-i18n-en="Mill Location &amp; Factory Visit" data-i18n-ta="ஆலை இருப்பிடம் &amp; நேரடி வருகை">
+              Mill Location &amp; Factory Visit
+            </h2>
+            <p class="text-xs text-emerald-200/90 mt-1 company-address-text">
+              SF No. 142/2, Main Road, Erode-Tirupur Agri Corridor, Tamil Nadu.
+            </p>
+          </div>
+
+          <!-- Interactive Google Maps Frame / Direction Card -->
+          <div class="bg-[#02231a] rounded-3xl p-5 border border-emerald-800 shadow-xl space-y-4">
+            
+            <div class="rounded-2xl overflow-hidden border border-emerald-700/60 aspect-video relative bg-emerald-950 flex items-center justify-center">
+              <iframe 
+                title="RKG Suiambu Mill Location"
+                src="https://maps.google.com/maps?q=Erode%20Tirupur%20Tamil%20Nadu&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0" 
+                loading="lazy" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+                <div class="text-amber-400 font-bold text-[11px]" data-i18n="loc_days_lbl" data-i18n-en="Working Days:" data-i18n-ta="வேலை நாட்கள்:">Working Days:</div>
+                <div class="text-white font-semibold company-days-text">Mon - Sat (திங்கள் - சனி)</div>
+              </div>
+              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+                <div class="text-amber-400 font-bold text-[11px]" data-i18n="loc_hours_lbl" data-i18n-en="Dispatch Hours:" data-i18n-ta="விநியோக நேரம்:">Dispatch Hours:</div>
+                <div class="text-white font-semibold company-hours-text">6:30 AM - 8:30 PM</div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2.5 pt-1 items-center">
+              <a href="https://maps.app.goo.gl/b46NgUjZTKy1RQ6Y6" target="_blank"
+                 class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition shadow-md inline-flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span data-i18n="loc_map_btn" data-i18n-en="Find Us" data-i18n-ta="Find Us">Find Us</span>
+                <i data-lucide="external-link" class="w-3 h-3 text-slate-900"></i>
+              </a>
+
+              <a href="https://wa.me/919442576622" target="_blank"
+                 class="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs transition inline-flex items-center gap-2 border border-emerald-600">
+                <i data-lucide="message-circle" class="w-4 h-4 text-amber-300"></i>
+                <span data-i18n="loc_wa_btn" data-i18n-en="WhatsApp Chat" data-i18n-ta="WhatsApp Chat">WhatsApp Chat</span>
+              </a>
+
+              <a href="https://www.instagram.com/harishkongu6622?igsi=MThlc2x1am85ZHpydw==" target="_blank"
+                 class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-xs transition shadow-md inline-flex items-center gap-1.5 border border-pink-400/40">
+                <span>Follow Now</span>
+                <i data-lucide="external-link" class="w-3 h-3 text-white/90"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Half: Client Inquiry Details Form with Submit & Cancel Confirmation -->
+        <div class="lg:col-span-6">
+          <div class="bg-[#02231a] p-6 sm:p-8 rounded-3xl border border-amber-400/40 shadow-2xl space-y-5">
+            <div>
+              <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full mb-2" data-i18n="inq_badge" data-i18n-en="Client Inquiry Desk" data-i18n-ta="வாடிக்கையாளர் நேரடி விசாரணை">
+                Client Inquiry Desk
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black text-white" data-i18n="inq_title" data-i18n-en="Submit Direct Mill Inquiry" data-i18n-ta="நேரடி ஆலை விசாரணை விவரங்கள்">
+                Submit Direct Mill Inquiry
+              </h3>
+              <p class="text-xs text-emerald-200/80 mt-1" data-i18n="inq_desc" data-i18n-en="Please enter your contact details below to send an instant quotation request to our WhatsApp desk." data-i18n-ta="உங்கள் விவரங்களை உள்ளிட்டு Submit செய்யவும். வாட்ஸ்அப்பில் நேரடி தகவல் அனுப்பப்படும்.">
+                Please enter your contact details below to send an instant quotation request to our WhatsApp desk.
+              </p>
+            </div>
+
+            <form id="footer-inquiry-form" onsubmit="submitFooterInquiryToWhatsApp(event)" class="space-y-3.5 text-xs">
+              
+              <div>
+                <label class="block text-slate-300 font-bold mb-1" data-i18n="inq_lbl_name" data-i18n-en="Your Full Name *" data-i18n-ta="உங்கள் பெயர் *">Your Full Name *</label>
+                <input type="text" id="inq-fullname" required placeholder="e.g. S. Murugesan / சு. முருகேசன்"
+                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-amber-400">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-slate-300 font-bold mb-1" data-i18n="inq_lbl_phone" data-i18n-en="Mobile Number *" data-i18n-ta="அலைபேசி எண் *">Mobile Number *</label>
+                  <input type="tel" id="inq-phone" required placeholder="94425 XXXXX"
+                         class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-mono focus:outline-none focus:ring-2 focus:ring-amber-400">
+                </div>
+
+                <div>
+                  <label class="block text-slate-300 font-bold mb-1" data-i18n="inq_lbl_purpose" data-i18n-en="Purpose of Inquiry" data-i18n-ta="விசாரணை நோக்கம்">Purpose of Inquiry</label>
+                  <select id="inq-purpose" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-amber-400">
+                    <option value="Wholesale Dealership">Wholesale Dealership / மொத்த வியாபாரம்</option>
+                    <option value="Dairy Cattle Feed Order">Dairy Cattle Feed Order / மாட்டுத்தீவனம் கொள்முதல்</option>
+                    <option value="Vaagai Chekku Oil Order">Vaagai Chekku Oil Order / மரச்செக்கு எண்ணெய்</option>
+                    <option value="Farmer Harvest Selling">Farmer Harvest Selling / விவசாய விளைச்சல் விற்பனை</option>
+                    <option value="General Inquiry">General Inquiry / பொதுவான தகவல்</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-slate-300 font-bold mb-1" data-i18n="inq_lbl_msg" data-i18n-en="Requirement / Message Details" data-i18n-ta="தேவைப்படும் விபரம்">Requirement / Message Details</label>
+                <textarea id="inq-message" rows="2" placeholder="Required quantity, delivery location..."
+                          class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
+              </div>
+
+              <!-- Submit & Cancel Buttons -->
+              <div class="flex items-center gap-3 pt-2">
+                <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span data-i18n="inq_btn_sub" data-i18n-en="Submit to WhatsApp" data-i18n-ta="வாட்ஸ்அப்பில் அனுப்பவும்">Submit to WhatsApp</span>
+                </button>
+
+                <button type="button" onclick="promptCancelFooterInquiry()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-rose-900/60 text-slate-300 hover:text-rose-200 border border-slate-700 hover:border-rose-700 font-bold text-xs transition cursor-pointer">
+                  <span data-i18n="inq_btn_cnc" data-i18n-en="Cancel" data-i18n-ta="ரத்து செய்ய">Cancel</span>
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       8. CANCEL CONFIRMATION MODAL
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div id="cancel-confirm-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-rose-700/80 rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center space-y-4">
+      <div class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center mx-auto text-xl">
+        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h4 class="text-base font-black text-white" data-i18n="modal_cnc_title" data-i18n-en="Cancel Inquiry?" data-i18n-ta="விசாரணையை ரத்து செய்யவா?">Cancel Inquiry?</h4>
+        <p class="text-xs text-slate-400 mt-1" data-i18n="modal_cnc_desc" data-i18n-en="Are you sure you want to clear and cancel this inquiry form?" data-i18n-ta="இந்த படிவத்தில் உள்ள விவரங்களை அழித்து ரத்து செய்ய விரும்புகிறீர்களா?">
+          Are you sure you want to clear and cancel this inquiry form?
+        </p>
+      </div>
+      <div class="flex gap-2.5 pt-2">
+        <button onclick="closeCancelConfirmModal()" class="w-1/2 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-bold text-xs hover:bg-slate-700 transition" data-i18n="modal_keep" data-i18n-en="Keep Editing" data-i18n-ta="தொடரவும்">
+          Keep Editing
+        </button>
+        <button onclick="confirmCancelFooterInquiry()" class="w-1/2 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-black text-xs transition shadow-md" data-i18n="modal_discard" data-i18n-en="Yes, Cancel" data-i18n-ta="ஆம், ரத்து செய்">
+          Yes, Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       9. MULTI-ITEM WHATSAPP INQUIRY CART DRAWER
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300"></div>
+
+  <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#02231a] text-white shadow-2xl border-l border-emerald-700/80 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-emerald-800 flex items-center justify-between bg-emerald-950/90">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
+        <h3 class="font-cinzel font-black text-base text-white tracking-wide" data-i18n="cart_title" data-i18n-en="Multi-Item Order Cart" data-i18n-ta="ஆர்டர் கூடை">Multi-Item Order Cart</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Items List Container -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-3.5 divide-y divide-emerald-900/60">
+      <!-- Injected by website.js -->
+    </div>
+
+    <!-- Drawer Footer Checkout -->
+    <div class="p-5 border-t border-emerald-800 bg-emerald-950/95 space-y-3">
+      
+      <!-- Subtotal -->
+      <div class="flex justify-between items-center text-xs">
+        <span class="text-slate-300" data-i18n="cart_subtotal" data-i18n-en="Estimated Subtotal:" data-i18n-ta="மதிப்பிடப்பட்ட தொகை:">Estimated Subtotal:</span>
+        <span class="font-mono font-bold text-amber-300 text-sm" id="cart-subtotal-val">₹0</span>
+      </div>
+
+      <!-- Customer Checkout Details -->
+      <div class="space-y-2 text-xs">
+        <input type="text" id="cart-customer-name" placeholder="Your Name / உங்கள் பெயர்" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-amber-400">
+        <input type="tel" id="cart-customer-phone" placeholder="Phone Number / அலைபேசி எண்" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-amber-400">
+        <input type="text" id="cart-customer-address" placeholder="Delivery Town / District (e.g. Kangeyam)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-amber-400">
+      </div>
+
+      <!-- Checkout WhatsApp Button -->
+      <button onclick="sendCartToWhatsApp()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-xl flex items-center justify-center gap-2 cursor-pointer">
+        <i data-lucide="send" class="w-4 h-4"></i>
+        <span data-i18n="cart_btn_send" data-i18n-en="Send Complete Order on WhatsApp" data-i18n-ta="வாட்ஸ்அப்பில் ஆர்டர் அனுப்பவும்">Send Complete Order on WhatsApp</span>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       10. PRODUCT QUICK VIEW MODAL
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div id="quickview-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-[#02231a] border border-amber-400/40 rounded-3xl p-6 max-w-xl w-full shadow-2xl relative text-white">
+      <button onclick="closeQuickViewModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-emerald-900 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="quickview-content"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       11. FLOATING WHATSAPP BUTTON (ALONE)
+  ══════════════════════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/919442576622?text=Hello%20RKG%20Suyambu!%20I%20am%20visiting%20your%20website%20and%20need%20product%20details."
+     target="_blank"
+     class="fixed bottom-6 right-6 z-40 px-4 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-black text-xs shadow-2xl hover:shadow-emerald-500/40 transition flex items-center gap-2">
+    <span class="w-2.5 h-2.5 rounded-full bg-emerald-300 animate-ping"></span>
+    <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       12. FOOTER
+  ══════════════════════════════════════════════════════════════════════ -->
+  <footer class="bg-slate-950 border-t border-emerald-900/60 py-8 text-center text-xs text-slate-500 space-y-2">
+    <div class="font-cinzel font-bold text-slate-400 company-name-text">RKG SUYAMBU CATTLE FEED &amp; AGRO PRODUCTS</div>
+    <div class="company-tamil-text font-tamil text-slate-400">ஆர்.கே.ஜி சுயம்பு மாட்டுத்தீவனம் &amp; சிறுதானிய உற்பத்தி</div>
+    <div>GSTIN: <span class="font-mono text-amber-400 company-gstin-text">33AAAAA9999Z1M8</span> | FSSAI: <span class="font-mono text-emerald-400 company-fssai-text">12424005000124</span></div>
+    <div class="text-[11px] text-slate-600">© 2026 RKG Suyambu. All Rights Reserved. Powered by Google Cloud Firebase.</div>
+  </footer>
+
+  <script src="/static/website.js"></script>
+</body>
+</html>
