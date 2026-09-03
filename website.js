@@ -78,7 +78,7 @@ function resolveProductImage(p) {
   if (name.includes('cake') || name.includes('punnakku') || code.includes('cc01')) return '/images/punnakku.jpg';
   if (name.includes('wheat') || name.includes('ragi') || name.includes('groundnut') || name.includes('corn') || code.includes('gg01') || code.includes('gg02') || code.includes('gg03') || code.includes('gg04')) return '/images/suyambu_grains.jpg';
   
-  return 'rkg-logo.png';
+  return 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg';
 }
 
 // ── View Mode Switcher (Grid vs Table) ────────────────────────────────
@@ -209,7 +209,7 @@ function renderProductsGrid() {
     const displayName = currentLang === 'ta' ? (p.tamil_name || p.name) : p.name;
     const subName = currentLang === 'ta' ? p.name : (p.tamil_name || '');
     const displayUom = p.uom || 'Unit';
-    const productImg = p.image || "rkg-logo.png";
+    const productImg = p.image || "https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg";
     const brandName = p.brand || "Suyambu";
     const uCode = p.code || p.doc_id || "";
     const isPriceAvailable = p.price && p.price > 0;
@@ -439,7 +439,7 @@ function addToInquiryCart(productId) {
       brand: p.brand,
       uom: p.uom,
       price: p.price,
-      image: p.image || "rkg-logo.png",
+      image: p.image || "https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg",
       qty: 1
     });
   }
@@ -775,7 +775,7 @@ function openQuickViewModal(productId) {
   content.innerHTML = `
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
       <div class="rounded-2xl overflow-hidden border border-emerald-800 bg-slate-950 p-3 shadow-inner">
-        <img src="${p.image || 'rkg-logo.png'}" alt="${p.name}" class="w-full h-64 object-contain rounded-xl">
+        <img src="${p.image || 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg'}" alt="${p.name}" class="w-full h-64 object-contain rounded-xl">
       </div>
       <div class="space-y-3">
         <span class="inline-block text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950 px-2.5 py-1 rounded-full border border-amber-500/40">
@@ -974,6 +974,7 @@ setInterval(() => {
   loadCompanyInfo();
   loadProductsCatalog();
 }, 30000);
+
 
 
 

@@ -463,7 +463,7 @@ function renderPosProducts() {
         card.className = "bg-white p-3.5 rounded-xl border border-slate-200 hover:border-emerald-600 hover:shadow-md cursor-pointer transition-all flex flex-col justify-between";
         card.onclick = () => addToCart(p);
 
-        const imgSrc = p.image_url || 'rkg-logo.png';
+        const imgSrc = p.image_url || 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg';
         card.innerHTML = `
             <div class="flex gap-2.5 items-start">
                 <img src="${imgSrc}" class="w-12 h-12 rounded-lg object-contain bg-slate-50 border border-slate-200 flex-shrink-0 p-0.5" alt="${p.product_name}" loading="lazy">
@@ -2301,6 +2301,7 @@ window.addEventListener("keydown", (e) => {
         }
     }
 });
+
 
 
 

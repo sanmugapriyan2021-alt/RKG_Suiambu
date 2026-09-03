@@ -188,7 +188,7 @@ function renderProductsTable(prods) {
     }
 
     tbody.innerHTML = prods.map(p => {
-        const imgSrc = p.image_url || 'rkg-logo.png';
+        const imgSrc = p.image_url || 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg';
         return `
         <tr class="hover:bg-emerald-950/40 transition">
             <td class="p-3 font-bold text-white">
@@ -897,6 +897,7 @@ async function triggerCloudSync() {
         }
     }
 }
+
 
 
 
