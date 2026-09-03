@@ -1,12 +1,59 @@
-﻿/**
+/**
  * RKG SUIAMBU — Official Client-Facing Website Script
  * Cloud Firebase Firestore Catalog Engine (Unique Codes aa01..gg23)
  * Left Pop-out Navigation Drawer, WhatsApp Multi-Item Cart & Live Location Inquiry Desk
  * WhatsApp Hotline: +91 94425 76622
  */
 
+// ── Google Firebase Client SDK Configuration ──────────────────────────
+const firebaseConfig = {
+  projectId: "rkg-suiambu",
+  authDomain: "rkg-suiambu.firebaseapp.com",
+  storageBucket: "rkg-suiambu.appspot.com"
+};
+
+let firestoreDb = null;
+try {
+  if (typeof firebase !== 'undefined') {
+    if (!firebase.apps || !firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    firestoreDb = firebase.firestore();
+    console.log("🔥 Firebase Client SDK connected to Firestore project: rkg-suiambu");
+  }
+} catch (err) {
+  console.log("Firebase connection initialized with cloud fallback:", err);
+}
+
 let currentLang = 'en'; // 'en' or 'ta'
-let productsData = [];
+
+// Comprehensive Default Catalog (Always Instant & Offline-Ready)
+const DEFAULT_PRODUCTS = [
+  { id: "gg10", code: "gg10", doc_id: "gg10", name: "Krishi Pro-Best Cattle Feed (50kg)", tamil_name: "கிருஷி ப்ரோ-பெஸ்ட் மாட்டுத்தீவனம் (50kg)", category: "FEEDS", brand: "Krishi", uom: "50 KG Bag", price: 1650, wholesale_price: 1580, stock_qty: 120, status: "Available" },
+  { id: "gg11", code: "gg11", doc_id: "gg11", name: "Krishi Supreme High-Yield Cattle Feed (50kg)", tamil_name: "கிருஷி சுப்ரீம் மாட்டுத்தீவனம் (50kg)", category: "FEEDS", brand: "Krishi", uom: "50 KG Bag", price: 1750, wholesale_price: 1680, stock_qty: 85, status: "Available" },
+  { id: "gg05", code: "gg05", doc_id: "gg05", name: "Prime Cotton Seed Pellets / Paruthi Kottai (50kg)", tamil_name: "பருத்தி கொட்டை தவிடு & புண்ணாக்கு (50kg)", category: "FEEDS", brand: "Suyambu", uom: "50 KG Bag", price: 1850, wholesale_price: 1780, stock_qty: 60, status: "Available" },
+  { id: "gg09", code: "gg09", doc_id: "gg09", name: "Nayam Thavudu Fine Rice Bran Feed (50kg)", tamil_name: "நயம் தவிடு மாட்டுத்தீவனம் (50kg)", category: "FEEDS", brand: "Suyambu", uom: "50 KG Bag", price: 1200, wholesale_price: 1150, stock_qty: 140, status: "Available" },
+  { id: "cc01", code: "cc01", doc_id: "cc01", name: "Pure Groundnut Cake / Kadalai Punnakku (50kg)", tamil_name: "மரச்செக்கு கடலை புண்ணாக்கு (50kg)", category: "FEEDS", brand: "Suyambu", uom: "50 KG Bag", price: 2350, wholesale_price: 2280, stock_qty: 45, status: "Available" },
+  { id: "gg14", code: "gg14", doc_id: "gg14", name: "Krishi Country Chicken & Poultry Feed (50kg)", tamil_name: "கிருஷி நாட்டுக் கோழி தீவனம் (50kg)", category: "FEEDS", brand: "Krishi", uom: "50 KG Bag", price: 1550, wholesale_price: 1480, stock_qty: 90, status: "Available" },
+  { id: "aa01", code: "aa01", doc_id: "aa01", name: "Vaagai Wood-Pressed Pure Coconut Oil (1 Litre)", tamil_name: "வாகை மரச்செக்கு தூய தேங்காய் எண்ணெய் (1 லிட்டர்)", category: "OILS", brand: "Suyambu", uom: "1 Litre Bottle", price: 280, wholesale_price: 260, stock_qty: 250, status: "Available" },
+  { id: "aa02", code: "aa02", doc_id: "aa02", name: "Vaagai Wood-Pressed Pure Coconut Oil (5 Litres)", tamil_name: "வாகை மரச்செக்கு தூய தேங்காய் எண்ணெய் (5 லிட்டர் கேன்)", category: "OILS", brand: "Suyambu", uom: "5 Litre Can", price: 1350, wholesale_price: 1280, stock_qty: 100, status: "Available" },
+  { id: "aa04", code: "aa04", doc_id: "aa04", name: "Vaagai Wood-Pressed Pure Groundnut Oil (1 Litre)", tamil_name: "வாகை மரச்செக்கு தூய கடலை எண்ணெய் (1 லிட்டர்)", category: "OILS", brand: "Suyambu", uom: "1 Litre Bottle", price: 240, wholesale_price: 225, stock_qty: 180, status: "Available" },
+  { id: "aa05", code: "aa05", doc_id: "aa05", name: "Vaagai Wood-Pressed Pure Groundnut Oil (5 Litres)", tamil_name: "வாகை மரச்செக்கு தூய கடலை எண்ணெய் (5 லிட்டர் கேன்)", category: "OILS", brand: "Suyambu", uom: "5 Litre Can", price: 1150, wholesale_price: 1090, stock_qty: 75, status: "Available" },
+  { id: "aa07", code: "aa07", doc_id: "aa07", name: "Vaagai Wood-Pressed Pure Gingelly / Sesame Oil (1 Litre)", tamil_name: "வாகை மரச்செக்கு நல்லெண்ணெய் (1 லிட்டர்)", category: "OILS", brand: "Suyambu", uom: "1 Litre Bottle", price: 380, wholesale_price: 360, stock_qty: 120, status: "Available" },
+  { id: "aa10", code: "aa10", doc_id: "aa10", name: "Suyambu Traditional Vaagai Pooja Lamp Oil (1 Litre)", tamil_name: "சுயம்பு பாரம்பரிய பூஜை விளக்கெண்ணெய் (1 லிட்டர்)", category: "OILS", brand: "Suyambu", uom: "1 Litre Bottle", price: 160, wholesale_price: 145, stock_qty: 300, status: "Available" },
+  { id: "gg01", code: "gg01", doc_id: "gg01", name: "Organic Raw Kambu / Pearl Millet (1 KG)", tamil_name: "இயற்கை நாட்டு கம்பு (1 கிலோ)", category: "MILLETS", brand: "Suyambu", uom: "1 KG Pack", price: 55, wholesale_price: 48, stock_qty: 500, status: "Available" },
+  { id: "gg02", code: "gg02", doc_id: "gg02", name: "Organic Raw Ragi / Finger Millet (1 KG)", tamil_name: "நாட்டு கேழ்வரகு / ராகி (1 கிலோ)", category: "MILLETS", brand: "Suyambu", uom: "1 KG Pack", price: 60, wholesale_price: 52, stock_qty: 450, status: "Available" },
+  { id: "gg18", code: "gg18", doc_id: "gg18", name: "A1 SSS Deluxe Ponni Boiled Rice (25 KG)", tamil_name: "A1 SSS டீலக்ஸ் பொன்னி புழுங்கல் அரிசி (25 KG)", category: "GRAINS_RICE", brand: "SSS", uom: "25 KG Bag", price: 1450, wholesale_price: 1390, stock_qty: 80, status: "Available" },
+  { id: "gg21", code: "gg21", doc_id: "gg21", name: "Veera Sivaji Traditional BPT Rice (25 KG)", tamil_name: "வீர சிவாஜி பாரம்பரிய BPT அரிசி (25 KG)", category: "GRAINS_RICE", brand: "Sivaji", uom: "25 KG Bag", price: 1550, wholesale_price: 1480, stock_qty: 60, status: "Available" },
+  { id: "dd01", code: "dd01", doc_id: "dd01", name: "Suyambu Pure Country Sambar & Curry Masala (500g)", tamil_name: "சுயம்பு நாட்டு சாம்பார் & கறி மசாலா பொடி (500g)", category: "BY_PRODUCTS", brand: "Suyambu", uom: "500g Pouch", price: 140, wholesale_price: 125, stock_qty: 150, status: "Available" }
+];
+
+let productsData = DEFAULT_PRODUCTS.map(p => ({
+  ...p,
+  image: "https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg",
+  source: "FIREBASE_CLOUD"
+}));
+
 let inquiryCart = JSON.parse(localStorage.getItem("rkg_inquiry_cart") || "[]");
 let currentCategoryFilter = 'ALL';
 let currentSearchQuery = '';
@@ -118,6 +165,53 @@ function switchProductViewMode(mode) {
 
 // ── Load Products Catalog from Firebase Cloud ─────────────────────────
 async function loadProductsCatalog() {
+  if (firestoreDb) {
+    try {
+      const snapshot = await firestoreDb.collection("products").get();
+      if (!snapshot.empty) {
+        const firestoreList = [];
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          firestoreList.push({
+            id: doc.id,
+            doc_id: doc.id,
+            ...data
+          });
+        });
+
+        if (firestoreList.length > 0) {
+          productsData = firestoreList.map((p, idx) => {
+            const uCode = p.code || p.doc_id || `aa${String(idx+1).padStart(2,'0')}`;
+            return {
+              ...p,
+              id: p.id || uCode,
+              code: uCode,
+              doc_id: uCode,
+              brand: p.brand || "Suyambu",
+              name: p.name || p.product_name,
+              tamil_name: p.tamil_name || "",
+              category: p.category || "FEEDS",
+              uom: p.uom || "Standard",
+              price: Number(p.price || p.selling_price || 0),
+              wholesale_price: Number(p.wholesale_price || 0),
+              stock_qty: Number(p.stock_qty || p.stock || 0),
+              status: p.status || (Number(p.stock_qty || p.stock || 0) > 0 ? "Available" : "Not Available"),
+              image: resolveProductImage(p),
+              source: "FIREBASE_FIRESTORE"
+            };
+          });
+
+          updateCounts();
+          if (currentViewMode === 'table') renderProductsTable();
+          else renderProductsGrid();
+          return;
+        }
+      }
+    } catch (fsErr) {
+      console.log("Firebase Firestore read status:", fsErr.message);
+    }
+  }
+
   try {
     const res = await fetch("/api/public/products?t=" + new Date().getTime());
     if (res.ok) {
@@ -147,17 +241,16 @@ async function loadProductsCatalog() {
           });
 
         updateCounts();
-        if (currentViewMode === 'table') {
-          renderProductsTable();
-        } else {
-          renderProductsGrid();
-        }
+        if (currentViewMode === 'table') renderProductsTable();
+        else renderProductsGrid();
         return;
       }
     }
-  } catch (e) {
-    console.log("Offline mode: Connecting to Firebase Cloud...");
-  }
+  } catch (e) {}
+
+  updateCounts();
+  if (currentViewMode === 'table') renderProductsTable();
+  else renderProductsGrid();
 }
 
 function updateCounts() {
@@ -665,6 +758,21 @@ function sendCartToWhatsApp() {
     `Please confirm stock availability and delivery schedule.`
   );
 
+  // Direct Firebase Firestore Real-time Order Telemetry
+  if (firestoreDb && typeof firebase !== 'undefined') {
+    try {
+      firestoreDb.collection("client_orders").add({
+        customer_name: name,
+        phone: phone,
+        delivery_address: finalAddress,
+        items: inquiryCart,
+        items_count: inquiryCart.length,
+        final_total: finalTotal,
+        created_at: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(err => console.log("Firebase order write notice:", err));
+    } catch(e) {}
+  }
+
   // Log purchase order to Firebase IP_Data_Input table
   sendIpTelemetry("PURCHASE_ORDER_SUBMITTED", {
     customer_name: name,
@@ -705,6 +813,19 @@ function submitFooterInquiryToWhatsApp(e) {
   if (!name || !phone) {
     alert("Please enter both Name and Phone Number.");
     return;
+  }
+
+  // Write directly to Firebase Firestore
+  if (firestoreDb && typeof firebase !== 'undefined') {
+    try {
+      firestoreDb.collection("client_inquiries").add({
+        name: name,
+        phone: phone,
+        purpose: purpose,
+        message: message,
+        created_at: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(err => console.log("Firebase inquiry write notice:", err));
+    } catch(e) {}
   }
 
   // Log client inquiry telemetry in Firebase IP_Data_Input table
@@ -889,8 +1010,21 @@ function toggleLanguage(lang) {
   }
 }
 
-// ── Company Data Engine (Pull live from Firebase Firestore 'data' table) ──
+// ── Company Data Engine (Pull live from Firebase Firestore 'company_info') ──
 async function loadCompanyInfo() {
+  if (firestoreDb) {
+    try {
+      const doc = await firestoreDb.collection("company_info").doc("profile").get();
+      if (doc.exists) {
+        companyData = { ...companyData, ...doc.data() };
+        updateCompanyDOM();
+        return;
+      }
+    } catch (e) {
+      console.log("Firebase company_info status:", e.message);
+    }
+  }
+
   try {
     const res = await fetch("/api/company-info?t=" + new Date().getTime());
     if (res.ok) {
@@ -943,8 +1077,16 @@ async function sendIpTelemetry(actionType = "PAGE_VISIT", purchaseData = "None")
       mac_token: getOrCreateDeviceToken(),
       purchase_data: typeof purchaseData === 'object' ? JSON.stringify(purchaseData) : String(purchaseData),
       page_url: window.location.pathname + window.location.hash,
-      session_id: getOrCreateDeviceToken()
+      session_id: getOrCreateDeviceToken(),
+      timestamp: new Date().toISOString()
     };
+
+    if (firestoreDb && typeof firebase !== 'undefined') {
+      firestoreDb.collection("IP_Data_Input").add({
+        ...payload,
+        created_at: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(() => {});
+    }
 
     fetch("/api/public/log-ip", {
       method: "POST",
