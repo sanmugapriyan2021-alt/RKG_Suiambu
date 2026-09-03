@@ -104,27 +104,94 @@ function selectDrawerCategory(cat) {
   }
 }
 
-// ── Image Asset Resolver ─────────────────────────────────────────────
+// ── Generated Product Image Asset Matcher ───────────────────────────
 function resolveProductImage(p) {
-  if (p.image && p.image.length > 5) return p.image;
-  const name = (p.name || '').toLowerCase();
-  const code = (p.code || p.doc_id || '').toLowerCase();
-  
-  if (name.includes('velakku') || name.includes('pooja')) return '/images/suyambu_velakku_ennai.jpg';
-  if (name.includes('coconut oil') || code.includes('aa01') || code.includes('aa02') || code.includes('aa03')) return '/images/suyambu_coconut_oil.jpg';
-  if (name.includes('peanut oil') || code.includes('aa04') || code.includes('aa05') || code.includes('aa06')) return '/images/suyambu_peanut_oil.jpg';
-  if (name.includes('gingelly') || name.includes('sesame') || code.includes('aa07') || code.includes('aa08') || code.includes('aa09')) return '/images/suyambu_gingelly_oil.jpg';
-  if (name.includes('sambar') || name.includes('mutton') || name.includes('masala') || code.includes('dd01') || code.includes('dd02')) return '/images/suyambu_masala_powder.jpg';
-  if (name.includes('cotton seed') || code.includes('gg05') || code.includes('gg06') || code.includes('gg07') || code.includes('gg08')) return '/images/suyambu_cotton_seeds.jpg';
-  if (name.includes('chicken') || code.includes('gg14')) return '/images/krishi_chicken_feed.jpg';
-  if (name.includes('bio pass') || name.includes('pro-best') || name.includes('krishi') || code.includes('gg10') || code.includes('gg11') || code.includes('gg12') || code.includes('gg13')) return '/images/krishi_cattle_feed.jpg';
-  if (name.includes('nayam') || name.includes('thavudu') || name.includes('corn clay') || code.includes('gg09') || code.includes('dd03') || code.includes('dd04')) return '/images/suyambu_nayam_feed.jpg';
-  if (name.includes('sss') || name.includes('ponni') || code.includes('gg18') || code.includes('gg19') || code.includes('gg20')) return '/images/a1_sss_rice.jpg';
-  if (name.includes('sivaji') || name.includes('shivaji') || code.includes('gg21') || code.includes('gg22') || code.includes('gg23')) return '/images/veera_sivaji_rice.jpg';
-  if (name.includes('rice') || name.includes('veeran') || code.includes('gg15') || code.includes('gg16') || code.includes('gg17')) return '/images/suyambu_rice.jpg';
-  if (name.includes('cake') || name.includes('punnakku') || code.includes('cc01')) return '/images/punnakku.jpg';
-  if (name.includes('wheat') || name.includes('ragi') || name.includes('groundnut') || name.includes('corn') || code.includes('gg01') || code.includes('gg02') || code.includes('gg03') || code.includes('gg04')) return '/images/suyambu_grains.jpg';
-  
+  if (p.image && p.image.length > 5 && !p.image.includes('/static/')) return p.image;
+  const name = (p.name || p.product_name || '').toLowerCase();
+  const code = (p.code || p.product_code || p.doc_id || '').toLowerCase();
+  const uom = (p.uom || p.unit_of_measure || '').toLowerCase();
+
+  // 1. Edible Oils
+  if (name.includes('coconut') || code.startsWith('aa01') || code.startsWith('aa02') || code.startsWith('aa03')) {
+    if (name.includes('5l') || name.includes('5 litre') || uom.includes('5l') || code === 'aa02') return 'products/coconut_oil_5l.png';
+    if (name.includes('500') || uom.includes('500') || code === 'aa03') return 'products/coconut_oil_500ml.png';
+    return 'products/coconut_oil_1l.png';
+  }
+  if (name.includes('peanut') || name.includes('groundnut oil') || name.includes('கடலை எண்ணெய்') || code.startsWith('aa04') || code.startsWith('aa05')) {
+    if (name.includes('5l') || name.includes('5 litre') || uom.includes('5l') || code === 'aa05') return 'products/peanut_oil_5l.png';
+    if (name.includes('500') || uom.includes('500') || code === 'aa06') return 'products/peanut_oil_500ml.png';
+    return 'products/peanut_oil_1l.png';
+  }
+  if (name.includes('gingelly') || name.includes('sesame oil') || name.includes('நல்லெண்ணெய்') || code.startsWith('aa07') || code.startsWith('aa08')) {
+    if (name.includes('5l') || name.includes('5 litre') || uom.includes('5l') || code === 'aa08') return 'products/gingelly_oil_5l.png';
+    if (name.includes('500') || uom.includes('500') || code === 'aa09') return 'products/gingelly_oil_500ml.png';
+    return 'products/gingelly_oil_1l.png';
+  }
+  if (name.includes('velakku') || name.includes('pooja') || name.includes('lamp') || name.includes('விளக்கு') || code.startsWith('aa10')) {
+    return 'products/velakku_ennai_1l.png';
+  }
+
+  // 2. Cattle Feeds & Pellets
+  if (name.includes('special') || name.includes('rkg special') || name.includes('ஸ்பெஷல்')) {
+    return 'products/rkg_special_feed_50kg.png';
+  }
+  if (name.includes('pellet') || name.includes('milk feed') || name.includes('பால் பெருக்கும்')) {
+    return 'products/rkg_feed_pellets_50kg.png';
+  }
+  if (name.includes('cotton') || name.includes('paruthi') || name.includes('பருத்தி') || code.startsWith('gg05') || code.startsWith('gg06')) {
+    return 'products/cotton_seeds_50kg.png';
+  }
+  if (name.includes('bio pass') || name.includes('biopass')) {
+    if (name.includes('70') || uom.includes('70')) return 'products/krishi_bio_pass_70kg.png';
+    return 'products/krishi_bio_pass_50kg.png';
+  }
+  if (name.includes('pro-best') || name.includes('probest') || name.includes('supreme') || code.startsWith('gg10') || code.startsWith('gg11')) {
+    return 'products/krishi_probest_70kg.png';
+  }
+  if (name.includes('chicken') || name.includes('poultry') || name.includes('கோழி') || code.startsWith('gg14')) {
+    return 'products/krishi_chicken_feed_50kg.png';
+  }
+  if (name.includes('cake') || name.includes('punnakku') || name.includes('புண்ணாக்கு') || code.startsWith('cc01')) {
+    if (name.includes('sesame') || name.includes('எள்ளு')) return 'products/sesame_oil_cake_50kg.png';
+    return 'products/groundnut_oil_cake_50kg.png';
+  }
+  if (name.includes('corn') || name.includes('maize') || name.includes('சோளம்') || name.includes('thavudu') || name.includes('nayam') || code.startsWith('gg09')) {
+    return 'products/corn_powder_50kg.png';
+  }
+
+  // 3. Rice Varieties
+  if (name.includes('veeran') || code.startsWith('gg15') || code.startsWith('gg16')) {
+    return 'products/veeran_saapadu_rice_26kg.png';
+  }
+  if (name.includes('ponni') || name.includes('sss') || name.includes('kollam') || code.startsWith('gg18') || code.startsWith('gg19')) {
+    return 'products/kollam_ponni_rice_26kg.png';
+  }
+  if (name.includes('sivaji') || name.includes('shivaji') || name.includes('ir 20') || name.includes('bpt') || code.startsWith('gg21') || code.startsWith('gg22')) {
+    return 'products/veera_shivaji_rice_26kg.png';
+  }
+
+  // 4. Millets & Grains
+  if (name.includes('kambu') || name.includes('pearl millet') || name.includes('கம்பு') || code.startsWith('gg01')) {
+    return 'products/cleaned_kambu_1kg.png';
+  }
+  if (name.includes('ragi') || name.includes('finger millet') || name.includes('கேழ்வரகு') || code.startsWith('gg02')) {
+    return 'products/suyambu_ragi_1kg.png';
+  }
+  if (name.includes('wheat') || name.includes('கோதுமை') || code.startsWith('gg03')) {
+    return 'products/suyambu_wheat_1kg.png';
+  }
+  if (name.includes('groundnut') || name.includes('peanut') || name.includes('வேர்க்கடலை') || code.startsWith('gg04')) {
+    return 'products/suyambu_groundnut_1kg.png';
+  }
+
+  // 5. Masalas
+  if (name.includes('sambar') || code.startsWith('dd01')) {
+    return 'products/sambar_powder_200g.png';
+  }
+  if (name.includes('mutton') || name.includes('curry') || code.startsWith('dd02')) {
+    return 'products/mutton_masala_200g.png';
+  }
+
   return 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg';
 }
 
@@ -167,7 +234,12 @@ function switchProductViewMode(mode) {
 async function loadProductsCatalog() {
   if (firestoreDb) {
     try {
-      const snapshot = await firestoreDb.collection("products").get();
+      // Check both 'products' and 'PRODUCTS' collections
+      let snapshot = await firestoreDb.collection("products").get();
+      if (snapshot.empty) {
+        snapshot = await firestoreDb.collection("PRODUCTS").get();
+      }
+
       if (!snapshot.empty) {
         const firestoreList = [];
         snapshot.forEach(doc => {
@@ -179,28 +251,42 @@ async function loadProductsCatalog() {
           });
         });
 
-        if (firestoreList.length > 0) {
-          productsData = firestoreList.map((p, idx) => {
-            const uCode = p.code || p.doc_id || `aa${String(idx+1).padStart(2,'0')}`;
+        // Strict Filter: ONLY authorized products where stock is strictly AVAILABLE (> 0)
+        const availableProducts = firestoreList
+          .filter(p => {
+            const stockVal = Number(p.current_stock !== undefined ? p.current_stock : (p.stock_qty !== undefined ? p.stock_qty : (p.stock !== undefined ? p.stock : 0)));
+            const priceVal = Number(p.selling_price || p.price || 0);
+            const statusStr = String(p.status || '').toLowerCase();
+            const isActive = (p.is_active === undefined || p.is_active === true);
+            return isActive && stockVal > 0 && priceVal > 0 && statusStr !== 'out of stock' && statusStr !== 'open rate';
+          })
+          .map((p, idx) => {
+            const uCode = p.product_code || p.code || p.doc_id || `aa${String(idx+1).padStart(2,'0')}`;
+            const stockVal = Number(p.current_stock !== undefined ? p.current_stock : (p.stock_qty !== undefined ? p.stock_qty : (p.stock !== undefined ? p.stock : 0)));
+            const priceVal = Number(p.selling_price || p.price || 0);
+            const wholeVal = Number(p.wholesale_price || (priceVal * 0.95));
+
             return {
               ...p,
               id: p.id || uCode,
               code: uCode,
               doc_id: uCode,
               brand: p.brand || "Suyambu",
-              name: p.name || p.product_name,
+              name: p.product_name || p.name,
               tamil_name: p.tamil_name || "",
               category: p.category || "FEEDS",
-              uom: p.uom || "Standard",
-              price: Number(p.price || p.selling_price || 0),
-              wholesale_price: Number(p.wholesale_price || 0),
-              stock_qty: Number(p.stock_qty || p.stock || 0),
-              status: p.status || (Number(p.stock_qty || p.stock || 0) > 0 ? "Available" : "Not Available"),
+              uom: p.unit_of_measure || p.uom || "Standard",
+              price: priceVal,
+              wholesale_price: wholeVal,
+              stock_qty: stockVal,
+              status: "Available",
               image: resolveProductImage(p),
               source: "FIREBASE_FIRESTORE"
             };
           });
 
+        if (availableProducts.length > 0) {
+          productsData = availableProducts;
           updateCounts();
           if (currentViewMode === 'table') renderProductsTable();
           else renderProductsGrid();
@@ -208,35 +294,42 @@ async function loadProductsCatalog() {
         }
       }
     } catch (fsErr) {
-      console.log("Firebase Firestore read status:", fsErr.message);
+      console.log("Firebase Firestore products read notice:", fsErr.message);
     }
   }
 
+  // REST API fallback with strict stock > 0 check
   try {
     const res = await fetch("/api/public/products?t=" + new Date().getTime());
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
         productsData = data
-          .filter(p => Number(p.price || 0) > 0 && String(p.status).toLowerCase() !== 'open rate')
+          .filter(p => {
+            const stockVal = Number(p.current_stock !== undefined ? p.current_stock : (p.stock_qty !== undefined ? p.stock_qty : (p.stock !== undefined ? p.stock : 0)));
+            const priceVal = Number(p.selling_price || p.price || 0);
+            const statusStr = String(p.status || '').toLowerCase();
+            return stockVal > 0 && priceVal > 0 && statusStr !== 'out of stock' && statusStr !== 'open rate';
+          })
           .map((p, idx) => {
-            const uCode = p.code || p.doc_id || `aa${String(idx+1).padStart(2,'0')}`;
+            const uCode = p.product_code || p.code || p.doc_id || `aa${String(idx+1).padStart(2,'0')}`;
+            const stockVal = Number(p.current_stock !== undefined ? p.current_stock : (p.stock_qty !== undefined ? p.stock_qty : 0));
             return {
               ...p,
               id: p.id || uCode,
               code: uCode,
               doc_id: uCode,
               brand: p.brand || "Suyambu",
-              name: p.name,
+              name: p.product_name || p.name,
               tamil_name: p.tamil_name || "",
               category: p.category || "FEEDS",
-              uom: p.uom || "Standard",
-              price: Number(p.price || 0),
+              uom: p.unit_of_measure || p.uom || "Standard",
+              price: Number(p.selling_price || p.price || 0),
               wholesale_price: Number(p.wholesale_price || 0),
-              stock_qty: Number(p.stock_qty || 0),
-              status: p.status || (Number(p.stock_qty || 0) > 0 ? "Available" : "Not Available"),
+              stock_qty: stockVal,
+              status: "Available",
               image: resolveProductImage(p),
-              source: "FIREBASE_CLOUD"
+              source: "REST_API"
             };
           });
 
@@ -247,6 +340,15 @@ async function loadProductsCatalog() {
       }
     }
   } catch (e) {}
+
+  // Filter default catalog for available stock only
+  productsData = DEFAULT_PRODUCTS
+    .filter(p => Number(p.stock_qty || 0) > 0)
+    .map(p => ({
+      ...p,
+      image: resolveProductImage(p),
+      source: "AUTHORIZED_CATALOG"
+    }));
 
   updateCounts();
   if (currentViewMode === 'table') renderProductsTable();
