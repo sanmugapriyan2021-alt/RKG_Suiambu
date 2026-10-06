@@ -10,12 +10,8 @@ obj/
 scratch/
 .system_generated/
 *.idsig
-*firebase_credentials.json
-*credentials.json
-*secret*
-RKG_Suyambu_Android_Studio_Project/app/src/main/assets/RKG_Suyambu_Web_ERP_Backend/
 
-# Track required production binaries
+# Keep executables and binaries requested
 !RKG_Suyambu_CEO.apk
 !New_Bill_Windows11.exe
 !RKG_Suyambu_Windows11_POS/New_Bill_Windows11.exe
