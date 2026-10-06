@@ -460,7 +460,7 @@ function renderPosProducts() {
         const catBadge = p.category === 'FINISHED_GOOD' ? 'badge-finished' : (p.category === 'BY_PRODUCT' ? 'badge-byproduct' : 'badge-raw');
         
         const card = document.createElement("div");
-        card.className = "bg-white p-3.5 rounded-xl border border-slate-200 hover:border-emerald-600 hover:shadow-md cursor-pointer transition-all flex flex-col justify-between";
+        card.className = "bg-white p-3.5 rounded-xl border border-slate-200 hover:border-blue-700 hover:shadow-md cursor-pointer transition-all flex flex-col justify-between";
         card.onclick = () => addToCart(p);
 
         const imgSrc = p.image_url || 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg';

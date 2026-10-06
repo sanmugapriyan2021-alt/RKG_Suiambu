@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#064e3b">
+  <meta name="theme-color" content="#0b2149">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>RKG SUYAMBU â€” Security &amp; Enterprise Management Hub</title>
@@ -52,7 +52,7 @@
       </div>
 
       <!-- Clean CEO Only Login Card -->
-      <div class="bg-slate-900 border border-emerald-800/80 rounded-3xl p-6 shadow-2xl space-y-4 text-left">
+      <div class="bg-slate-900 border border-blue-900/80 rounded-3xl p-6 shadow-2xl space-y-4 text-left">
         <input type="hidden" id="login-user-id" value="CEO">
 
         <div>
@@ -64,7 +64,7 @@
             <input type="password" id="login-pin-input" 
                    placeholder="••••••••••••" 
                    onkeydown="if(event.key==='Enter') handleUnifiedUserLogin()"
-                   class="w-full bg-slate-950 border border-emerald-700 focus:border-amber-400 rounded-xl px-4 py-3 text-center text-lg font-mono tracking-widest text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400/20 transition">
+                   class="w-full bg-slate-950 border border-blue-800 focus:border-amber-400 rounded-xl px-4 py-3 text-center text-lg font-mono tracking-widest text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400/20 transition">
           </div>
         </div>
 
@@ -133,7 +133,7 @@
         </div>
 
         <!-- Interactive Calendar Date Picker & Quick Selectors -->
-        <div class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-3 space-y-2.5 shadow-sm">
+        <div class="bg-slate-900 border border-blue-900/80 rounded-2xl p-3 space-y-2.5 shadow-sm">
           <div class="flex items-center justify-between gap-2">
             <label class="text-[11px] font-bold text-slate-300 flex items-center gap-1.5">
               <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
@@ -154,14 +154,14 @@
         <div class="grid grid-cols-2 gap-2.5">
           <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 space-y-1">
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Revenue</span>
-            <div class="text-lg font-black font-mono text-emerald-300" id="sales-total-revenue">₹0</div>
+            <div class="text-lg font-black font-mono text-blue-300" id="sales-total-revenue">₹0</div>
             <div class="text-[9px] text-slate-400" id="sales-total-count">0 Sales transactions</div>
           </div>
 
           <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 space-y-1">
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Payment Breakdown</span>
             <div class="text-xs font-mono text-slate-300 flex justify-between">
-              <span class="text-emerald-400 font-bold">UPI:</span>
+              <span class="text-blue-400 font-bold">UPI:</span>
               <span id="sales-upi-total" class="font-bold">₹0</span>
             </div>
             <div class="text-xs font-mono text-slate-300 flex justify-between">
@@ -229,7 +229,7 @@
             <h2 class="text-base font-black text-white">Check Client Orders</h2>
             <p class="text-xs text-slate-400">Firebase: client_order_data &amp; IP Serial Link</p>
           </div>
-          <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40" id="badge-orders-count">
+          <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-slate-950 text-blue-300 border border-emerald-500/40" id="badge-orders-count">
             Live Feed
           </span>
         </div>
@@ -253,24 +253,24 @@
 
         <!-- ðŸŽ PROMO CODES & PROFIT ANALYTICS BUTTON -->
         <div>
-          <button type="button" onclick="openPromoProfitSubPage()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-emerald-950 to-slate-900 border border-emerald-500/50 hover:border-emerald-400 text-left flex items-center justify-between group transition shadow-lg cursor-pointer">
+          <button type="button" onclick="openPromoProfitSubPage()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 border border-emerald-500/50 hover:border-emerald-400 text-left flex items-center justify-between group transition shadow-lg cursor-pointer">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-emerald-900 border border-emerald-500/60 flex items-center justify-center text-emerald-300 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 border border-emerald-500/60 flex items-center justify-center text-blue-300 shadow-sm">
                 <i data-lucide="ticket" class="w-5 h-5"></i>
               </div>
               <div>
-                <div class="text-xs font-black text-white group-hover:text-emerald-300 transition flex items-center gap-1.5">
+                <div class="text-xs font-black text-white group-hover:text-blue-300 transition flex items-center gap-1.5">
                   <span>Promo Codes &amp; Profit Tracking</span>
-                  <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-500/40">Firebase</span>
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-slate-950 text-blue-400 border border-emerald-500/40">Firebase</span>
                 </div>
                 <div class="text-[10px] text-slate-400">Manage QR promo sequences, discounts &amp; bill purchase credits</div>
               </div>
             </div>
-            <i data-lucide="chevron-right" class="w-5 h-5 text-emerald-400 group-hover:translate-x-1 transition"></i>
+            <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition"></i>
           </button>
         </div>
 
-        <form id="ceo-company-form" onsubmit="handleCompanyDataSave(event)" class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-4 space-y-3 text-xs">
+        <form id="ceo-company-form" onsubmit="handleCompanyDataSave(event)" class="bg-slate-900 border border-blue-900/80 rounded-2xl p-4 space-y-3 text-xs">
           <div class="font-bold text-amber-400 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-800">
             ðŸ¢ Statutory Company Information
           </div>
@@ -289,7 +289,7 @@
             </div>
             <div>
               <label class="block text-slate-400 mb-1">FSSAI Number</label>
-              <input type="text" id="ceo-fssai" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold">
+              <input type="text" id="ceo-fssai" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-blue-400 font-mono font-bold">
             </div>
           </div>
           <div class="grid grid-cols-2 gap-2">
@@ -366,13 +366,13 @@
         </div>
 
         <!-- Profit Table Summary -->
-        <div class="bg-slate-900 border border-emerald-800/80 rounded-2xl p-4 space-y-3 shadow-md">
+        <div class="bg-slate-900 border border-blue-900/80 rounded-2xl p-4 space-y-3 shadow-md">
           <div class="flex justify-between items-center">
             <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
               <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
               <span>Profit &amp; Bill Credit Analytics</span>
             </h3>
-            <span class="text-[10px] font-mono text-emerald-400 font-bold" id="profit-grand-total">Revenue: ₹0</span>
+            <span class="text-[10px] font-mono text-blue-400 font-bold" id="profit-grand-total">Revenue: ₹0</span>
           </div>
 
           <div id="profit-summary-container" class="space-y-2">
@@ -461,7 +461,7 @@
 
   <!-- Price Edit Modal -->
   <div id="price-edit-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-emerald-700/80 rounded-2xl p-5 max-w-sm w-full shadow-2xl space-y-4">
+    <div class="bg-slate-900 border border-blue-800/80 rounded-2xl p-5 max-w-sm w-full shadow-2xl space-y-4">
       <div class="flex justify-between items-start">
         <div>
           <span class="text-[10px] font-mono font-bold text-amber-400" id="modal-edit-code">aa01</span>
@@ -477,7 +477,7 @@
         </div>
         <div>
           <label class="block text-[10px] font-bold text-slate-400 mb-1">New Wholesale Price (₹)</label>
-          <input type="number" step="1" id="modal-input-wholesale" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm font-mono text-emerald-400 focus:outline-none focus:border-emerald-400">
+          <input type="number" step="1" id="modal-input-wholesale" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm font-mono text-blue-400 focus:outline-none focus:border-emerald-400">
         </div>
         <div>
           <label class="block text-[10px] font-bold text-slate-400 mb-1">Change Reason / Remarks</label>
@@ -498,7 +498,7 @@
 
   <!-- Generate Promo Code Modal -->
   <div id="create-promo-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-emerald-700/80 rounded-2xl p-5 max-w-sm w-full shadow-2xl space-y-3.5">
+    <div class="bg-slate-900 border border-blue-800/80 rounded-2xl p-5 max-w-sm w-full shadow-2xl space-y-3.5">
       <div class="flex justify-between items-start">
         <div>
           <h3 class="text-sm font-black text-white flex items-center gap-1.5">
@@ -523,7 +523,7 @@
           </div>
           <div>
             <label class="block text-[10px] font-bold text-slate-400 mb-1">Purchase Credits Limit</label>
-            <input type="number" step="1" id="new-promo-credits" value="100" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-emerald-400 font-bold">
+            <input type="number" step="1" id="new-promo-credits" value="100" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 font-mono text-blue-400 font-bold">
           </div>
         </div>
 

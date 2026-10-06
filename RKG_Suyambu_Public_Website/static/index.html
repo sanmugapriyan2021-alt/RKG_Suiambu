@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- v2 -->
 <html lang="en" class="scroll-smooth bg-slate-950 text-slate-100">
 <head>
@@ -45,13 +45,13 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        1. CLIENT-FACING HEADER (Menu on Left, Logo + English Title, Cart on Right)
   ══════════════════════════════════════════════════════════════════════ -->
-  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-emerald-800/60 shadow-lg transition duration-300">
+  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-blue-900/60 shadow-lg transition duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
       
       <!-- Left Side: Dashboard Menu Button [≡] + Clean Logo + English Title -->
       <div class="flex items-center gap-3 sm:gap-4">
         <!-- Dashboard Menu Button (Placed on Left Side of Screen) -->
-        <button onclick="openNavDrawer()" class="p-2.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 border border-emerald-700/80 text-amber-400 hover:text-amber-300 transition shadow-md flex items-center justify-center cursor-pointer group" title="Open Navigation Menu">
+        <button onclick="openNavDrawer()" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-blue-800/80 text-amber-400 hover:text-amber-300 transition shadow-md flex items-center justify-center cursor-pointer group" title="Open Navigation Menu">
           <i data-lucide="menu" class="w-5 h-5 group-hover:scale-110 transition"></i>
         </button>
 
@@ -88,10 +88,10 @@
   ══════════════════════════════════════════════════════════════════════ -->
   <div id="nav-drawer-backdrop" onclick="closeNavDrawer()" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300"></div>
   
-  <div id="nav-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-[#02231a] text-white shadow-2xl border-l border-amber-400/40 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+  <div id="nav-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-[#07162c] text-white shadow-2xl border-l border-amber-400/40 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
     
     <!-- Drawer Top Brand Header with Close Button -->
-    <div class="p-5 border-b border-emerald-800 flex items-center justify-between bg-emerald-950/90">
+    <div class="p-5 border-b border-blue-900 flex items-center justify-between bg-slate-950/90">
       <div class="flex items-center gap-3">
         <img src="rkg-logo-vector.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-vector.svg'" alt="RKG Suyambu" class="w-10 h-10 rounded-full seal-gold-border object-contain bg-white">
         <div>
@@ -99,7 +99,7 @@
           <div class="text-[10px] text-amber-300 font-semibold tracking-wide">Navigation Dashboard</div>
         </div>
       </div>
-      <button onclick="closeNavDrawer()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900 transition" title="Close Menu">
+      <button onclick="closeNavDrawer()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 transition" title="Close Menu">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
@@ -108,56 +108,56 @@
     <div class="flex-1 overflow-y-auto p-5 space-y-1.5">
       <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400/80 px-3 py-1">Company Sections</div>
       
-      <a href="#hero" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+      <a href="#hero" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
         <i data-lucide="home" class="w-4 h-4 text-amber-400"></i>
         <span>Home</span>
       </a>
 
-      <a href="#products" onclick="selectDrawerCategory('ALL')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
-        <i data-lucide="grid" class="w-4 h-4 text-emerald-400"></i>
+      <a href="#products" onclick="selectDrawerCategory('ALL')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="grid" class="w-4 h-4 text-blue-400"></i>
         <span>All Products Catalog</span>
       </a>
 
-      <a href="#products" onclick="selectDrawerCategory('FEEDS')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+      <a href="#products" onclick="selectDrawerCategory('FEEDS')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
         <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
         <span>Cattle Feeds &amp; Pellets</span>
       </a>
 
-      <a href="#products" onclick="selectDrawerCategory('OILS')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+      <a href="#products" onclick="selectDrawerCategory('OILS')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
         <i data-lucide="droplet" class="w-4 h-4 text-amber-300"></i>
         <span>Cold-Pressed Oils (Chekku)</span>
       </a>
 
-      <a href="#products" onclick="selectDrawerCategory('GRAINS_RICE')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
-        <i data-lucide="wheat" class="w-4 h-4 text-emerald-300"></i>
+      <a href="#products" onclick="selectDrawerCategory('GRAINS_RICE')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="wheat" class="w-4 h-4 text-blue-300"></i>
         <span>Traditional Rice &amp; Millets</span>
       </a>
 
-      <a href="#products" onclick="selectDrawerCategory('MASALA')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+      <a href="#products" onclick="selectDrawerCategory('MASALA')" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
         <i data-lucide="flame" class="w-4 h-4 text-rose-400"></i>
         <span>Masalas &amp; Spices</span>
       </a>
 
-      <div class="pt-3 border-t border-emerald-800/80 text-[11px] font-bold uppercase tracking-wider text-amber-400/80 px-3 py-1">Partnerships &amp; Sourcing</div>
+      <div class="pt-3 border-t border-blue-900/80 text-[11px] font-bold uppercase tracking-wider text-amber-400/80 px-3 py-1">Partnerships &amp; Sourcing</div>
 
-      <a href="#dealership" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+      <a href="#dealership" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
         <i data-lucide="truck" class="w-4 h-4 text-amber-400"></i>
         <span>Wholesale &amp; Dealership</span>
       </a>
 
-      <a href="#farmers" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
-        <i data-lucide="sprout" class="w-4 h-4 text-emerald-400"></i>
+      <a href="#farmers" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+        <i data-lucide="sprout" class="w-4 h-4 text-blue-400"></i>
         <span>Farmer Hub &amp; Direct Sourcing</span>
       </a>
 
-      <a href="#location-inquiry" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-emerald-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
+      <a href="#location-inquiry" onclick="closeNavDrawer()" class="flex items-center gap-3 px-3.5 py-3 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-300 font-bold text-xs transition">
         <i data-lucide="map-pin" class="w-4 h-4 text-rose-400"></i>
         <span>Mill Location &amp; Contact</span>
       </a>
     </div>
 
     <!-- Drawer Footer Actions -->
-    <div class="p-5 border-t border-emerald-800 bg-emerald-950/95 space-y-2">
+    <div class="p-5 border-t border-blue-900 bg-slate-950/95 space-y-2">
       <button onclick="closeNavDrawer(); toggleCartDrawer()" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
         <i data-lucide="shopping-cart" class="w-4 h-4"></i>
         <span>Open Inquiry Cart</span>
@@ -174,13 +174,13 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        3. HERO SECTION (COMPANY INTRODUCTION + OFFICIAL GST/FSSAI DETAILS)
   ══════════════════════════════════════════════════════════════════════ -->
-  <section id="hero" class="hero-bg-gradient py-12 lg:py-18 relative overflow-hidden border-b border-emerald-800/40">
+  <section id="hero" class="hero-bg-gradient py-12 lg:py-18 relative overflow-hidden border-b border-blue-900/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         <!-- Left Hero Content -->
         <div class="lg:col-span-7 space-y-4">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/90 border border-amber-400/40 text-amber-300 text-xs font-extrabold tracking-wide shadow-md">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-950/90 border border-amber-400/40 text-amber-300 text-xs font-extrabold tracking-wide shadow-md">
             <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
             <span>Kongu Agro-Industrial Corridor &bull; 100% Direct From Farmers</span>
           </div>
@@ -195,7 +195,7 @@
           </p>
 
           <!-- Official Company &amp; Statutory Compliance Details -->
-          <div class="bg-[#021f17] p-4 rounded-2xl border border-emerald-700/80 shadow-md space-y-2 text-xs">
+          <div class="bg-[#021f17] p-4 rounded-2xl border border-blue-800/80 shadow-md space-y-2 text-xs">
             <div class="text-[11px] font-black uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
               <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
               <span>Registered Enterprise Details &amp; Compliance</span>
@@ -224,7 +224,7 @@
               <span>View Products &amp; Pricing</span>
             </a>
             <a href="https://wa.me/919442576622?text=Hello%20RKG%20Suyambu!%20I%20want%20to%20order%20cattle%20feed." target="_blank"
-               class="px-5 py-3.5 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-white font-extrabold text-xs uppercase tracking-wider transition border border-emerald-600 flex items-center gap-2">
+               class="px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-800 text-white font-extrabold text-xs uppercase tracking-wider transition border border-blue-700 flex items-center gap-2">
               <i data-lucide="message-circle" class="w-4 h-4 text-amber-400"></i>
               <span>Direct WhatsApp Chat</span>
             </a>
@@ -242,11 +242,11 @@
 
             <!-- Stats Matrix -->
             <div class="grid grid-cols-2 gap-2.5 mb-3 text-center">
-              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+              <div class="bg-slate-950/90 p-3 rounded-xl border border-blue-900">
                 <div class="text-xl font-black text-amber-400">1,500+</div>
                 <div class="text-[10px] font-bold text-emerald-200">Farmers &amp; Dairies</div>
               </div>
-              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+              <div class="bg-slate-950/90 p-3 rounded-xl border border-blue-900">
                 <div class="text-xl font-black text-amber-400">32+</div>
                 <div class="text-[10px] font-bold text-emerald-200">Factory Direct Products</div>
               </div>
@@ -261,7 +261,7 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        4. PRODUCTS CATALOG & FIREBASE INTERACTIVE DATA TABLE
   ══════════════════════════════════════════════════════════════════════ -->
-  <section id="products" class="py-14 sm:py-18 bg-slate-950 border-b border-emerald-800/50">
+  <section id="products" class="py-14 sm:py-18 bg-slate-950 border-b border-blue-900/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Title & Active Filter Badge -->
@@ -313,9 +313,9 @@
       </div>
 
       <!-- Product Table View Container (Direct Firebase Data Table) -->
-      <div id="products-table-wrap" class="hidden overflow-x-auto bg-[#021f17] rounded-3xl border border-emerald-800 p-4 shadow-xl">
+      <div id="products-table-wrap" class="hidden overflow-x-auto bg-[#021f17] rounded-3xl border border-blue-900 p-4 shadow-xl">
         <table class="w-full text-left text-xs text-slate-200">
-          <thead class="text-[11px] font-black uppercase text-amber-300 bg-emerald-950/90 border-b border-emerald-800">
+          <thead class="text-[11px] font-black uppercase text-amber-300 bg-slate-950/90 border-b border-blue-900">
             <tr>
               <th class="p-3.5" data-i18n="th_code" data-i18n-en="Unique Code" data-i18n-ta="தயாரிப்பு குறியீடு">Unique Code</th>
               <th class="p-3.5" data-i18n="th_prod" data-i18n-en="Product" data-i18n-ta="தயாரிப்பு">Product</th>
@@ -338,7 +338,7 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        5. CIRCULAR AGRO-PROCESSING & WHOLESALE DEALERSHIP
   ══════════════════════════════════════════════════════════════════════ -->
-  <section id="dealership" class="py-14 sm:py-18 bg-slate-900 border-b border-emerald-800/50">
+  <section id="dealership" class="py-14 sm:py-18 bg-slate-900 border-b border-blue-900/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
@@ -370,7 +370,7 @@
         </div>
 
         <div class="lg:col-span-6">
-          <div class="bg-[#02231a] p-6 sm:p-7 rounded-3xl border border-amber-400/40 shadow-xl space-y-4">
+          <div class="bg-[#07162c] p-6 sm:p-7 rounded-3xl border border-amber-400/40 shadow-xl space-y-4">
             <h3 class="text-base font-black text-white" data-i18n="dlr_box_title" data-i18n-en="Direct Mill Supply &amp; Bulk Procurement" data-i18n-ta="ஆலை நேரடி விநியோகம் &amp; மொத்த கொள்முதல்">
               Direct Mill Supply &amp; Bulk Procurement
             </h3>
@@ -392,7 +392,7 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        6. FARMER PROCUREMENT HUB
   ══════════════════════════════════════════════════════════════════════ -->
-  <section id="farmers" class="py-14 bg-[#04281f] text-white border-b border-emerald-800/60">
+  <section id="farmers" class="py-14 bg-[#04281f] text-white border-b border-blue-900/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full mb-2" data-i18n="frm_badge" data-i18n-en="Fair Harvest Sourcing" data-i18n-ta="நேர்மையான நேரடி கொள்முதல்">
@@ -407,7 +407,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
-        <div class="bg-[#021f17] p-5 rounded-2xl border border-emerald-800">
+        <div class="bg-[#021f17] p-5 rounded-2xl border border-blue-900">
           <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black mx-auto mb-3">
             <i data-lucide="scale" class="w-5 h-5"></i>
           </div>
@@ -415,7 +415,7 @@
           <p class="text-xs text-emerald-200/90" data-i18n="frm_f1_d" data-i18n-en="Computerized precision weighbridge and instant laboratory testing." data-i18n-ta="கணினி வழி துல்லிய எடை மற்றும் பரிசோதனை.">Computerized precision weighbridge and instant laboratory testing.</p>
         </div>
 
-        <div class="bg-[#021f17] p-5 rounded-2xl border border-emerald-800">
+        <div class="bg-[#021f17] p-5 rounded-2xl border border-blue-900">
           <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black mx-auto mb-3">
             <i data-lucide="indian-rupee" class="w-5 h-5"></i>
           </div>
@@ -423,7 +423,7 @@
           <p class="text-xs text-emerald-200/90" data-i18n="frm_f2_d" data-i18n-en="Direct payment transferred to your bank account within 30 minutes of unloading." data-i18n-ta="சரக்கு இறக்கிய 30 நிமிடங்களில் வங்கிக் கணக்கில் தீர்வு.">Direct payment transferred to your bank account within 30 minutes of unloading.</p>
         </div>
 
-        <div class="bg-[#021f17] p-5 rounded-2xl border border-emerald-800">
+        <div class="bg-[#021f17] p-5 rounded-2xl border border-blue-900">
           <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black mx-auto mb-3">
             <i data-lucide="award" class="w-5 h-5"></i>
           </div>
@@ -437,7 +437,7 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        7. MILL LOCATION (LEFT) & INQUIRY FORM (RIGHT) - 2 COLUMN LAYOUT
   ══════════════════════════════════════════════════════════════════════ -->
-  <section id="location-inquiry" class="py-16 bg-[#021f17] border-t border-emerald-800/60">
+  <section id="location-inquiry" class="py-16 bg-[#021f17] border-t border-blue-900/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -457,9 +457,9 @@
           </div>
 
           <!-- Interactive Google Maps Frame / Direction Card -->
-          <div class="bg-[#02231a] rounded-3xl p-5 border border-emerald-800 shadow-xl space-y-4">
+          <div class="bg-[#07162c] rounded-3xl p-5 border border-blue-900 shadow-xl space-y-4">
             
-            <div class="rounded-2xl overflow-hidden border border-emerald-700/60 aspect-video relative bg-emerald-950 flex items-center justify-center">
+            <div class="rounded-2xl overflow-hidden border border-blue-800/60 aspect-video relative bg-slate-950 flex items-center justify-center">
               <iframe 
                 title="RKG Suiambu Mill Location"
                 src="https://maps.google.com/maps?q=Erode%20Tirupur%20Tamil%20Nadu&t=&z=13&ie=UTF8&iwloc=&output=embed" 
@@ -470,11 +470,11 @@
             </div>
 
             <div class="grid grid-cols-2 gap-3 text-xs">
-              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+              <div class="bg-slate-950/90 p-3 rounded-xl border border-blue-900">
                 <div class="text-amber-400 font-bold text-[11px]" data-i18n="loc_days_lbl" data-i18n-en="Working Days:" data-i18n-ta="வேலை நாட்கள்:">Working Days:</div>
                 <div class="text-white font-semibold company-days-text">Mon - Sat (திங்கள் - சனி)</div>
               </div>
-              <div class="bg-emerald-950/90 p-3 rounded-xl border border-emerald-800">
+              <div class="bg-slate-950/90 p-3 rounded-xl border border-blue-900">
                 <div class="text-amber-400 font-bold text-[11px]" data-i18n="loc_hours_lbl" data-i18n-en="Dispatch Hours:" data-i18n-ta="விநியோக நேரம்:">Dispatch Hours:</div>
                 <div class="text-white font-semibold company-hours-text">6:30 AM - 8:30 PM</div>
               </div>
@@ -489,7 +489,7 @@
               </a>
 
               <a href="https://wa.me/919442576622" target="_blank"
-                 class="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs transition inline-flex items-center gap-2 border border-emerald-600">
+                 class="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs transition inline-flex items-center gap-2 border border-blue-700">
                 <i data-lucide="message-circle" class="w-4 h-4 text-amber-300"></i>
                 <span data-i18n="loc_wa_btn" data-i18n-en="WhatsApp Chat" data-i18n-ta="WhatsApp Chat">WhatsApp Chat</span>
               </a>
@@ -506,7 +506,7 @@
 
         <!-- Right Half: Client Inquiry Details Form with Submit & Cancel Confirmation -->
         <div class="lg:col-span-6">
-          <div class="bg-[#02231a] p-6 sm:p-8 rounded-3xl border border-amber-400/40 shadow-2xl space-y-5">
+          <div class="bg-[#07162c] p-6 sm:p-8 rounded-3xl border border-amber-400/40 shadow-2xl space-y-5">
             <div>
               <span class="inline-block text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3.5 py-1 rounded-full mb-2" data-i18n="inq_badge" data-i18n-en="Client Inquiry Desk" data-i18n-ta="வாடிக்கையாளர் நேரடி விசாரணை">
                 Client Inquiry Desk
@@ -604,15 +604,15 @@
   ══════════════════════════════════════════════════════════════════════ -->
   <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300"></div>
 
-  <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#02231a] text-white shadow-2xl border-l border-emerald-700/80 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+  <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#07162c] text-white shadow-2xl border-l border-blue-800/80 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
     
     <!-- Drawer Header -->
-    <div class="p-5 border-b border-emerald-800 flex items-center justify-between bg-emerald-950/90">
+    <div class="p-5 border-b border-blue-900 flex items-center justify-between bg-slate-950/90">
       <div class="flex items-center gap-2">
         <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
         <h3 class="font-cinzel font-black text-base text-white tracking-wide" data-i18n="cart_title" data-i18n-en="Multi-Item Order Cart" data-i18n-ta="ஆர்டர் கூடை">Multi-Item Order Cart</h3>
       </div>
-      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900 transition">
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 transition">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
@@ -623,7 +623,7 @@
     </div>
 
     <!-- Drawer Footer Checkout -->
-    <div class="p-5 border-t border-emerald-800 bg-emerald-950/95 space-y-3">
+    <div class="p-5 border-t border-blue-900 bg-slate-950/95 space-y-3">
       
       <!-- Subtotal -->
       <div class="flex justify-between items-center text-xs">
@@ -652,8 +652,8 @@
        10. PRODUCT QUICK VIEW MODAL
   ══════════════════════════════════════════════════════════════════════ -->
   <div id="quickview-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-[#02231a] border border-amber-400/40 rounded-3xl p-6 max-w-xl w-full shadow-2xl relative text-white">
-      <button onclick="closeQuickViewModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-emerald-900 transition">
+    <div class="bg-[#07162c] border border-amber-400/40 rounded-3xl p-6 max-w-xl w-full shadow-2xl relative text-white">
+      <button onclick="closeQuickViewModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-900 transition">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div id="quickview-content"></div>
@@ -677,7 +677,7 @@
   <footer class="bg-slate-950 border-t border-emerald-900/60 py-8 text-center text-xs text-slate-500 space-y-2">
     <div class="font-cinzel font-bold text-slate-400 company-name-text">RKG SUYAMBU CATTLE FEED &amp; AGRO PRODUCTS</div>
     <div class="company-tamil-text font-tamil text-slate-400">ஆர்.கே.ஜி சுயம்பு மாட்டுத்தீவனம் &amp; சிறுதானிய உற்பத்தி</div>
-    <div>GSTIN: <span class="font-mono text-amber-400 company-gstin-text">33AAAAA9999Z1M8</span> | FSSAI: <span class="font-mono text-emerald-400 company-fssai-text">12424005000124</span></div>
+    <div>GSTIN: <span class="font-mono text-amber-400 company-gstin-text">33AAAAA9999Z1M8</span> | FSSAI: <span class="font-mono text-blue-400 company-fssai-text">12424005000124</span></div>
     <div class="text-[11px] text-slate-600">© 2026 RKG Suyambu. All Rights Reserved. Powered by Google Cloud Firebase.</div>
   </footer>
 

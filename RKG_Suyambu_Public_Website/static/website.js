@@ -1,4 +1,4 @@
-/**
+﻿/**
  * RKG SUIAMBU — Official Client-Facing Website Script
  * Cloud Firebase Firestore Catalog Engine (Unique Codes aa01..gg23)
  * Left Pop-out Navigation Drawer, WhatsApp Multi-Item Cart & Live Location Inquiry Desk
@@ -506,7 +506,7 @@ function renderProductsGrid() {
               </button>
             `}
             <a href="https://wa.me/919442576622?text=${whatsappDirectText}" target="_blank"
-               class="flex items-center justify-center gap-1 px-2 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-black text-[11px] transition shadow-sm">
+               class="flex items-center justify-center gap-1 px-2 py-2 rounded-xl bg-emerald-800 hover:bg-slate-900 text-white font-black text-[11px] transition shadow-sm">
               <i data-lucide="message-circle" class="w-3.5 h-3.5 text-amber-400"></i>
               <span>Inquire</span>
             </a>
@@ -544,13 +544,13 @@ function renderProductsTable() {
     );
 
     return `
-      <tr class="hover:bg-emerald-900/40 transition">
+      <tr class="hover:bg-slate-900/40 transition">
         <td class="p-3.5 font-mono font-bold text-amber-400">${uCode}</td>
         <td class="p-3.5 font-bold text-white flex items-center gap-2">
-          <img src="${p.image}" class="w-8 h-8 rounded-lg object-contain bg-slate-900 border border-emerald-700">
+          <img src="${p.image}" class="w-8 h-8 rounded-lg object-contain bg-slate-900 border border-blue-800">
           <div>
             <div>${displayName}</div>
-            ${p.tamil_name && currentLang !== 'ta' ? `<div class="text-[10px] text-emerald-400 font-tamil">${p.tamil_name}</div>` : ''}
+            ${p.tamil_name && currentLang !== 'ta' ? `<div class="text-[10px] text-blue-400 font-tamil">${p.tamil_name}</div>` : ''}
           </div>
         </td>
         <td class="p-3.5 font-semibold text-slate-300">${p.brand}</td>
@@ -558,7 +558,7 @@ function renderProductsTable() {
         <td class="p-3.5 font-black text-amber-300">₹${p.price.toLocaleString('en-IN')}</td>
         <td class="p-3.5">
           ${isAvailable ? `
-            <span class="inline-flex items-center gap-1 font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-700 text-[10px]">
+            <span class="inline-flex items-center gap-1 font-bold text-blue-300 bg-slate-950 px-2 py-0.5 rounded-md border border-blue-800 text-[10px]">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> In Stock (${p.stock_qty})
             </span>
           ` : `
@@ -593,11 +593,11 @@ function renderProductsTable() {
 function filterCategory(cat, btn) {
   currentCategoryFilter = cat;
   document.querySelectorAll('.cat-pill-btn').forEach(b => {
-    b.classList.remove('active', 'bg-emerald-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
+    b.classList.remove('active', 'bg-slate-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
     b.classList.add('bg-slate-900', 'text-slate-300', 'border-slate-700');
   });
   if (btn) {
-    btn.classList.add('active', 'bg-emerald-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
+    btn.classList.add('active', 'bg-slate-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
     btn.classList.remove('bg-slate-900', 'text-slate-300', 'border-slate-700');
   }
   if (currentViewMode === 'table') {
@@ -750,16 +750,16 @@ function renderCartDrawer() {
     subtotalSum += itemTotal;
 
     return `
-      <div class="p-3 rounded-2xl bg-emerald-950/80 border border-emerald-800 flex items-center justify-between gap-3">
-        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain rounded-xl bg-slate-900 border border-emerald-700">
+      <div class="p-3 rounded-2xl bg-slate-950/80 border border-blue-900 flex items-center justify-between gap-3">
+        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain rounded-xl bg-slate-900 border border-blue-800">
         
         <div class="flex-1 min-w-0">
           <div class="font-bold text-xs text-white truncate">${item.name}</div>
           <div class="text-[10px] text-amber-300 font-semibold">[${item.doc_id}] • ₹${item.price.toLocaleString('en-IN')} each</div>
-          <div class="text-xs font-black text-emerald-400 mt-0.5">₹${itemTotal.toLocaleString('en-IN')}</div>
+          <div class="text-xs font-black text-blue-400 mt-0.5">₹${itemTotal.toLocaleString('en-IN')}</div>
         </div>
 
-        <div class="flex items-center gap-1.5 bg-slate-900 px-2 py-1 rounded-xl border border-emerald-700">
+        <div class="flex items-center gap-1.5 bg-slate-900 px-2 py-1 rounded-xl border border-blue-800">
           <button onclick="updateCartQty('${item.id}', -1)" class="w-5 h-5 flex items-center justify-center font-black text-amber-400 hover:text-white">-</button>
           <span class="text-xs font-bold text-white w-4 text-center">${item.qty}</span>
           <button onclick="updateCartQty('${item.id}', 1)" class="w-5 h-5 flex items-center justify-center font-black text-amber-400 hover:text-white">+</button>
@@ -997,7 +997,7 @@ function openQuickViewModal(productId) {
 
   content.innerHTML = `
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-      <div class="rounded-2xl overflow-hidden border border-emerald-800 bg-slate-950 p-3 shadow-inner">
+      <div class="rounded-2xl overflow-hidden border border-blue-900 bg-slate-950 p-3 shadow-inner">
         <img src="${p.image || 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg'}" alt="${p.name}" class="w-full h-64 object-contain rounded-xl">
       </div>
       <div class="space-y-3">
@@ -1009,7 +1009,7 @@ function openQuickViewModal(productId) {
         <!-- Stock status -->
         <div>
           ${isAvailable ? `
-            <span class="inline-flex items-center gap-1 font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-lg border border-emerald-700 text-xs">
+            <span class="inline-flex items-center gap-1 font-bold text-blue-400 bg-slate-950 px-2.5 py-1 rounded-lg border border-blue-800 text-xs">
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span> In Stock (${p.stock_qty} available)
             </span>
           ` : `
@@ -1019,14 +1019,14 @@ function openQuickViewModal(productId) {
           `}
         </div>
 
-        <div class="flex items-baseline justify-between pt-2 border-t border-emerald-800">
+        <div class="flex items-baseline justify-between pt-2 border-t border-blue-900">
           <div>
             <div class="text-[9px] text-slate-400 uppercase font-bold">Retail Price</div>
             <div class="text-2xl font-black text-amber-400">₹${p.price.toLocaleString('en-IN')}</div>
           </div>
           ${p.wholesale_price ? `
             <div class="text-right">
-              <div class="text-[9px] text-emerald-400 uppercase font-bold">Wholesale Rate</div>
+              <div class="text-[9px] text-blue-400 uppercase font-bold">Wholesale Rate</div>
               <div class="text-base font-black text-white">₹${p.wholesale_price.toLocaleString('en-IN')}</div>
             </div>
           ` : ''}

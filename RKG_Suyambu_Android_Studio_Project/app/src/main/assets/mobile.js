@@ -1478,7 +1478,7 @@ function updateNetworkStatusBadge() {
     badge.className = "px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-950 text-amber-300 border border-amber-600 flex items-center gap-1";
     text.textContent = queueCount > 0 ? `Offline (${queueCount} Queued)` : `Offline Standalone`;
   } else {
-    badge.className = "px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 flex items-center gap-1";
+    badge.className = "px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-950 text-blue-300 border border-blue-800 flex items-center gap-1";
     text.textContent = queueCount > 0 ? `Syncing (${queueCount})` : `Cloud Sync`;
   }
 }
@@ -1531,7 +1531,7 @@ function updateUserSessionUI() {
     roleBadge.textContent = role === 'CEO' ? '👑 CEO' : '💳 Cashier';
     roleBadge.className = role === 'CEO' 
       ? 'px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/40'
-      : 'px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40';
+      : 'px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-950 text-blue-300 border border-emerald-500/40';
   }
 
   if (userLabel) {
@@ -1796,15 +1796,15 @@ function renderSalesView(items, dateFilter, customSummary) {
     const payMode = s.payment_mode || "UPI";
     const ts = s.timestamp ? new Date(s.timestamp).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true }) : "Time N/A";
 
-    let payBadge = "bg-emerald-950 text-emerald-300 border-emerald-700/80";
+    let payBadge = "bg-slate-950 text-blue-300 border-blue-800/80";
     if (payMode.toLowerCase().includes("cash")) payBadge = "bg-amber-950 text-amber-300 border-amber-700/80";
 
     return `
-      <div class="bg-slate-900 border border-slate-800 hover:border-emerald-700/70 rounded-2xl p-4 space-y-3 transition shadow-md">
+      <div class="bg-slate-900 border border-slate-800 hover:border-blue-800/70 rounded-2xl p-4 space-y-3 transition shadow-md">
         <div class="flex justify-between items-start">
           <div class="space-y-0.5">
             <div class="flex items-center gap-1.5">
-              <span class="px-2 py-0.5 rounded font-mono font-black text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-600/50">
+              <span class="px-2 py-0.5 rounded font-mono font-black text-[10px] bg-slate-950 text-blue-300 border border-blue-700/50">
                 ${invNo}
               </span>
               <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-slate-800 text-slate-300 uppercase">
@@ -1877,7 +1877,7 @@ function renderInventoryList(items) {
     const qty = parseInt(item.stock_qty || 0);
 
     return `
-      <div class="bg-slate-900 border border-slate-800 hover:border-emerald-700/60 rounded-2xl p-3.5 space-y-3 transition shadow-sm">
+      <div class="bg-slate-900 border border-slate-800 hover:border-blue-800/60 rounded-2xl p-3.5 space-y-3 transition shadow-sm">
         <div class="flex justify-between items-start">
           <div class="space-y-0.5">
             <div class="flex items-center gap-2">
@@ -1886,13 +1886,13 @@ function renderInventoryList(items) {
               </span>
               <span class="text-xs font-bold text-white">${name}</span>
             </div>
-            ${tamil ? `<div class="text-[11px] text-emerald-400 font-tamil">${tamil}</div>` : ''}
+            ${tamil ? `<div class="text-[11px] text-blue-400 font-tamil">${tamil}</div>` : ''}
             <div class="text-[10px] text-slate-400 font-medium">Pack: ${uom}</div>
           </div>
 
           <div class="text-right">
             ${isAvail ? `
-              <span class="inline-flex items-center gap-1 font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-700 text-[10px]">
+              <span class="inline-flex items-center gap-1 font-bold text-blue-300 bg-slate-950 px-2 py-0.5 rounded-md border border-blue-800 text-[10px]">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> In Stock
               </span>
             ` : `
@@ -1914,8 +1914,8 @@ function renderInventoryList(items) {
             
             <input type="number" step="1" min="0" value="${qty}" id="input-stock-${docId}" onchange="saveDirectStock('${docId}', this.value)" class="w-14 bg-slate-950 border border-slate-700 rounded-lg py-1 text-center font-mono font-bold text-xs text-amber-300 focus:outline-none focus:border-amber-400">
 
-            <button onclick="adjustStockCount('${docId}', 1)" class="w-7 h-7 rounded-lg bg-emerald-950 border border-emerald-700 hover:bg-emerald-900 text-emerald-300 font-bold text-xs flex items-center justify-center cursor-pointer">+1</button>
-            <button onclick="adjustStockCount('${docId}', 5)" class="w-7 h-7 rounded-lg bg-emerald-950 border border-emerald-700 hover:bg-emerald-900 text-emerald-300 font-bold text-xs flex items-center justify-center cursor-pointer">+5</button>
+            <button onclick="adjustStockCount('${docId}', 1)" class="w-7 h-7 rounded-lg bg-slate-950 border border-blue-800 hover:bg-slate-900 text-blue-300 font-bold text-xs flex items-center justify-center cursor-pointer">+1</button>
+            <button onclick="adjustStockCount('${docId}', 5)" class="w-7 h-7 rounded-lg bg-slate-950 border border-blue-800 hover:bg-slate-900 text-blue-300 font-bold text-xs flex items-center justify-center cursor-pointer">+5</button>
           </div>
         </div>
       </div>
@@ -2018,7 +2018,7 @@ function renderPriceCatalog(items) {
         <div class="flex justify-between items-start">
           <div>
             <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded font-mono font-bold text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-600/40">
+              <span class="px-2 py-0.5 rounded font-mono font-bold text-[10px] bg-slate-950 text-blue-300 border border-blue-700/40">
                 ${docId}
               </span>
               <span class="text-xs font-bold text-white">${p.name}</span>
@@ -2040,7 +2040,7 @@ function renderPriceCatalog(items) {
           </div>
           <div>
             <span class="text-slate-400 text-[10px]">Wholesale:</span>
-            <span class="font-mono font-bold text-emerald-400 ml-1">₹${p.wholesale_price || (p.price * 0.95).toFixed(0)}</span>
+            <span class="font-mono font-bold text-blue-400 ml-1">₹${p.wholesale_price || (p.price * 0.95).toFixed(0)}</span>
           </div>
         </div>
       </div>
@@ -2172,7 +2172,7 @@ function renderOrdersList(items) {
     const upiTxn = ord.upi_transaction_id || "N/A";
     const payStatus = ord.payment_status || "Paid";
 
-    let payBadge = "bg-emerald-950 text-emerald-300 border-emerald-700/80";
+    let payBadge = "bg-slate-950 text-blue-300 border-blue-800/80";
     if (payStatus.toLowerCase() === 'full') payBadge = "bg-blue-950 text-blue-300 border-blue-700/80";
     else if (payStatus.toLowerCase() === 'cancelled') payBadge = "bg-rose-950 text-rose-300 border-rose-700/80";
 
@@ -2185,8 +2185,8 @@ function renderOrdersList(items) {
       const prodName = prod ? prod.name.split('(')[0].trim() : code;
 
       return `
-        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950 border border-emerald-600/40 text-amber-300">
-          <span class="text-emerald-400">${code}</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950 border border-blue-700/40 text-amber-300">
+          <span class="text-blue-400">${code}</span>
           ${count ? `<span class="text-white font-sans font-normal">Ã— ${count}</span>` : ''}
           ${prod ? `<span class="text-slate-400 font-sans font-normal text-[9px]">(${prodName})</span>` : ''}
         </span>
@@ -2194,7 +2194,7 @@ function renderOrdersList(items) {
     }).join(' ');
 
     return `
-      <div class="bg-slate-900 border border-slate-800 hover:border-emerald-700/70 rounded-2xl p-4 space-y-3 transition shadow-md">
+      <div class="bg-slate-900 border border-slate-800 hover:border-blue-800/70 rounded-2xl p-4 space-y-3 transition shadow-md">
         <div class="flex justify-between items-start">
           <div class="space-y-0.5">
             <div class="flex items-center gap-1.5">
@@ -2239,7 +2239,7 @@ function renderOrdersList(items) {
           <div class="pt-2 border-t border-slate-800/80 grid grid-cols-2 gap-2 text-[10px]">
             <div>
               <span class="text-slate-400 block font-semibold">Mode of Payment:</span>
-              <span class="font-bold text-emerald-400">${payMode}</span>
+              <span class="font-bold text-blue-400">${payMode}</span>
             </div>
             <div>
               <span class="text-slate-400 block font-semibold">UPI / Txn ID:</span>
@@ -2251,7 +2251,7 @@ function renderOrdersList(items) {
         <div class="flex items-center justify-between pt-1 gap-2">
           <span class="text-[10px] font-bold text-slate-400">Update Status:</span>
           <div class="flex items-center gap-1.5">
-            <button onclick="updateOrderStatus('${reqId}', 'Paid')" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700 transition cursor-pointer">
+            <button onclick="updateOrderStatus('${reqId}', 'Paid')" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-950 hover:bg-slate-900 text-blue-300 border border-blue-800 transition cursor-pointer">
               Paid
             </button>
             <button onclick="updateOrderStatus('${reqId}', 'Full')" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-950 hover:bg-blue-900 text-blue-300 border border-blue-700 transition cursor-pointer">
@@ -2441,11 +2441,11 @@ function renderPromoCodes(promos) {
     const used = p.used_purchase_credits || 0;
 
     return `
-      <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/60 rounded-2xl p-4 space-y-3 transition shadow-md">
+      <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/60 rounded-2xl p-4 space-y-3 transition shadow-md">
         <div class="flex justify-between items-start">
           <div>
             <div class="flex items-center gap-1.5">
-              <span class="px-2 py-0.5 rounded font-mono font-black text-[11px] bg-emerald-950 text-emerald-300 border border-emerald-500/50">
+              <span class="px-2 py-0.5 rounded font-mono font-black text-[11px] bg-slate-950 text-blue-300 border border-emerald-500/50">
                 ${codeNum}
               </span>
               <span class="px-2 py-0.5 rounded font-mono font-bold text-[9px] bg-purple-950 text-purple-300 border border-purple-700/50">
@@ -2469,7 +2469,7 @@ function renderPromoCodes(promos) {
           </div>
           <div>
             <span class="text-slate-400 block font-semibold">Purchase Credits (Bills):</span>
-            <span class="font-mono text-emerald-400 font-bold">${used} / ${credits} Used</span>
+            <span class="font-mono text-blue-400 font-bold">${used} / ${credits} Used</span>
           </div>
         </div>
 
@@ -2531,7 +2531,7 @@ function renderProfitSummary(profits) {
       </div>
       <div class="bg-slate-950 border border-slate-800 rounded-xl p-2">
         <span class="text-[9px] text-slate-400 uppercase font-bold block">Net Profit</span>
-        <span class="text-xs font-mono font-black text-emerald-400">₹${totalProfit.toLocaleString('en-IN')}</span>
+        <span class="text-xs font-mono font-black text-blue-400">₹${totalProfit.toLocaleString('en-IN')}</span>
       </div>
     </div>
 
@@ -2549,7 +2549,7 @@ function renderProfitSummary(profits) {
             </div>
             <div class="text-right">
               <div class="font-mono font-bold text-white">₹${sales} (${bills} bills)</div>
-              <div class="font-mono text-emerald-400 font-black">+₹${profit} Profit</div>
+              <div class="font-mono text-blue-400 font-black">+₹${profit} Profit</div>
             </div>
           </div>
         `;
@@ -2690,7 +2690,7 @@ function renderChangeHistory(logs) {
     }) : "Recent";
 
     let badgeColor = "bg-amber-950 text-amber-300 border-amber-700/60";
-    if (log.table_name === 'products') badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-700/60";
+    if (log.table_name === 'products') badgeColor = "bg-slate-950 text-blue-300 border-blue-800/60";
     else if (log.table_name === 'client_order_data') badgeColor = "bg-teal-950 text-teal-300 border-teal-700/60";
     else if (log.table_name === 'Promo_Code') badgeColor = "bg-pink-950 text-pink-300 border-pink-700/60";
     else if (log.table_name === 'data') badgeColor = "bg-purple-950 text-purple-300 border-purple-700/60";
@@ -2708,7 +2708,7 @@ function renderChangeHistory(logs) {
           </div>
           <div class="text-right">
             <span class="text-[9px] font-mono text-slate-400 block">${ts}</span>
-            <span class="text-[9px] font-mono text-emerald-400 font-bold block">${syncBadge}</span>
+            <span class="text-[9px] font-mono text-blue-400 font-bold block">${syncBadge}</span>
           </div>
         </div>
 
@@ -2726,8 +2726,8 @@ function renderChangeHistory(logs) {
             <span class="font-mono text-slate-300 font-bold break-words">${log.old_value || 'None'}</span>
           </div>
           <div>
-            <span class="text-[10px] text-emerald-400 block font-semibold">New Value</span>
-            <span class="font-mono text-emerald-300 font-black break-words">${log.new_value || 'None'}</span>
+            <span class="text-[10px] text-blue-400 block font-semibold">New Value</span>
+            <span class="font-mono text-blue-300 font-black break-words">${log.new_value || 'None'}</span>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * RKG SUIAMBU — Official Client-Facing Website Script
  * Cloud Firebase Firestore Catalog Engine (Unique Codes aa01..gg23)
  * Left Pop-out Navigation Drawer, WhatsApp Multi-Item Cart & Live Location Inquiry Desk
@@ -106,93 +106,76 @@ function selectDrawerCategory(cat) {
 
 // ── Generated Product Image Asset Matcher ───────────────────────────
 function resolveProductImage(p) {
-  if (p.image && p.image.length > 5 && !p.image.includes('/static/') && !p.image.includes('rkg-logo') && !p.image.includes('jsdelivr')) return p.image;
+  if (p.image && p.image.length > 5 && !p.image.includes('/static/') && !p.image.includes('rkg-logo') && !p.image.includes('jsdelivr') && !p.image.includes('products/')) return p.image;
   const name = (p.name || p.product_name || '').toLowerCase();
   const code = (p.code || p.product_code || p.doc_id || '').toLowerCase();
   const uom = (p.uom || p.unit_of_measure || '').toLowerCase();
 
-  // 1. Edible Oils
-  if (name.includes('coconut') || code.startsWith('aa01') || code.startsWith('aa02') || code.startsWith('aa03')) {
-    if (name.includes('5l') || name.includes('5 litre') || uom.includes('5l') || code === 'aa02') return 'products/coconut_oil_5l.png';
-    if (name.includes('500') || uom.includes('500') || code === 'aa03') return 'products/coconut_oil_500ml.png';
-    return 'products/coconut_oil_1l.png';
+  // 1. Edible Oils & Pooja Oils
+  if (name.includes('coconut') || name.includes('தேங்காய்') || code.startsWith('aa01') || code.startsWith('aa02') || code.startsWith('aa03')) {
+    return 'images/suyambu_coconut_oil.jpg';
   }
-  if (name.includes('peanut') || name.includes('groundnut oil') || name.includes('கடலை எண்ணெய்') || code.startsWith('aa04') || code.startsWith('aa05')) {
-    if (name.includes('5l') || name.includes('5 litre') || uom.includes('5l') || code === 'aa05') return 'products/peanut_oil_5l.png';
-    if (name.includes('500') || uom.includes('500') || code === 'aa06') return 'products/peanut_oil_500ml.png';
-    return 'products/peanut_oil_1l.png';
+  if (name.includes('peanut') || name.includes('groundnut') || name.includes('கடலை எண்ணெய்') || code.startsWith('aa04') || code.startsWith('aa05') || code.startsWith('aa06')) {
+    return 'images/suyambu_peanut_oil.jpg';
   }
-  if (name.includes('gingelly') || name.includes('sesame oil') || name.includes('நல்லெண்ணெய்') || code.startsWith('aa07') || code.startsWith('aa08')) {
-    if (name.includes('5l') || name.includes('5 litre') || uom.includes('5l') || code === 'aa08') return 'products/gingelly_oil_5l.png';
-    if (name.includes('500') || uom.includes('500') || code === 'aa09') return 'products/gingelly_oil_500ml.png';
-    return 'products/gingelly_oil_1l.png';
+  if (name.includes('gingelly') || name.includes('sesame') || name.includes('நல்லெண்ணெய்') || code.startsWith('aa07') || code.startsWith('aa08') || code.startsWith('aa09')) {
+    return 'images/suyambu_gingelly_oil.jpg';
   }
   if (name.includes('velakku') || name.includes('pooja') || name.includes('lamp') || name.includes('விளக்கு') || code.startsWith('aa10')) {
-    return 'products/velakku_ennai_1l.png';
+    return 'images/suyambu_velakku_ennai.jpg';
   }
 
-  // 2. Cattle Feeds & Pellets
-  if (name.includes('special') || name.includes('rkg special') || name.includes('ஸ்பெஷல்')) {
-    return 'products/rkg_special_feed_50kg.png';
+  // 2. Cattle Feeds, Oil Cakes & Poultry Feeds
+  if (name.includes('mash') || name.includes('மாவு')) {
+    return 'images/cattle_feed_mash.jpg';
   }
   if (name.includes('pellet') || name.includes('milk feed') || name.includes('பால் பெருக்கும்')) {
-    return 'products/rkg_feed_pellets_50kg.png';
+    return 'images/cattle_feed_pellets.jpg';
   }
   if (name.includes('cotton') || name.includes('paruthi') || name.includes('பருத்தி') || code.startsWith('gg05') || code.startsWith('gg06')) {
-    return 'products/cotton_seeds_50kg.png';
-  }
-  if (name.includes('bio pass') || name.includes('biopass')) {
-    if (name.includes('70') || uom.includes('70')) return 'products/krishi_bio_pass_70kg.png';
-    return 'products/krishi_bio_pass_50kg.png';
-  }
-  if (name.includes('pro-best') || name.includes('probest') || name.includes('supreme') || code.startsWith('gg10') || code.startsWith('gg11')) {
-    return 'products/krishi_probest_70kg.png';
-  }
-  if (name.includes('chicken') || name.includes('poultry') || name.includes('கோழி') || code.startsWith('gg14')) {
-    return 'products/krishi_chicken_feed_50kg.png';
+    return 'images/suyambu_cotton_seeds.jpg';
   }
   if (name.includes('cake') || name.includes('punnakku') || name.includes('புண்ணாக்கு') || code.startsWith('cc01')) {
-    if (name.includes('sesame') || name.includes('எள்ளு')) return 'products/sesame_oil_cake_50kg.png';
-    return 'products/groundnut_oil_cake_50kg.png';
+    return 'images/punnakku.jpg';
   }
-  if (name.includes('corn') || name.includes('maize') || name.includes('சோளம்') || name.includes('thavudu') || name.includes('nayam') || code.startsWith('gg09')) {
-    return 'products/corn_powder_50kg.png';
+  if (name.includes('chicken') || name.includes('poultry') || name.includes('கோழி') || code.startsWith('gg14')) {
+    return 'images/krishi_chicken_feed.jpg';
+  }
+  if (name.includes('nayam') || name.includes('thavudu') || name.includes('bran') || code.startsWith('gg09')) {
+    return 'images/suyambu_nayam_feed.jpg';
+  }
+  if (name.includes('krishi') || name.includes('pro-best') || name.includes('probest') || name.includes('supreme') || name.includes('bio pass') || code.startsWith('gg10') || code.startsWith('gg11')) {
+    return 'images/krishi_cattle_feed.jpg';
+  }
+  if (name.includes('feed') || name.includes('தீவனம்') || p.category === 'FEEDS') {
+    return 'images/cattle_feed_pellets.jpg';
   }
 
   // 3. Rice Varieties
-  if (name.includes('veeran') || code.startsWith('gg15') || code.startsWith('gg16')) {
-    return 'products/veeran_saapadu_rice_26kg.png';
-  }
   if (name.includes('ponni') || name.includes('sss') || name.includes('kollam') || code.startsWith('gg18') || code.startsWith('gg19')) {
-    return 'products/kollam_ponni_rice_26kg.png';
+    return 'images/a1_sss_rice.jpg';
   }
   if (name.includes('sivaji') || name.includes('shivaji') || name.includes('ir 20') || name.includes('bpt') || code.startsWith('gg21') || code.startsWith('gg22')) {
-    return 'products/veera_shivaji_rice_26kg.png';
+    return 'images/veera_sivaji_rice.jpg';
+  }
+  if (name.includes('rice') || name.includes('அரிசி') || name.includes('veeran') || code.startsWith('gg15') || code.startsWith('gg16')) {
+    return 'images/suyambu_rice.jpg';
   }
 
   // 4. Millets & Grains
   if (name.includes('kambu') || name.includes('pearl millet') || name.includes('கம்பு') || code.startsWith('gg01')) {
-    return 'products/cleaned_kambu_1kg.png';
+    return 'images/kambu_rice.jpg';
   }
-  if (name.includes('ragi') || name.includes('finger millet') || name.includes('கேழ்வரகு') || code.startsWith('gg02')) {
-    return 'products/suyambu_ragi_1kg.png';
-  }
-  if (name.includes('wheat') || name.includes('கோதுமை') || code.startsWith('gg03')) {
-    return 'products/suyambu_wheat_1kg.png';
-  }
-  if (name.includes('groundnut') || name.includes('peanut') || name.includes('வேர்க்கடலை') || code.startsWith('gg04')) {
-    return 'products/suyambu_groundnut_1kg.png';
+  if (name.includes('ragi') || name.includes('finger millet') || name.includes('கேழ்வரகு') || name.includes('wheat') || name.includes('grain') || name.includes('தானியம்') || code.startsWith('gg02') || code.startsWith('gg03') || code.startsWith('gg04')) {
+    return 'images/suyambu_grains.jpg';
   }
 
-  // 5. Masalas
-  if (name.includes('sambar') || code.startsWith('dd01')) {
-    return 'products/sambar_powder_200g.png';
-  }
-  if (name.includes('mutton') || name.includes('curry') || code.startsWith('dd02')) {
-    return 'products/mutton_masala_200g.png';
+  // 5. Masalas & Spices
+  if (name.includes('masala') || name.includes('sambar') || name.includes('curry') || name.includes('மசாலா') || code.startsWith('dd01') || code.startsWith('dd02')) {
+    return 'images/suyambu_masala_powder.jpg';
   }
 
-  return 'rkg-logo-vector.svg';
+  return 'images/official_rkg_suiambu_logo.jpg';
 }
 
 // ── View Mode Switcher (Grid vs Table) ────────────────────────────────
@@ -506,7 +489,7 @@ function renderProductsGrid() {
               </button>
             `}
             <a href="https://wa.me/919442576622?text=${whatsappDirectText}" target="_blank"
-               class="flex items-center justify-center gap-1 px-2 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-black text-[11px] transition shadow-sm">
+               class="flex items-center justify-center gap-1 px-2 py-2 rounded-xl bg-emerald-800 hover:bg-slate-900 text-white font-black text-[11px] transition shadow-sm">
               <i data-lucide="message-circle" class="w-3.5 h-3.5 text-amber-400"></i>
               <span>Inquire</span>
             </a>
@@ -544,13 +527,13 @@ function renderProductsTable() {
     );
 
     return `
-      <tr class="hover:bg-emerald-900/40 transition">
+      <tr class="hover:bg-slate-900/40 transition">
         <td class="p-3.5 font-mono font-bold text-amber-400">${uCode}</td>
         <td class="p-3.5 font-bold text-white flex items-center gap-2">
-          <img src="${p.image}" class="w-8 h-8 rounded-lg object-contain bg-slate-900 border border-emerald-700">
+          <img src="${p.image}" class="w-8 h-8 rounded-lg object-contain bg-slate-900 border border-blue-800">
           <div>
             <div>${displayName}</div>
-            ${p.tamil_name && currentLang !== 'ta' ? `<div class="text-[10px] text-emerald-400 font-tamil">${p.tamil_name}</div>` : ''}
+            ${p.tamil_name && currentLang !== 'ta' ? `<div class="text-[10px] text-blue-400 font-tamil">${p.tamil_name}</div>` : ''}
           </div>
         </td>
         <td class="p-3.5 font-semibold text-slate-300">${p.brand}</td>
@@ -558,7 +541,7 @@ function renderProductsTable() {
         <td class="p-3.5 font-black text-amber-300">₹${p.price.toLocaleString('en-IN')}</td>
         <td class="p-3.5">
           ${isAvailable ? `
-            <span class="inline-flex items-center gap-1 font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-700 text-[10px]">
+            <span class="inline-flex items-center gap-1 font-bold text-blue-300 bg-slate-950 px-2 py-0.5 rounded-md border border-blue-800 text-[10px]">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> In Stock (${p.stock_qty})
             </span>
           ` : `
@@ -593,11 +576,11 @@ function renderProductsTable() {
 function filterCategory(cat, btn) {
   currentCategoryFilter = cat;
   document.querySelectorAll('.cat-pill-btn').forEach(b => {
-    b.classList.remove('active', 'bg-emerald-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
+    b.classList.remove('active', 'bg-slate-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
     b.classList.add('bg-slate-900', 'text-slate-300', 'border-slate-700');
   });
   if (btn) {
-    btn.classList.add('active', 'bg-emerald-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
+    btn.classList.add('active', 'bg-slate-900', 'text-amber-300', 'border-amber-400', 'shadow-md');
     btn.classList.remove('bg-slate-900', 'text-slate-300', 'border-slate-700');
   }
   if (currentViewMode === 'table') {
@@ -750,16 +733,16 @@ function renderCartDrawer() {
     subtotalSum += itemTotal;
 
     return `
-      <div class="p-3 rounded-2xl bg-emerald-950/80 border border-emerald-800 flex items-center justify-between gap-3">
-        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain rounded-xl bg-slate-900 border border-emerald-700">
+      <div class="p-3 rounded-2xl bg-slate-950/80 border border-blue-900 flex items-center justify-between gap-3">
+        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain rounded-xl bg-slate-900 border border-blue-800">
         
         <div class="flex-1 min-w-0">
           <div class="font-bold text-xs text-white truncate">${item.name}</div>
           <div class="text-[10px] text-amber-300 font-semibold">[${item.doc_id}] • ₹${item.price.toLocaleString('en-IN')} each</div>
-          <div class="text-xs font-black text-emerald-400 mt-0.5">₹${itemTotal.toLocaleString('en-IN')}</div>
+          <div class="text-xs font-black text-blue-400 mt-0.5">₹${itemTotal.toLocaleString('en-IN')}</div>
         </div>
 
-        <div class="flex items-center gap-1.5 bg-slate-900 px-2 py-1 rounded-xl border border-emerald-700">
+        <div class="flex items-center gap-1.5 bg-slate-900 px-2 py-1 rounded-xl border border-blue-800">
           <button onclick="updateCartQty('${item.id}', -1)" class="w-5 h-5 flex items-center justify-center font-black text-amber-400 hover:text-white">-</button>
           <span class="text-xs font-bold text-white w-4 text-center">${item.qty}</span>
           <button onclick="updateCartQty('${item.id}', 1)" class="w-5 h-5 flex items-center justify-center font-black text-amber-400 hover:text-white">+</button>
@@ -997,7 +980,7 @@ function openQuickViewModal(productId) {
 
   content.innerHTML = `
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-      <div class="rounded-2xl overflow-hidden border border-emerald-800 bg-slate-950 p-3 shadow-inner">
+      <div class="rounded-2xl overflow-hidden border border-blue-900 bg-slate-950 p-3 shadow-inner">
         <img src="${p.image || 'https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-official.jpg'}" alt="${p.name}" class="w-full h-64 object-contain rounded-xl">
       </div>
       <div class="space-y-3">
@@ -1009,7 +992,7 @@ function openQuickViewModal(productId) {
         <!-- Stock status -->
         <div>
           ${isAvailable ? `
-            <span class="inline-flex items-center gap-1 font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-lg border border-emerald-700 text-xs">
+            <span class="inline-flex items-center gap-1 font-bold text-blue-400 bg-slate-950 px-2.5 py-1 rounded-lg border border-blue-800 text-xs">
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span> In Stock (${p.stock_qty} available)
             </span>
           ` : `
@@ -1019,14 +1002,14 @@ function openQuickViewModal(productId) {
           `}
         </div>
 
-        <div class="flex items-baseline justify-between pt-2 border-t border-emerald-800">
+        <div class="flex items-baseline justify-between pt-2 border-t border-blue-900">
           <div>
             <div class="text-[9px] text-slate-400 uppercase font-bold">Retail Price</div>
             <div class="text-2xl font-black text-amber-400">₹${p.price.toLocaleString('en-IN')}</div>
           </div>
           ${p.wholesale_price ? `
             <div class="text-right">
-              <div class="text-[9px] text-emerald-400 uppercase font-bold">Wholesale Rate</div>
+              <div class="text-[9px] text-blue-400 uppercase font-bold">Wholesale Rate</div>
               <div class="text-base font-black text-white">₹${p.wholesale_price.toLocaleString('en-IN')}</div>
             </div>
           ` : ''}

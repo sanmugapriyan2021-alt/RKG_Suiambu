@@ -1,4 +1,4 @@
-/**
+﻿/**
  * RKG SUIAMBU â€” CEO Master Control Panel Script
  * 100% Visual UI Controls â€” No JSON or Coding Required
  */
@@ -219,25 +219,25 @@ function renderProductsTable(prods) {
     tbody.innerHTML = prods.map(p => {
         const imgSrc = p.image_url || 'products/rkg_special_feed_50kg.png';
         return `
-        <tr class="hover:bg-emerald-950/40 transition">
+        <tr class="hover:bg-slate-950/40 transition">
             <td class="p-3 font-bold text-white">
                 <div class="flex items-center gap-2.5">
-                    <img src="${imgSrc}" onerror="this.src='rkg-logo-vector.svg'" class="w-10 h-10 rounded-lg object-contain bg-slate-900 border border-emerald-800/60 p-0.5 flex-shrink-0" alt="${p.product_name}">
+                    <img src="${imgSrc}" onerror="this.src='rkg-logo-vector.svg'" class="w-10 h-10 rounded-lg object-contain bg-slate-900 border border-blue-900/60 p-0.5 flex-shrink-0" alt="${p.product_name}">
                     <div>
                         <div>${p.product_name}</div>
                         ${p.tamil_name ? `<div class="text-[11px] text-amber-300/80 font-tamil">${p.tamil_name}</div>` : ''}
                     </div>
                 </div>
             </td>
-            <td class="p-3 text-emerald-300 font-semibold">${p.category}</td>
+            <td class="p-3 text-blue-300 font-semibold">${p.category}</td>
             <td class="p-3 text-right font-mono text-slate-300">₹${p.cost_price?.toFixed(2)}</td>
             <td class="p-3 text-right font-mono font-bold text-amber-300">₹${p.selling_price?.toFixed(2)}</td>
-            <td class="p-3 text-right font-mono font-bold text-emerald-400">₹${p.wholesale_price?.toFixed(2)}</td>
+            <td class="p-3 text-right font-mono font-bold text-blue-400">₹${p.wholesale_price?.toFixed(2)}</td>
             <td class="p-3 text-right font-mono text-slate-300">${p.tax_rate}%</td>
             <td class="p-3 font-mono text-slate-400">${p.hsn_code || '-'}</td>
             <td class="p-3 text-right font-bold text-white">${p.current_stock} <span class="text-[10px] text-slate-400">${p.unit_of_measure}</span></td>
             <td class="p-3 text-center">
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${p.is_active ? 'bg-emerald-900 text-emerald-300 border border-emerald-600' : 'bg-red-950 text-red-300'}">
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${p.is_active ? 'bg-slate-900 text-blue-300 border border-blue-700' : 'bg-red-950 text-red-300'}">
                     ${p.is_active ? 'Active' : 'Hidden'}
                 </span>
             </td>
@@ -263,17 +263,17 @@ function renderProductsTable(prods) {
             const valuation = (p.current_stock * (p.cost_price || 0));
             const isLow = p.current_stock <= (p.min_stock_alert || 0);
             return `
-            <tr class="hover:bg-emerald-950/40 transition">
+            <tr class="hover:bg-slate-950/40 transition">
                 <td class="p-3 font-bold text-white">${p.product_name}</td>
                 <td class="p-3 text-amber-300 font-tamil">${p.tamil_name || '-'}</td>
-                <td class="p-3 text-emerald-300">${p.category}</td>
-                <td class="p-3 text-right font-bold ${isLow ? 'text-rose-400' : 'text-emerald-400'} font-mono text-sm">
+                <td class="p-3 text-blue-300">${p.category}</td>
+                <td class="p-3 text-right font-bold ${isLow ? 'text-rose-400' : 'text-blue-400'} font-mono text-sm">
                     ${p.current_stock} <span class="text-[10px] text-slate-400">${p.unit_of_measure}</span>
                 </td>
                 <td class="p-3 text-right font-mono text-slate-300">₹${(p.cost_price || 0).toFixed(2)}</td>
                 <td class="p-3 text-right font-mono font-black text-amber-300">₹${valuation.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
                 <td class="p-3 text-center">
-                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isLow ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-emerald-950 text-emerald-300 border border-emerald-800'}">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isLow ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-slate-950 text-blue-300 border border-blue-900'}">
                         ${isLow ? 'âš ï¸ LOW STOCK' : '✅ HEALTHY'}
                     </span>
                 </td>
@@ -591,11 +591,11 @@ async function loadInquiries() {
                 const waLink = `https://wa.me/${i.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello ' + i.name + ', regarding your RKG Suyambu inquiry for ' + (i.product_interest || 'cattle feed'))}`;
 
                 return `
-                    <tr class="hover:bg-emerald-950/40 transition">
+                    <tr class="hover:bg-slate-950/40 transition">
                         <td class="p-3 text-slate-400 whitespace-nowrap">${dateStr}</td>
                         <td class="p-3 font-bold text-white">${i.name}</td>
                         <td class="p-3 font-mono text-amber-300 font-bold">${i.phone}</td>
-                        <td class="p-3 text-emerald-300 font-semibold">${i.party_type}</td>
+                        <td class="p-3 text-blue-300 font-semibold">${i.party_type}</td>
                         <td class="p-3 text-slate-300">${i.location || '-'}</td>
                         <td class="p-3 text-amber-200 font-bold">${i.product_interest || '-'}</td>
                         <td class="p-3 text-slate-300 font-bold">${i.quantity || '-'}</td>
@@ -630,15 +630,15 @@ async function loadUsers() {
         if (res.ok) {
             const users = await res.json();
             tbody.innerHTML = users.map(u => `
-                <tr class="hover:bg-emerald-950/40 transition">
+                <tr class="hover:bg-slate-950/40 transition">
                     <td class="p-3 font-bold text-white">
                         <div>${u.full_name}</div>
                         ${u.tamil_name ? `<div class="text-[11px] text-amber-300/80 font-tamil">${u.tamil_name}</div>` : ''}
                     </td>
-                    <td class="p-3 font-mono text-emerald-300">${u.username}</td>
+                    <td class="p-3 font-mono text-blue-300">${u.username}</td>
                     <td class="p-3 font-extrabold text-amber-300">${u.role}</td>
                     <td class="p-3">
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${u.is_active ? 'bg-emerald-900 text-emerald-300' : 'bg-red-950 text-red-300'}">
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${u.is_active ? 'bg-slate-900 text-blue-300' : 'bg-red-950 text-red-300'}">
                             ${u.is_active ? 'Active' : 'Disabled'}
                         </span>
                     </td>
@@ -742,10 +742,10 @@ async function loadAuditLogs() {
             }
 
             tbody.innerHTML = data.logs.map(l => `
-                <tr class="hover:bg-emerald-950/40 transition">
+                <tr class="hover:bg-slate-950/40 transition">
                     <td class="p-3 text-slate-400 whitespace-nowrap">${new Date(l.timestamp).toLocaleString('en-IN')}</td>
                     <td class="p-3 font-bold text-amber-400">${l.performed_by}</td>
-                    <td class="p-3 font-extrabold text-emerald-300">${l.action_type}</td>
+                    <td class="p-3 font-extrabold text-blue-300">${l.action_type}</td>
                     <td class="p-3 font-mono text-slate-300">${l.target_table}</td>
                     <td class="p-3 text-slate-200">${l.target_label || l.target_id || '-'}</td>
                     <td class="p-3 text-slate-400 text-[11px]">${l.new_value || l.reason || '-'}</td>
@@ -834,7 +834,7 @@ function handleLivePasswordStrength(inputId, barId, labelId, badgesId) {
     if (badges) {
         badges.innerHTML = res.missing.map(m => 
             `<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">âš ï¸ ${m}</span>`
-        ).join('') + (res.score >= 3 ? `<span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700">✅ High Security Passphrase</span>` : '');
+        ).join('') + (res.score >= 3 ? `<span class="px-2 py-0.5 rounded-full bg-slate-950 text-blue-300 border border-blue-800">✅ High Security Passphrase</span>` : '');
     }
 }
 
@@ -889,7 +889,7 @@ function sanitizeAndValidatePhone(inputElem, statusElem) {
     }
 
     if (statusElem) {
-        statusElem.innerHTML = `<span class="text-emerald-400 font-bold">✅ Valid 10-Digit Mobile Number</span>`;
+        statusElem.innerHTML = `<span class="text-blue-400 font-bold">✅ Valid 10-Digit Mobile Number</span>`;
         statusElem.style.display = "block";
     }
     inputElem.style.borderColor = "#10b981";

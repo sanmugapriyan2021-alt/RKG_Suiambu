@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
                         dark: {
                             900: '#021a13',
                             800: '#04281f',
-                            700: '#064e3b',
+                            700: '#0b2149',
                             600: '#065f46',
                             500: '#047857',
                         }
@@ -168,7 +168,7 @@
 
         <!-- Login Card -->
         <div class="card ceo-glow p-7">
-            <div class="flex items-center gap-2 mb-6 pb-4 border-b border-emerald-800">
+            <div class="flex items-center gap-2 mb-6 pb-4 border-b border-blue-900">
                 <div class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
                 <span class="text-xs text-amber-300 font-bold tracking-wider uppercase">Visual Control Hub â€¢ Level 5 Clearance</span>
             </div>
@@ -211,7 +211,7 @@
                         <i data-lucide="monitor" class="w-3.5 h-3.5"></i> ERP Portal
                     </a>
                     <span class="text-slate-700">â€¢</span>
-                    <a href="/" class="text-emerald-400 hover:underline flex items-center gap-1 font-bold">
+                    <a href="/" class="text-blue-400 hover:underline flex items-center gap-1 font-bold">
                         <i data-lucide="globe" class="w-3.5 h-3.5"></i> Public Web
                     </a>
                 </div>
@@ -230,7 +230,7 @@
 <div id="ceo-dashboard" class="hidden min-h-screen flex flex-col">
     
     <!-- Top Bar -->
-    <header class="h-16 flex items-center justify-between px-6 border-b border-emerald-800 bg-[#021f17]/95 backdrop-blur-md sticky top-0 z-20">
+    <header class="h-16 flex items-center justify-between px-6 border-b border-blue-900 bg-[#021f17]/95 backdrop-blur-md sticky top-0 z-20">
         <div class="flex items-center gap-3">
             <img src="rkg-logo-vector.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/sanmugapriyan2021-alt/RKG_Suiambu@main/rkg-logo-vector.svg'" alt="RKG Logo" class="w-10 h-10 rounded-full seal-gold-border bg-white object-contain">
             <div>
@@ -241,7 +241,7 @@
 
         <div class="flex items-center gap-3">
             <!-- Session Timer -->
-            <div class="flex items-center gap-1.5 text-[11px] text-slate-300 bg-emerald-950 px-3 py-1.5 rounded-lg border border-emerald-800">
+            <div class="flex items-center gap-1.5 text-[11px] text-slate-300 bg-slate-950 px-3 py-1.5 rounded-lg border border-blue-900">
                 <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
                 <span>Session: </span><span id="session-timer" class="text-amber-400 font-bold">8:00:00</span>
             </div>
@@ -252,10 +252,10 @@
                 <i data-lucide="monitor" class="w-3.5 h-3.5 text-amber-400"></i> ERP Portal
             </a>
             <a href="/" target="_blank" class="ceo-btn-ghost text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <i data-lucide="globe" class="w-3.5 h-3.5 text-emerald-400"></i> View Live Web
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-blue-400"></i> View Live Web
             </a>
-            <button onclick="triggerCloudSync()" id="cloud-sync-btn" class="ceo-btn-ghost text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 border-emerald-500/40 text-emerald-300 hover:bg-emerald-950/60" title="Sync all database records to Firebase Cloud">
-                <i data-lucide="cloud" class="w-3.5 h-3.5 text-emerald-400"></i> Cloud Sync
+            <button onclick="triggerCloudSync()" id="cloud-sync-btn" class="ceo-btn-ghost text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 border-emerald-500/40 text-blue-300 hover:bg-slate-950/60" title="Sync all database records to Firebase Cloud">
+                <i data-lucide="cloud" class="w-3.5 h-3.5 text-blue-400"></i> Cloud Sync
             </button>
             <button onclick="ceLogout()" class="ceo-btn-danger text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
                 <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Exit
@@ -265,7 +265,7 @@
     </header>
 
     <!-- Tab Navigation Bar -->
-    <div class="flex flex-wrap items-center gap-2 px-6 pt-4 pb-3 border-b border-emerald-800 bg-[#02231a]">
+    <div class="flex flex-wrap items-center gap-2 px-6 pt-4 pb-3 border-b border-blue-900 bg-[#07162c]">
         <button onclick="switchTab('profile')" id="tab-profile" class="tab-btn active px-4 py-2 text-xs font-extrabold text-slate-300 flex items-center gap-2">
             <i data-lucide="building" class="w-4 h-4 text-amber-400"></i>
             Company Profile &amp; Contact
@@ -279,7 +279,7 @@
             👑 Stock Control &amp; Inward
         </button>
         <button onclick="switchTab('inquiries')" id="tab-inquiries" class="tab-btn px-4 py-2 text-xs font-extrabold text-slate-300 flex items-center gap-2">
-            <i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i>
+            <i data-lucide="message-square" class="w-4 h-4 text-blue-400"></i>
             Website Leads &amp; Inquiries
         </button>
         <button onclick="switchTab('users')" id="tab-users" class="tab-btn px-4 py-2 text-xs font-extrabold text-slate-300 flex items-center gap-2">
@@ -306,7 +306,7 @@
                         <i data-lucide="building" class="w-5 h-5 text-amber-400"></i>
                         Visual Company Profile &amp; Contact Configurator
                     </h2>
-                    <p class="text-xs text-emerald-300 mt-0.5 font-tamil"> †, Šˆ‡š, •  ™à¯• ™à¯• â€” 100% ‡Ÿ </p>
+                    <p class="text-xs text-blue-300 mt-0.5 font-tamil"> †, Šˆ‡š, •  ™à¯• ™à¯• â€” 100% ‡Ÿ </p>
                 </div>
                 <button onclick="saveCompanySettings()" class="ceo-btn">
                     <i data-lucide="save" class="w-4 h-4"></i> Save Company Profile Changes
@@ -316,7 +316,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Basic Info -->
                 <div class="card p-5 space-y-4">
-                    <h3 class="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-emerald-800 pb-2">
+                    <h3 class="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-blue-900 pb-2">
                         Enterprise Identity
                     </h3>
                     <div>
@@ -339,7 +339,7 @@
 
                 <!-- Contact & Banking -->
                 <div class="card p-5 space-y-4">
-                    <h3 class="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-emerald-800 pb-2">
+                    <h3 class="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-blue-900 pb-2">
                         Helpline, WhatsApp &amp; Statutory
                     </h3>
                     <div class="grid grid-cols-2 gap-3">
@@ -379,7 +379,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-300 mb-1">UPI ID (QR)</label>
-                            <input type="text" id="cs-upi" class="ceo-input text-emerald-400">
+                            <input type="text" id="cs-upi" class="ceo-input text-blue-400">
                         </div>
                     </div>
                 </div>
@@ -396,7 +396,7 @@
                         <i data-lucide="package" class="w-5 h-5 text-amber-400"></i>
                         Visual Product &amp; Pricing Master
                     </h2>
-                    <p class="text-xs text-emerald-300 mt-0.5 font-tamil">ˆ  •à¯ˆ ™à¯•ˆ ’ ••à¯• </p>
+                    <p class="text-xs text-blue-300 mt-0.5 font-tamil">ˆ  •à¯ˆ ™à¯•ˆ ’ ••à¯• </p>
                 </div>
                 <div class="flex items-center gap-3">
                     <input type="text" id="product-search" oninput="filterProductsTable()" class="ceo-input w-56" placeholder="Search product / ‡Ÿà¯•...">
@@ -412,7 +412,7 @@
             <div class="card overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs">
-                        <thead class="bg-emerald-950/80 border-b border-emerald-800 text-amber-300 font-extrabold uppercase tracking-wider">
+                        <thead class="bg-slate-950/80 border-b border-blue-900 text-amber-300 font-extrabold uppercase tracking-wider">
                             <tr>
                                 <th class="p-3 text-left">Product Name</th>
                                 <th class="p-3 text-left">Category</th>
@@ -444,7 +444,7 @@
                         <i data-lucide="boxes" class="w-5 h-5 text-amber-400"></i>
                         CEO Master Stock Control &amp; Direct Inward
                     </h2>
-                    <p class="text-xs text-emerald-300 mt-0.5 font-tamil">ˆ • ‡Ÿ š•à¯•à¯ ‰€Ÿà¯ &amp; •à¯ˆ š ˆ</p>
+                    <p class="text-xs text-blue-300 mt-0.5 font-tamil">ˆ • ‡Ÿ š•à¯•à¯ ‰€Ÿà¯ &amp; •à¯ˆ š ˆ</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5">
@@ -455,7 +455,7 @@
 
             <!-- Direct Inward Form Card -->
             <div class="card p-6 bg-gradient-to-br from-[#032a20] to-[#011a13] border border-amber-500/30 ceo-glow">
-                <div class="flex items-center gap-2 mb-4 pb-3 border-b border-emerald-800">
+                <div class="flex items-center gap-2 mb-4 pb-3 border-b border-blue-900">
                     <i data-lucide="package-plus" class="w-4 h-4 text-amber-400"></i>
                     <h3 class="text-sm font-extrabold text-white font-tamil"> š•à¯•à¯ ‡Ÿ ‰€Ÿà¯ (Direct Factory Inward)</h3>
                 </div>
@@ -489,7 +489,7 @@
                     </div>
 
                     <!-- CEO Master Re-confirmation -->
-                    <div class="p-3 rounded-xl bg-emerald-950/90 border border-amber-400/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 mt-4">
+                    <div class="p-3 rounded-xl bg-slate-950/90 border border-amber-400/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 mt-4">
                         <div class="flex items-center gap-2">
                             <i data-lucide="key-round" class="w-4 h-4 text-amber-400"></i>
                             <div>
@@ -509,9 +509,9 @@
 
             <!-- Current Inventory Status Table -->
             <div class="card overflow-hidden">
-                <div class="p-4 border-b border-emerald-800 flex items-center justify-between">
+                <div class="p-4 border-b border-blue-900 flex items-center justify-between">
                     <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                        <i data-lucide="warehouse" class="w-4 h-4 text-emerald-400"></i>
+                        <i data-lucide="warehouse" class="w-4 h-4 text-blue-400"></i>
                         Live Warehouse Stock &amp; Valuation
                     </h3>
                     <button onclick="loadProducts()" class="ceo-btn-ghost text-xs px-3 py-1.5 rounded-lg flex items-center gap-1">
@@ -520,7 +520,7 @@
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs">
-                        <thead class="bg-emerald-950/80 border-b border-emerald-800 text-amber-300 font-extrabold uppercase tracking-wider">
+                        <thead class="bg-slate-950/80 border-b border-blue-900 text-amber-300 font-extrabold uppercase tracking-wider">
                             <tr>
                                 <th class="p-3 text-left">Product Name</th>
                                 <th class="p-3 text-left font-tamil"> †</th>
@@ -547,10 +547,10 @@
             <div class="flex items-center justify-between mb-4">
                 <div>
                     <h2 class="text-base font-black text-white flex items-center gap-2">
-                        <i data-lucide="message-square" class="w-5 h-5 text-emerald-400"></i>
+                        <i data-lucide="message-square" class="w-5 h-5 text-blue-400"></i>
                         Website Customer Leads &amp; Quote Requests
                     </h2>
-                    <p class="text-xs text-emerald-300 mt-0.5 font-tamil">‡ˆ ‚  Ÿ•à¯•à¯ˆ šˆ• â€” ‡Ÿ Ÿà¯… ‡ˆ</p>
+                    <p class="text-xs text-blue-300 mt-0.5 font-tamil">‡ˆ ‚  Ÿ•à¯•à¯ˆ šˆ• â€” ‡Ÿ Ÿà¯… ‡ˆ</p>
                 </div>
                 <button onclick="loadInquiries()" class="ceo-btn-ghost text-xs px-3 py-2 rounded-xl flex items-center gap-1.5">
                     <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh Leads
@@ -560,7 +560,7 @@
             <div class="card overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs">
-                        <thead class="bg-emerald-950/80 border-b border-emerald-800 text-amber-300 font-extrabold uppercase tracking-wider">
+                        <thead class="bg-slate-950/80 border-b border-blue-900 text-amber-300 font-extrabold uppercase tracking-wider">
                             <tr>
                                 <th class="p-3 text-left">Date / Time</th>
                                 <th class="p-3 text-left">Customer Name</th>
@@ -590,7 +590,7 @@
                         <i data-lucide="users" class="w-5 h-5 text-amber-400"></i>
                         Staff Operators &amp; Role Management
                     </h2>
-                    <p class="text-xs text-emerald-300 mt-0.5 font-tamil">  •Ÿšà¯šà¯Š ‡ˆ</p>
+                    <p class="text-xs text-blue-300 mt-0.5 font-tamil">  •Ÿšà¯šà¯Š ‡ˆ</p>
                 </div>
                 <button onclick="openCreateUserPanel()" class="ceo-btn">
                     <i data-lucide="user-plus" class="w-4 h-4"></i> Add New Operator
@@ -649,7 +649,7 @@
             <div class="card overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs">
-                        <thead class="bg-emerald-950/80 border-b border-emerald-800 text-amber-300 font-extrabold uppercase tracking-wider">
+                        <thead class="bg-slate-950/80 border-b border-blue-900 text-amber-300 font-extrabold uppercase tracking-wider">
                             <tr>
                                 <th class="p-3 text-left">User</th>
                                 <th class="p-3 text-left">Username</th>
@@ -676,7 +676,7 @@
                         <i data-lucide="shield" class="w-5 h-5 text-amber-400"></i>
                         Permanent Immutable Security Audit Trail
                     </h2>
-                    <p class="text-xs text-emerald-300 mt-0.5 font-tamil"> ™à¯•  â€” • Ÿà¯ • </p>
+                    <p class="text-xs text-blue-300 mt-0.5 font-tamil"> ™à¯•  â€” • Ÿà¯ • </p>
                 </div>
                 <button onclick="loadAuditLogs()" class="ceo-btn-ghost text-xs px-3 py-2 rounded-xl flex items-center gap-1.5">
                     <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh
@@ -686,7 +686,7 @@
             <div class="card overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs">
-                        <thead class="bg-emerald-950/80 border-b border-emerald-800 text-amber-300 font-extrabold uppercase tracking-wider">
+                        <thead class="bg-slate-950/80 border-b border-blue-900 text-amber-300 font-extrabold uppercase tracking-wider">
                             <tr>
                                 <th class="p-3 text-left">Timestamp</th>
                                 <th class="p-3 text-left">Actor</th>
@@ -712,7 +712,7 @@
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="confirm-modal" class="confirm-overlay hidden">
     <div class="confirm-card relative">
-        <button type="button" onclick="closeConfirmModal()" title="Close popup (‚Ÿà¯)" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-700/50 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-950/50 text-sm font-black transition">âœ•</button>
+        <button type="button" onclick="closeConfirmModal()" title="Close popup (‚Ÿà¯)" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-slate-950/80 border border-blue-800/50 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-950/50 text-sm font-black transition">âœ•</button>
         <div class="flex items-center gap-3 mb-4 pr-8">
             <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center flex-shrink-0">
                 <i data-lucide="key-round" class="w-5 h-5 text-amber-400"></i>
@@ -752,7 +752,7 @@
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="edit-product-modal" class="confirm-overlay hidden">
     <div class="confirm-card" style="max-width: 580px;">
-        <div class="flex items-center justify-between mb-4 pb-2 border-b border-emerald-800">
+        <div class="flex items-center justify-between mb-4 pb-2 border-b border-blue-900">
             <h3 class="font-black text-white text-sm flex items-center gap-2 font-tamil">
                 <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
                 Edit Product &amp; Pricing
@@ -776,7 +776,7 @@
             </div>
             <div>
                 <label class="block font-bold text-slate-300 mb-1">Wholesale Rate ₹</label>
-                <input type="number" step="0.01" id="ep-wholesale" class="ceo-input font-bold text-emerald-400">
+                <input type="number" step="0.01" id="ep-wholesale" class="ceo-input font-bold text-blue-400">
             </div>
             <div>
                 <label class="block font-bold text-slate-300 mb-1">Purchase / Cost Price ₹</label>
@@ -797,7 +797,7 @@
         </div>
 
         <!-- CEO Password -->
-        <div class="p-3 rounded-xl mb-4 bg-emerald-950 border border-amber-400/30">
+        <div class="p-3 rounded-xl mb-4 bg-slate-950 border border-amber-400/30">
             <label class="block text-xs font-bold text-amber-300 mb-1 uppercase">
                 âš¿ CEO Password (Required to Save)
             </label>
@@ -820,7 +820,7 @@
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="add-product-modal" class="confirm-overlay hidden">
     <div class="confirm-card" style="max-width: 540px;">
-        <div class="flex items-center justify-between mb-4 pb-2 border-b border-emerald-800">
+        <div class="flex items-center justify-between mb-4 pb-2 border-b border-blue-900">
             <h3 class="font-black text-white text-sm flex items-center gap-2 font-tamil">
                 <i data-lucide="package-plus" class="w-4 h-4 text-amber-400"></i>
                 Add Material / Product to Catalog ( Š šà¯‡)
@@ -868,7 +868,7 @@
         </div>
 
         <!-- CEO Master Password -->
-        <div class="p-3 rounded-xl mb-4 bg-emerald-950 border border-amber-400/40">
+        <div class="p-3 rounded-xl mb-4 bg-slate-950 border border-amber-400/40">
             <label class="block text-xs font-bold text-amber-300 mb-1 uppercase tracking-wider flex items-center gap-1.5">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-400"></i>
                 CEO Password (Required to Authorize Product)
