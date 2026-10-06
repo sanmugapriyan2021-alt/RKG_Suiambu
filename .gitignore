@@ -1,0 +1,17 @@
+# Build & Temp
+*.zip
+*.log
+*.tmp
+.idea/
+.gradle/
+build/
+bin/
+obj/
+scratch/
+.system_generated/
+*.idsig
+
+# Keep executables and binaries requested
+!RKG_Suyambu_CEO.apk
+!New_Bill_Windows11.exe
+!RKG_Suyambu_Windows11_POS/New_Bill_Windows11.exe

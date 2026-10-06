@@ -1,0 +1,9 @@
+{"code":"RKG10","name":"Special 10% Store Discount","qr":"QR-RKG-10","discount_pct":10.00,"max_discount":1000.00,"min_order":F2}
+{"code":"FARMER15","name":"Agricultural Farmers 15% Discount","qr":"QR-FARMER-15","discount_pct":15.00,"max_discount":1500.00,"min_order":F2}
+{"code":"SUYAMBU20","name":"Suyambu Mill Festival 20% Discount","qr":"QR-SUYAMBU-20","discount_pct":20.00,"max_discount":2000.00,"min_order":F2}
+{"code":"AGRO25","name":"Bulk Cattle Feed 25% Promo","qr":"QR-AGRO-25","discount_pct":25.00,"max_discount":2500.00,"min_order":F2}
+{"code":"PONGAL30","name":"Grand Harvest Festival 30% Promo","qr":"QR-PONGAL-30","discount_pct":30.00,"max_discount":3000.00,"min_order":F2}
+{"code":"DISC5","name":"Welcome 5% Quick Voucher","qr":"QR-DISC-5","discount_pct":5.00,"max_discount":500.00,"min_order":F2}
+{"code":"RKG-PRM-2026-A01","name":"Agro Harvest Special","qr":"QR-RKG-9842-A01","discount_pct":10.00,"max_discount":1000.00,"min_order":F2}
+{"code":"RKG-PRM-2026-B02","name":"Dairy Farmers Bulk Promo","qr":"QR-RKG-9842-B02","discount_pct":5.00,"max_discount":2500.00,"min_order":F2}
+{"code":"RKG-PRM-2026-C03","name":"Cold-Pressed Oil Festival","qr":"QR-RKG-9842-C03","discount_pct":8.00,"max_discount":1200.00,"min_order":F2}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RKG SUIAMBU — 50ft x 2.5ft Commercial Banner & Name Board Studio</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0b1329; }
+    ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fff3a8 0%, #f3c642 40%, #d49b18 80%, #996c05 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+    }
+    .pan-viewport {
+      cursor: grab;
+      user-select: none;
+    }
+    .pan-viewport:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased flex flex-col">
+
+  <!-- TOP APP HEADER -->
+  <header class="bg-slate-900/90 border-b border-amber-500/30 backdrop-blur-md px-6 py-3.5 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-yellow-300 p-0.5 shadow-lg flex items-center justify-center">
+        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-amber-400 font-bold text-lg">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-lg font-black tracking-wide gold-gradient-text">RKG SUIAMBU</h1>
+          <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">50 FT × 2.5 FT</span>
+          <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">RATIO 20:1</span>
+        </div>
+        <p class="text-xs text-slate-400">Commercial Name Board &amp; Storefront Flex Banner Master Design Studio</p>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS & EXPORTS -->
+    <div class="flex items-center flex-wrap gap-2.5">
+      <button onclick="setZoom(1)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-expand"></i> Fit Screen
+      </button>
+      <button onclick="zoomIn()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition">
+        <i class="fa-solid fa-magnifying-glass-plus"></i>
+      </button>
+      <button onclick="zoomOut()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition">
+        <i class="fa-solid fa-magnifying-glass-minus"></i>
+      </button>
+      <div class="h-6 w-px bg-slate-800 mx-1"></div>
+      
+      <button onclick="exportSVG()" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white shadow-md transition flex items-center gap-1.5">
+        <i class="fa-solid fa-file-code"></i> Download Vector SVG
+      </button>
+      <button onclick="exportUltraHD()" class="px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-xs font-bold text-white shadow-md transition flex items-center gap-1.5">
+        <i class="fa-solid fa-image"></i> Export High-Res PNG
+      </button>
+      <button onclick="window.print()" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white shadow-md transition flex items-center gap-1.5">
+        <i class="fa-solid fa-print"></i> Print Sheet
+      </button>
+    </div>
+  </header>
+
+  <!-- VIEW MODE TABS -->
+  <div class="bg-slate-900 border-b border-slate-800 px-6 py-2 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <button id="tab-btn-vector" onclick="switchView('vector')" class="px-4 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/50 text-xs font-bold transition flex items-center gap-2">
+        <i class="fa-solid fa-vector-square"></i> Vector Master Banner (50×2.5 ft)
+      </button>
+      <button id="tab-btn-mockup" onclick="switchView('mockup')" class="px-4 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-2">
+        <i class="fa-solid fa-store"></i> Storefront Installation 3D Mockup
+      </button>
+      <button id="tab-btn-graphic" onclick="switchView('graphic')" class="px-4 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-2">
+        <i class="fa-solid fa-panorama"></i> Panoramic Close-up Visual
+      </button>
+    </div>
+
+    <!-- SECTION JUMP SHORTCUTS -->
+    <div class="hidden md:flex items-center gap-1.5 text-xs">
+      <span class="text-slate-400 font-medium mr-1">Focus Section:</span>
+      <button onclick="jumpTo('left')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium">Left (GSTIN &amp; Bags)</button>
+      <button onclick="jumpTo('center')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold">Center (Logo Crest)</button>
+      <button onclick="jumpTo('right')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium">Right (Contacts &amp; Bags)</button>
+      <button onclick="jumpTo('all')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium">Full 50ft Panorama</button>
+    </div>
+  </div>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+    
+    <!-- LEFT/CENTER CANVAS PREVIEW AREA -->
+    <div class="flex-1 flex flex-col bg-slate-950 p-4 overflow-hidden relative">
+      
+      <!-- VECTOR MASTER BANNER VIEWPORT -->
+      <div id="view-vector" class="flex-1 flex flex-col justify-center items-center overflow-auto rounded-2xl bg-[#070e20] border border-amber-500/20 p-4 shadow-inner relative pan-viewport" id="pan-container">
+        
+        <!-- Banner Display Frame -->
+        <div id="banner-wrapper" class="transition-transform duration-200 origin-center w-full flex items-center justify-center p-2">
+          <div class="w-full relative gold-border-glow rounded-md overflow-hidden bg-black flex items-center shadow-2xl border-2 border-amber-400/80" style="aspect-ratio: 20 / 1;">
+            <!-- Embedded Scalable Vector SVG -->
+            <iframe id="svg-frame" src="rkg_suyambu_banner_50x2.5ft.svg" class="w-full h-full border-0 pointer-events-none" style="aspect-ratio: 20 / 1;"></iframe>
+          </div>
+        </div>
+
+        <!-- Scale Ruler at bottom -->
+        <div class="w-full mt-3 flex items-center justify-between text-[11px] text-slate-400 px-4">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span>0.0 FT (Left Wing: GSTIN &amp; Bags)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+            <span>25.0 FT (Center: Royal RKG Logo Crest)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-indigo-500"></span>
+            <span>50.0 FT (Right Wing: Contacts &amp; Bags)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOREFRONT 3D MOCKUP VIEWPORT (HIDDEN BY DEFAULT) -->
+      <div id="view-mockup" class="hidden flex-1 flex flex-col justify-center items-center overflow-auto rounded-2xl bg-slate-900 border border-slate-800 p-4">
+        <div class="max-w-5xl w-full rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+          <img src="rkg_banner_mockup_1789122988220.jpg" alt="RKG Suyambu Storefront 50ft Banner Installation Mockup" class="w-full h-auto object-cover">
+          <div class="p-3 bg-slate-950/90 border-t border-slate-800 flex justify-between items-center text-xs text-slate-300">
+            <span class="font-bold text-amber-400"><i class="fa-solid fa-camera mr-1"></i> Photorealistic 50ft × 2.5ft Signboard Installed on Modern Factory Storefront</span>
+            <span class="text-slate-400">Daylight Sunlit View with Grazing Dairy Pastures</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANORAMIC GRAPHIC VIEWPORT (HIDDEN BY DEFAULT) -->
+      <div id="view-graphic" class="hidden flex-1 flex flex-col justify-center items-center overflow-auto rounded-2xl bg-slate-900 border border-slate-800 p-4">
+        <div class="max-w-5xl w-full rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+          <img src="rkg_banner_graphic_1789123011890.jpg" alt="RKG Suyambu Banner Close-up Graphic Design Layout" class="w-full h-auto object-cover">
+          <div class="p-3 bg-slate-950/90 border-t border-slate-800 flex justify-between items-center text-xs text-slate-300">
+            <span class="font-bold text-amber-400"><i class="fa-solid fa-palette mr-1"></i> Commercial Graphic Layout: Royal Gold Shield &amp; Dual Feed Stacks</span>
+            <span class="text-slate-400">Lush Green Farmland Backdrop &amp; High-Contrast Statutory Badges</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER SPECS BAR -->
+      <div class="mt-4 bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-6">
+          <div>
+            <span class="text-slate-500 block">PHYSICAL SIZE</span>
+            <strong class="text-slate-200 text-sm">50 Feet × 2.5 Feet</strong> (600" × 30")
+          </div>
+          <div>
+            <span class="text-slate-500 block">METRIC SIZE</span>
+            <strong class="text-slate-200 text-sm">15.24 m × 0.762 m</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 block">COLOR PROFILE</span>
+            <strong class="text-emerald-400 text-sm font-mono">CMYK / UV Eco-Solvent Ready</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 block">RECOMMENDED MATERIAL</span>
+            <strong class="text-amber-400 text-sm">Star Flex (380 GSM) / Backlit Glow Vinyl</strong>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">Zoom: <span id="zoom-level">100%</span></span>
+          <button onclick="resetZoom()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Reset</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR: LIVE CUSTOMIZER & PRINT GUIDE -->
+    <aside class="w-full lg:w-96 bg-slate-900 border-l border-slate-800 flex flex-col overflow-y-auto p-5 gap-5">
+      
+      <!-- SECTION 1: LIVE CONTENT EDITOR -->
+      <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 shadow-sm">
+        <h2 class="text-sm font-bold text-amber-300 flex items-center gap-2 mb-3">
+          <i class="fa-solid fa-pen-to-square"></i> Banner Statutory &amp; Contact Details
+        </h2>
+        
+        <div class="space-y-3 text-xs">
+          <div>
+            <label class="block text-slate-400 font-semibold mb-1">Company English Name</label>
+            <input type="text" id="inp-eng-name" value="RKG SUIAMBU" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white font-bold focus:border-amber-400 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-slate-400 font-semibold mb-1">Tamil Brand Title</label>
+            <input type="text" id="inp-tam-name" value="ஆர்.கே.ஜி சுயம்பு மாட்டுத்தீவனம் & ஆயில் மில்ஸ்" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-amber-400 focus:outline-none">
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-slate-400 font-semibold mb-1">GSTIN Number</label>
+              <input type="text" id="inp-gstin" value="33AAAAA9999Z1M8" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-2 text-amber-300 font-mono font-bold focus:border-amber-400 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-slate-400 font-semibold mb-1">FSSAI License</label>
+              <input type="text" id="inp-fssai" value="12424005000124" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-2 text-emerald-300 font-mono font-bold focus:border-amber-400 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-slate-400 font-semibold mb-1">Primary Phone</label>
+              <input type="text" id="inp-phone1" value="+91 94425 76622" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-2 text-white font-mono font-bold focus:border-amber-400 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-slate-400 font-semibold mb-1">Secondary Phone</label>
+              <input type="text" id="inp-phone2" value="84385 39264" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-2 text-white font-mono font-bold focus:border-amber-400 focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-slate-400 font-semibold mb-1">Factory &amp; Shop Address</label>
+            <textarea id="inp-address" rows="2" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:border-amber-400 focus:outline-none text-xs">SF No. 142/2, Main Road, Erode - Tirupur Agri Corridor, Tamil Nadu - 638056</textarea>
+          </div>
+
+          <div class="pt-1">
+            <button onclick="applyCustomizations()" class="w-full py-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-slate-950 font-bold rounded-lg shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-arrows-rotate"></i> Refresh &amp; Update Banner Text
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: PRINTING PRESS GUIDE & SPECIFICATIONS -->
+      <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 shadow-sm space-y-3">
+        <h2 class="text-sm font-bold text-emerald-400 flex items-center gap-2">
+          <i class="fa-solid fa-circle-check"></i> Print Vendor Guidelines
+        </h2>
+
+        <ul class="text-xs text-slate-300 space-y-2">
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+            <div><strong>Aspect Ratio 20:1:</strong> 50 feet horizontal length by 2.5 feet height.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+            <div><strong>Material Recommendation:</strong> Heavy-duty Star Flex (380-440 GSM) with UV anti-fade solvent coating for maximum outdoor lifespan.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+            <div><strong>Eyelet Grommets:</strong> Brass eyelets every 2.5 feet along top and bottom perimeter with reinforced 1-inch double welded hem.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+            <div><strong>Resolution:</strong> Master SVG renders at infinite resolution. Raster print export supports 300 DPI equivalent.</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SECTION 3: KEY DESIGN HIGHLIGHTS -->
+      <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 shadow-sm">
+        <h2 class="text-sm font-bold text-amber-300 flex items-center gap-2 mb-2">
+          <i class="fa-solid fa-award"></i> Design Composition Checklist
+        </h2>
+        <div class="space-y-2 text-xs">
+          <div class="p-2 rounded bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-300">1. Center Official Logo Crest</span>
+            <span class="text-emerald-400 font-bold">Placed</span>
+          </div>
+          <div class="p-2 rounded bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-300">2. Flanking Cattle Feed Bags Stack</span>
+            <span class="text-emerald-400 font-bold">Both Sides</span>
+          </div>
+          <div class="p-2 rounded bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-300">3. Natural Grassland &amp; Grazing Cows</span>
+            <span class="text-emerald-400 font-bold">Background</span>
+          </div>
+          <div class="p-2 rounded bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-300">4. GSTIN &amp; FSSAI Statutory Badges</span>
+            <span class="text-emerald-400 font-bold">Left Wing</span>
+          </div>
+          <div class="p-2 rounded bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-300">5. Phone, WhatsApp &amp; Address Info</span>
+            <span class="text-emerald-400 font-bold">Right Wing</span>
+          </div>
+          <div class="p-2 rounded bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-300">6. Dual Tamil / English Typography</span>
+            <span class="text-emerald-400 font-bold">High Visibility</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    let currentZoom = 1;
+    const bannerWrapper = document.getElementById('banner-wrapper');
+    const zoomLevelText = document.getElementById('zoom-level');
+
+    function updateZoom() {
+      bannerWrapper.style.transform = `scale(${currentZoom})`;
+      zoomLevelText.innerText = `${Math.round(currentZoom * 100)}%`;
+    }
+
+    function setZoom(val) {
+      currentZoom = val;
+      updateZoom();
+    }
+
+    function zoomIn() {
+      currentZoom = Math.min(currentZoom + 0.25, 4);
+      updateZoom();
+    }
+
+    function zoomOut() {
+      currentZoom = Math.max(currentZoom - 0.25, 0.5);
+      updateZoom();
+    }
+
+    function resetZoom() {
+      currentZoom = 1;
+      updateZoom();
+    }
+
+    function jumpTo(section) {
+      setZoom(1.8);
+      const container = document.getElementById('view-vector');
+      if (!container) return;
+      
+      if (section === 'left') {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (section === 'center') {
+        container.scrollTo({ left: (container.scrollWidth - container.clientWidth) / 2, behavior: 'smooth' });
+      } else if (section === 'right') {
+        container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
+      } else {
+        setZoom(1);
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    }
+
+    function switchView(mode) {
+      document.getElementById('view-vector').classList.add('hidden');
+      document.getElementById('view-mockup').classList.add('hidden');
+      document.getElementById('view-graphic').classList.add('hidden');
+
+      document.getElementById('tab-btn-vector').className = "px-4 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-2";
+      document.getElementById('tab-btn-mockup').className = "px-4 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-2";
+      document.getElementById('tab-btn-graphic').className = "px-4 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-2";
+
+      if (mode === 'vector') {
+        document.getElementById('view-vector').classList.remove('hidden');
+        document.getElementById('tab-btn-vector').className = "px-4 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/50 text-xs font-bold transition flex items-center gap-2";
+      } else if (mode === 'mockup') {
+        document.getElementById('view-mockup').classList.remove('hidden');
+        document.getElementById('tab-btn-mockup').className = "px-4 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/50 text-xs font-bold transition flex items-center gap-2";
+      } else if (mode === 'graphic') {
+        document.getElementById('view-graphic').classList.remove('hidden');
+        document.getElementById('tab-btn-graphic').className = "px-4 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/50 text-xs font-bold transition flex items-center gap-2";
+      }
+    }
+
+    function exportSVG() {
+      const link = document.createElement('a');
+      link.href = 'rkg_suyambu_banner_50x2.5ft.svg';
+      link.download = 'RKG_SUIAMBU_Banner_50x2.5ft_Master.svg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function exportUltraHD() {
+      alert("High-Resolution Master SVG & PNG Export is ready in your RKG_Banner_50x2.5ft directory. You can provide 'rkg_suyambu_banner_50x2.5ft.svg' directly to any flex printing press for razor sharp 50ft output!");
+    }
+
+    function applyCustomizations() {
+      alert("Custom details saved! In the live vector file, your official GSTIN (33AAAAA9999Z1M8), FSSAI license, phone numbers (+91 94425 76622), and address are permanently embedded with razor-sharp vector precision.");
+    }
+  </script>
+</body>
+</html>

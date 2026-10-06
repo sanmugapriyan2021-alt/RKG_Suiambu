@@ -1,0 +1,90 @@
+================================================================================
+           RKG SUYAMBU POINT OF SALE (POS) BILLING SYSTEM
+                    OFFICIAL OPERATOR USER MANUAL
+================================================================================
+
+1. SYSTEM INTRODUCTION
+--------------------------------------------------------------------------------
+Welcome to RKG Suyambu POS Billing Terminal. This software is custom engineered 
+for Oil Mills, Cattle Feed Distribution, and Agro Product Retailing. It provides 
+instant offline-first billing, 80mm ESC/POS hardware thermal printing, automatic 
+promo discounts, and real-time cloud synchronization to Google Cloud Firebase.
+
+================================================================================
+2. LOGIN CREDENTIALS & SECURITY GATE
+================================================================================
+When the POS opens, enter the following default security password:
+
+  * LOGIN PASSWORD : 230826
+  * OPERATOR ROLE  : Billing Desk (Cashier / Retail Billing)
+
+After typing 230826, click "LOGIN" (or press Enter) to open the billing terminal.
+
+================================================================================
+3. BILLING WORKFLOW & OPERATION
+================================================================================
+Step 1: SELECT CATEGORY & PRODUCTS
+   * Click any category tab (Cattle Feed, Cold-Pressed Oil, Raw Grains, Millets, Organic).
+   * Click on any product tile (e.g. Pure Groundnut Oil 1L, Cattle Feed 50kg).
+   * The item is immediately added to the Cart on the right.
+
+Step 2: CART EDITING
+   * In the cart, review the Description, Quantity, and Price.
+   * To change quantity: Select the product in the cart, and click "+1 QTY" or "-1 QTY" at the bottom.
+   * To remove a product: Select the item and click "🗑️ DELETE SELECTED".
+
+Step 3: CUSTOMER INFORMATION
+   * Customer Name  : Enter customer's name (1st column).
+   * Mobile Number  : Enter 10-digit mobile number (2nd column).
+   * Payment Mode   : Choose UPI (GPay/PhonePe), Cash, Bank Transfer, or Credit.
+
+Step 4: APPLY PROMO CODE (OPTIONAL)
+   * Enter active promo code (e.g. DISC5, RKG10, FARMER15, SUYAMBU20, AGRO25, PONGAL30)
+   * Click "Apply". The discount is automatically calculated and capped to maximum rule limits.
+
+Step 5: PRINT THERMAL RECEIPT & COMPLETE
+   * Click the large green "🖨️ PRINT 80MM BILL & CHARGE" button (or press Enter).
+   * The 80mm thermal receipt is immediately printed to your TVS RP 3200 printer.
+
+================================================================================
+4. OFFLINE SQL DATABASE & AUTOMATIC CLOUD RECONNECTION
+================================================================================
+* OFFLINE MODE: If the internet or cloud connection drops, the billing station 
+  NEVER STOPS. Every bill is immediately saved to the local SQL database 
+  (`pos_offline_ledger.sql`) with status 'PENDING_OFFLINE'.
+* AUTOMATIC RECONNECT: As soon as the network returns, the system automatically 
+  reads all pending bills from the offline SQL ledger, syncs them to Firebase 
+  Firestore (`bill_numbers`, `daily_transfer_items`, `invoices`), and updates 
+  their status to 'SYNCED_ONLINE'.
+
+================================================================================
+5. HARDWARE & THERMAL PRINTER SETUP
+================================================================================
+* Printer Model : TVS RP 3200 Series (or any standard 80mm ESC/POS USB printer)
+* Paper Roll    : 80mm (3-inch) Thermal Paper
+* Detection     : The printer status indicator in the top-right ribbon displays:
+                  - GREEN (● 80mm Ready): Printer connected and ready.
+                  - GRAY  (○ Disconnected): USB cable unplugged or printer turned OFF.
+* Virtual PDF/XPS printers are automatically blocked to maintain receipt formatting.
+
+================================================================================
+6. PROMO CODE DISCOUNT REFERENCE TABLE
+================================================================================
+  CODE          DISCOUNT RATE   MINIMUM ORDER    MAXIMUM DISCOUNT
+  ----------------------------------------------------------------
+  DISC5         5% OFF          ₹0               ₹500
+  RKG10         10% OFF         ₹500             ₹1,000
+  FARMER15      15% OFF         ₹1,000           ₹1,500
+  SUYAMBU20     20% OFF         ₹1,500           ₹2,000
+  AGRO25        25% OFF         ₹2,500           ₹2,500
+  PONGAL30      30% OFF         ₹3,000           ₹3,000
+  RKG-PRM-2026  10% OFF         ₹1,500           ₹1,000
+
+================================================================================
+7. SUPPORT & CENTRAL MANAGEMENT
+================================================================================
+* Company       : RKG Suyambu Agro Products & Cattle Feed
+* Main Address  : SF No. 142/2, Main Road, Agri Hub, TN 638056
+* Phone / Help  : +91 94425 76622
+* FSSAI License : 12424005000123
+================================================================================

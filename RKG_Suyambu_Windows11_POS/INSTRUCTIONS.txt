@@ -1,0 +1,21 @@
+=================================================================
+  RKG SUYAMBU POS BILLING SYSTEM -- WINDOWS 11 LATEST RELEASE
+=================================================================
+
+FEATURES INCLUDED IN THIS RELEASE:
+1. Fullscreen space coverage (Auto-maximizes on Windows 10 & 11).
+2. First Product Auto-Selected: Press [Enter] to immediately add to cart.
+3. Mandatory Customer Mobile: Bill printing is blocked until 10-digit phone is entered.
+4. Bank Transfer Removed: Allowed modes are UPI (GPay/PhonePe), CASH, CREDIT.
+5. GST Removed: Clean Retail Bill of Supply without GST lines.
+6. TVS RP 3200 Thermal Printer: Direct 80mm roll ESC/POS auto-cutter commands.
+
+USER CREDENTIALS:
+ - CEO Mode    : PIN 1234 (Full Admin Access & Cloud Sync)
+ - Cashier Mode: PIN 5678 (Fast Billing & Receipt Printing)
+
+FILE LIST:
+ - New_Bill_Windows11.exe           : Standalone Windows Native POS Binary
+ - Launch_POS.bat                   : 1-Click Desktop App Launcher
+ - RKG_Suyambu_Billing_Universal.cs : Complete C# Source Code
+=================================================================

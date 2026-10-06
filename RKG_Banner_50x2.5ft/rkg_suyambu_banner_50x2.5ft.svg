@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10000 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a84df" />
+      <stop offset="35%" stop-color="#6ebef7" />
+      <stop offset="70%" stop-color="#c9ebff" />
+      <stop offset="100%" stop-color="#f4fbff" />
+    </linearGradient>
+
+    <linearGradient id="sunRayGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#fff9d6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fff9d6" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="hillGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#76be48" />
+      <stop offset="100%" stop-color="#3c7f20" />
+    </linearGradient>
+
+    <linearGradient id="hillGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#559c2a" />
+      <stop offset="100%" stop-color="#1f4f0f" />
+    </linearGradient>
+
+    <linearGradient id="hillGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#36741a" />
+      <stop offset="100%" stop-color="#113307" />
+    </linearGradient>
+
+    <!-- Metallic Gold Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fae17d" />
+      <stop offset="25%" stop-color="#f3c642" />
+      <stop offset="50%" stop-color="#fff3a8" />
+      <stop offset="75%" stop-color="#d49b18" />
+      <stop offset="100%" stop-color="#996c05" />
+    </linearGradient>
+
+    <linearGradient id="goldGradV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff5b8" />
+      <stop offset="30%" stop-color="#f5cc47" />
+      <stop offset="60%" stop-color="#d89e1b" />
+      <stop offset="85%" stop-color="#fadb68" />
+      <stop offset="100%" stop-color="#8f6302" />
+    </linearGradient>
+
+    <linearGradient id="goldBorderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b8860b" />
+      <stop offset="20%" stop-color="#ffe066" />
+      <stop offset="40%" stop-color="#d4af37" />
+      <stop offset="60%" stop-color="#fff2a3" />
+      <stop offset="80%" stop-color="#e6b800" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+
+    <!-- Royal Navy & Emerald Gradients -->
+    <linearGradient id="royalNavyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a1d4a" />
+      <stop offset="50%" stop-color="#061230" />
+      <stop offset="100%" stop-color="#020817" />
+    </linearGradient>
+
+    <linearGradient id="emeraldDarkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b381d" />
+      <stop offset="50%" stop-color="#052010" />
+      <stop offset="100%" stop-color="#021008" />
+    </linearGradient>
+
+    <!-- Lingam Glow Gradients -->
+    <radialGradient id="lingamGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffecb3" stop-opacity="1" />
+      <stop offset="40%" stop-color="#ffa000" stop-opacity="0.8" />
+      <stop offset="80%" stop-color="#e65100" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#004d40" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="lingamGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e1" />
+      <stop offset="30%" stop-color="#ffca28" />
+      <stop offset="70%" stop-color="#f57c00" />
+      <stop offset="100%" stop-color="#bf360c" />
+    </linearGradient>
+
+    <!-- Drop Shadows and Glows -->
+    <filter id="shadow3D" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.75" />
+    </filter>
+
+    <filter id="heavyShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="8" dy="16" stdDeviation="12" flood-color="#000" flood-opacity="0.85" />
+    </filter>
+
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComponentTransfer in="blur" result="glow1">
+        <feFuncA type="linear" slope="0.8"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="glow1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- ========================================== -->
+    <!-- OFFICIAL EMBLEM GRAPHIC COMPONENTS         -->
+    <!-- ========================================== -->
+    <!-- Sacred White Cow (Gomatha / Nandi) for Official Logo -->
+    <g id="officialLogoGomatha">
+      <!-- Cow Body -->
+      <path d="M 28,45 C 22,38 18,25 32,22 C 50,18 80,20 100,24 C 112,27 120,38 116,50 C 112,60 98,64 78,62 C 55,64 35,60 28,45 Z" fill="#ffffff" stroke="#b0bec5" stroke-width="1.5" filter="url(#shadow3D)"/>
+      <!-- Hump (Indian Zebu Bull/Cow Hump) -->
+      <path d="M 36,22 C 34,14 42,8 48,12 C 54,16 52,22 48,24 Z" fill="#f5f5f5" stroke="#cfd8dc" stroke-width="1.2"/>
+      <!-- Legs -->
+      <path d="M 35,55 L 32,90 L 39,90 L 43,60 Z" fill="#ffffff" stroke="#b0bec5" stroke-width="1"/>
+      <path d="M 48,55 L 50,90 L 57,90 L 54,60 Z" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
+      <path d="M 90,55 L 87,90 L 94,90 L 98,58 Z" fill="#ffffff" stroke="#b0bec5" stroke-width="1"/>
+      <path d="M 103,52 L 106,90 L 113,90 L 108,55 Z" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
+      <!-- Hooves -->
+      <rect x="32" y="87" width="7" height="4" fill="#37474f" rx="1"/>
+      <rect x="50" y="87" width="7" height="4" fill="#37474f" rx="1"/>
+      <rect x="87" y="87" width="7" height="4" fill="#37474f" rx="1"/>
+      <rect x="106" y="87" width="7" height="4" fill="#37474f" rx="1"/>
+      <!-- Udder -->
+      <ellipse cx="85" cy="62" rx="9" ry="7" fill="#ffebee" stroke="#ffcdd2" stroke-width="1"/>
+      <!-- Head facing Lingam -->
+      <path d="M 28,32 C 22,25 15,16 10,15 C 4,15 2,26 6,35 C 10,44 18,48 28,42 Z" fill="#ffffff" stroke="#b0bec5" stroke-width="1.5"/>
+      <ellipse cx="7" cy="27" rx="5" ry="4" fill="#ffebee" />
+      <!-- Horns & Ear -->
+      <path d="M 18,16 L 14,5 C 13,3 10,6 14,10 Z" fill="#cfd8dc" stroke="#90a4ae" stroke-width="1"/>
+      <path d="M 24,18 L 22,7 C 21,5 18,8 21,12 Z" fill="#cfd8dc" stroke="#90a4ae" stroke-width="1"/>
+      <ellipse cx="22" cy="20" rx="6" ry="3.5" fill="#ffffff" stroke="#b0bec5" stroke-width="1" transform="rotate(-15 22 20)"/>
+      <!-- Sacred Bell Necklace (Mani Malai) -->
+      <path d="M 22,30 C 24,38 30,42 34,44" stroke="#ffb300" stroke-width="2.5" fill="none"/>
+      <circle cx="28" cy="40" r="3" fill="#ffd54f" stroke="#e65100" stroke-width="1"/>
+      <!-- Tail -->
+      <path d="M 116,32 C 122,40 120,55 122,68" stroke="#cfd8dc" stroke-width="2" fill="none"/>
+      <ellipse cx="122" cy="70" rx="3.5" ry="6" fill="#37474f" />
+    </g>
+
+    <!-- Sacred Golden Shiva Lingam (Suyambu Lingam) -->
+    <g id="officialLogoSuyambuLingam">
+      <!-- Radiance Halo -->
+      <circle cx="45" cy="45" r="55" fill="url(#lingamGlow)" />
+      <!-- Radiant Light Rays -->
+      <g stroke="#fff59d" stroke-width="2" opacity="0.8">
+        <line x1="45" y1="-10" x2="45" y2="-25" />
+        <line x1="75" y1="5" x2="90" y2="-5" />
+        <line x1="95" y1="35" x2="115" y2="35" />
+        <line x1="85" y1="65" x2="105" y2="75" />
+        <line x1="15" y1="5" x2="0" y2="-5" />
+        <line x1="-5" y1="35" x2="-25" y2="35" />
+        <line x1="5" y1="65" x2="-15" y2="75" />
+      </g>
+      <!-- Lingam Cylindrical Body -->
+      <path d="M 28,45 C 28,15 62,15 62,45 L 62,60 L 28,60 Z" fill="url(#lingamGold)" stroke="#ffe082" stroke-width="2" filter="url(#goldGlow)"/>
+      <!-- Sacred Vibhuti (Tripundra) & Kumkum Tilak -->
+      <line x1="36" y1="32" x2="54" y2="32" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="36" y1="36" x2="54" y2="36" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="36" y1="40" x2="54" y2="40" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="45" cy="36" r="2.5" fill="#d50000" />
+
+      <!-- Avudaiyar / Yoni Base (Peedam) -->
+      <path d="M 12,60 C 12,54 78,54 78,60 L 102,64 C 105,67 102,72 96,73 L 78,74 L 78,82 C 78,88 12,88 12,82 L 12,74 L 12,60 Z" fill="url(#goldGradV)" stroke="#fff8e1" stroke-width="2" filter="url(#shadow3D)"/>
+      <!-- Ornate Carved Base Stand -->
+      <path d="M 20,82 L 70,82 L 76,96 L 14,96 Z" fill="url(#goldGrad)" stroke="#ffb300" stroke-width="2"/>
+      <ellipse cx="45" cy="96" rx="35" ry="5" fill="url(#goldGradV)" stroke="#ffd54f" stroke-width="1.5"/>
+    </g>
+
+    <!-- Industrial Grain Mill / Feed Grinding Machine -->
+    <g id="officialLogoGrainMill">
+      <g filter="url(#shadow3D)">
+        <!-- Hopper at top -->
+        <polygon points="15,10 75,10 55,30 35,30" fill="#cfd8dc" stroke="#455a64" stroke-width="2"/>
+        <!-- Main Grinder Machine Body -->
+        <rect x="25" y="30" width="40" height="42" fill="#eceff1" stroke="#37474f" stroke-width="2" rx="2"/>
+        <!-- Big Drive Pulley Wheel -->
+        <circle cx="45" cy="50" r="14" fill="#90a4ae" stroke="#263238" stroke-width="2"/>
+        <circle cx="45" cy="50" r="6" fill="#37474f" />
+        <!-- External Side Gears -->
+        <circle cx="72" cy="42" r="8" fill="#ffb300" stroke="#e65100" stroke-width="1.5"/>
+        <circle cx="78" cy="55" r="6" fill="#ffd54f" stroke="#f57f17" stroke-width="1.5"/>
+        <!-- Discharge Chute -->
+        <polygon points="12,68 30,55 35,72 17,80" fill="#b0bec5" stroke="#37474f" stroke-width="1.5"/>
+        <!-- Support Legs / Stand -->
+        <rect x="22" y="72" width="6" height="24" fill="#455a64" />
+        <rect x="62" y="72" width="6" height="24" fill="#455a64" />
+        <line x1="20" y1="84" x2="68" y2="84" stroke="#37474f" stroke-width="2"/>
+        <rect x="15" y="94" width="60" height="4" fill="#263238" rx="1"/>
+      </g>
+    </g>
+
+    <!-- 50KG Feed Bags Definition Symbol -->
+    <g id="feedBagGreen">
+      <g filter="url(#shadow3D)">
+        <path d="M 30,20 L 130,20 L 145,210 C 145,225 130,230 80,230 C 30,230 15,225 15,210 Z" fill="#1b5e20" stroke="#ffd54f" stroke-width="3" />
+        <rect x="25" y="10" width="110" height="15" rx="3" fill="#fff9c4" stroke="#c49000" stroke-width="2" />
+        <line x1="30" y1="17" x2="130" y2="17" stroke="#b71c1c" stroke-width="2" stroke-dasharray="4,3" />
+        <rect x="28" y="45" width="104" height="150" rx="8" fill="#fff" />
+        <rect x="32" y="49" width="96" height="142" rx="6" fill="#f9fbe7" stroke="#33691e" stroke-width="1.5" />
+        <path d="M 32,49 L 128,49 L 128,80 L 32,80 Z" fill="#b71c1c" />
+        <text x="80" y="70" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle" letter-spacing="1">RKG</text>
+        <text x="80" y="93" font-family="Arial, sans-serif" font-weight="bold" font-size="9" fill="#1b5e20" text-anchor="middle">SUPER CATTLE FEED</text>
+        <text x="80" y="106" font-family="'Latha', Arial, sans-serif" font-weight="bold" font-size="8" fill="#d32f2f" text-anchor="middle">சுயம்பு பால் தீவனம்</text>
+        <path d="M 70,125 C 65,120 62,122 58,124 C 55,122 52,125 54,130 C 58,135 62,138 68,138 L 68,150 L 73,150 L 74,138 L 86,138 L 87,150 L 92,150 L 94,132 C 100,130 102,125 98,120 C 94,118 85,122 78,123 Z" fill="#2e7d32" />
+        <circle cx="50" cy="170" r="12" fill="#ffd54f" stroke="#f57f17" stroke-width="1.5"/>
+        <text x="50" y="173" font-family="Arial, sans-serif" font-weight="bold" font-size="7" fill="#000" text-anchor="middle">22%</text>
+        <text x="50" y="179" font-family="Arial, sans-serif" font-size="5" fill="#333" text-anchor="middle">PROTEIN</text>
+        <rect x="68" y="160" width="52" height="20" rx="4" fill="#0d47a1" />
+        <text x="94" y="173" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#fff" text-anchor="middle">50 KG NET</text>
+      </g>
+    </g>
+
+    <g id="feedBagGold">
+      <g filter="url(#shadow3D)">
+        <path d="M 30,20 L 130,20 L 145,210 C 145,225 130,230 80,230 C 30,230 15,225 15,210 Z" fill="#f57f17" stroke="#ffe082" stroke-width="3" />
+        <rect x="25" y="10" width="110" height="15" rx="3" fill="#fff9c4" stroke="#c49000" stroke-width="2" />
+        <line x1="30" y1="17" x2="130" y2="17" stroke="#0d47a1" stroke-width="2" stroke-dasharray="4,3" />
+        <rect x="28" y="45" width="104" height="150" rx="8" fill="#fff" />
+        <rect x="32" y="49" width="96" height="142" rx="6" fill="#fffde7" stroke="#f57f17" stroke-width="1.5" />
+        <path d="M 32,49 L 128,49 L 128,80 L 32,80 Z" fill="#0d47a1" />
+        <text x="80" y="70" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="16" fill="#ffeb3b" text-anchor="middle" letter-spacing="1">RKG</text>
+        <text x="80" y="93" font-family="Arial, sans-serif" font-weight="bold" font-size="9" fill="#b71c1c" text-anchor="middle">MILK PLUS PELLETS</text>
+        <text x="80" y="106" font-family="'Latha', Arial, sans-serif" font-weight="bold" font-size="8" fill="#0d47a1" text-anchor="middle">அதி தீவிர பால் பெருக்கி</text>
+        <path d="M 70,125 C 65,120 62,122 58,124 C 55,122 52,125 54,130 C 58,135 62,138 68,138 L 68,150 L 73,150 L 74,138 L 86,138 L 87,150 L 92,150 L 94,132 C 100,130 102,125 98,120 C 94,118 85,122 78,123 Z" fill="#e65100" />
+        <circle cx="50" cy="170" r="12" fill="#81c784" stroke="#2e7d32" stroke-width="1.5"/>
+        <text x="50" y="173" font-family="Arial, sans-serif" font-weight="bold" font-size="7" fill="#000" text-anchor="middle">FAT 8%</text>
+        <text x="50" y="179" font-family="Arial, sans-serif" font-size="5" fill="#1b5e20" text-anchor="middle">BOOSTER</text>
+        <rect x="68" y="160" width="52" height="20" rx="4" fill="#b71c1c" />
+        <text x="94" y="173" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#fff" text-anchor="middle">50 KG NET</text>
+      </g>
+    </g>
+
+    <!-- Vector Grazing Cow Component -->
+    <g id="grazingCowBlackWhite">
+      <ellipse cx="60" cy="88" rx="55" ry="10" fill="#000" opacity="0.3" filter="url(#shadow3D)"/>
+      <path d="M 28,50 L 25,85 L 32,85 L 36,55 Z" fill="#111" />
+      <path d="M 40,50 L 42,85 L 49,85 L 46,55 Z" fill="#222" />
+      <path d="M 85,50 L 82,85 L 89,85 L 93,52 Z" fill="#111" />
+      <path d="M 98,48 L 102,85 L 109,85 L 104,50 Z" fill="#222" />
+      <ellipse cx="80" cy="56" rx="10" ry="8" fill="#f8bbd0" />
+      <path d="M 76,62 L 76,67 M 82,62 L 82,67" stroke="#f06292" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 20,40 C 15,35 15,20 28,18 C 45,15 75,18 95,20 C 108,22 115,32 112,45 C 108,55 95,58 75,56 C 50,58 28,55 20,40 Z" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+      <path d="M 32,18 C 40,25 45,35 38,45 C 30,48 24,35 22,25 Z" fill="#1a1a1a" />
+      <path d="M 60,18 C 70,22 75,32 72,42 C 60,45 52,38 55,25 Z" fill="#1a1a1a" />
+      <path d="M 88,22 C 100,24 105,35 102,48 C 95,50 90,42 86,30 Z" fill="#1a1a1a" />
+      <path d="M 112,28 C 118,35 116,50 118,60" stroke="#111" stroke-width="2" fill="none"/>
+      <ellipse cx="118" cy="62" rx="3" ry="5" fill="#000" />
+      <path d="M 24,25 C 18,32 12,45 8,55 C 4,65 2,75 8,78 C 14,80 18,72 22,60 C 26,50 28,40 28,32 Z" fill="#f5f5f5" />
+      <path d="M 15,38 C 10,48 8,58 14,58 C 18,58 20,48 20,38 Z" fill="#111" />
+      <ellipse cx="6" cy="74" rx="8" ry="6" fill="#f8bbd0" />
+      <circle cx="5" cy="72" r="1.5" fill="#333" />
+      <circle cx="8" cy="73" r="1.5" fill="#333" />
+      <path d="M 16,48 L 12,40 C 10,38 8,42 12,46 Z" fill="#d7ccc8" stroke="#8d6e63" stroke-width="1"/>
+      <ellipse cx="18" cy="52" rx="5" ry="3" fill="#f5f5f5" transform="rotate(-20 18 52)"/>
+    </g>
+
+    <g id="standingCowBrown">
+      <ellipse cx="60" cy="88" rx="55" ry="10" fill="#000" opacity="0.3" filter="url(#shadow3D)"/>
+      <path d="M 28,50 L 26,85 L 33,85 L 36,55 Z" fill="#4e342e" />
+      <path d="M 40,50 L 42,85 L 49,85 L 46,55 Z" fill="#5d4037" />
+      <path d="M 85,50 L 83,85 L 90,85 L 93,52 Z" fill="#4e342e" />
+      <path d="M 98,48 L 101,85 L 108,85 L 104,50 Z" fill="#5d4037" />
+      <ellipse cx="80" cy="56" rx="10" ry="8" fill="#ffcdd2" />
+      <path d="M 22,35 C 18,25 22,18 35,16 C 55,14 80,16 98,20 C 110,24 116,35 112,45 C 108,55 95,58 75,56 C 50,58 28,55 22,35 Z" fill="#a1887f" stroke="#6d4c41" stroke-width="1.5"/>
+      <path d="M 40,16 C 55,22 60,35 55,48 C 45,52 35,40 38,25 Z" fill="#ffffff" opacity="0.9"/>
+      <path d="M 26,28 C 22,22 18,15 14,14 C 8,14 6,24 8,32 C 12,40 20,44 26,38 Z" fill="#8d6e63" />
+      <ellipse cx="8" cy="28" rx="6" ry="5" fill="#ffcdd2" />
+      <circle cx="7" cy="27" r="1.2" fill="#333" />
+      <circle cx="12" cy="20" r="2" fill="#212121" />
+      <path d="M 18,14 L 14,5 C 13,3 11,6 14,10 Z" fill="#d7ccc8" stroke="#5d4037" stroke-width="1"/>
+      <ellipse cx="22" cy="18" rx="6" ry="3" fill="#8d6e63" transform="rotate(-15 22 18)"/>
+    </g>
+
+    <g id="grainSack">
+      <g filter="url(#shadow3D)">
+        <path d="M 10,25 C 10,10 50,10 50,25 C 65,35 60,75 55,85 C 45,92 15,92 5,85 C 0,75 -5,35 10,25 Z" fill="#d7ccc8" stroke="#8d6e63" stroke-width="2"/>
+        <ellipse cx="30" cy="22" rx="18" ry="8" fill="#ffe082" stroke="#ffb300" stroke-width="1.5"/>
+        <text x="30" y="55" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#4e342e" text-anchor="middle">RKG</text>
+        <text x="30" y="68" font-family="Arial, sans-serif" font-weight="bold" font-size="7" fill="#2e7d32" text-anchor="middle">GRAINS</text>
+      </g>
+    </g>
+  </defs>
+
+  <!-- ========================================== -->
+  <!-- 1. NATURAL SCENERY BACKGROUND (PANORAMIC) -->
+  <!-- ========================================== -->
+  <!-- Background Sky & Sun -->
+  <rect x="0" y="0" width="10000" height="500" fill="url(#skyGrad)" />
+  <ellipse cx="5000" cy="80" rx="1800" ry="150" fill="url(#sunRayGrad)" />
+  <circle cx="5000" cy="-50" r="350" fill="#fff9c4" opacity="0.7" filter="url(#goldGlow)" />
+
+  <!-- Mountain Ranges & Rolling Hills -->
+  <path d="M 0,220 Q 800,120 1800,190 T 3600,180 T 5000,150 T 6800,190 T 8500,140 T 10000,210 L 10000,500 L 0,500 Z" fill="#7ba882" opacity="0.6" />
+  <path d="M 0,250 Q 1200,160 2400,230 T 4800,210 T 7200,220 T 9600,190 T 10000,240 L 10000,500 L 0,500 Z" fill="#589759" opacity="0.75" />
+  <path d="M 0,280 Q 1500,200 3000,270 T 6000,250 T 8800,240 T 10000,270 L 10000,500 L 0,500 Z" fill="url(#hillGrad1)" />
+  <path d="M 0,330 Q 1800,250 3500,320 T 7000,300 T 9500,280 T 10000,320 L 10000,500 L 0,500 Z" fill="url(#hillGrad2)" />
+  <path d="M 0,380 Q 2200,320 4500,370 T 8000,360 T 10000,370 L 10000,500 L 0,500 Z" fill="url(#hillGrad3)" />
+
+  <!-- ========================================== -->
+  <!-- 2. EXACTLY 4 COWS IN THE BACKGROUND        -->
+  <!-- ========================================== -->
+  <!-- COW 1 (Left Grassland - Grazing Holstein) -->
+  <g transform="translate(1800, 275) scale(1.65)">
+    <use href="#grazingCowBlackWhite" />
+  </g>
+
+  <!-- COW 2 (Left Grassland - Standing Brown Jersey) -->
+  <g transform="translate(2550, 265) scale(1.75)">
+    <use href="#standingCowBrown" />
+  </g>
+
+  <!-- COW 3 (Right Grassland - Standing Brown Jersey) -->
+  <g transform="translate(7100, 265) scale(1.75)">
+    <use href="#standingCowBrown" />
+  </g>
+
+  <!-- COW 4 (Right Grassland - Grazing Holstein) -->
+  <g transform="translate(7850, 275) scale(1.65)">
+    <use href="#grazingCowBlackWhite" />
+  </g>
+
+  <!-- Architectural Gold Board Borders -->
+  <rect x="0" y="0" width="10000" height="22" fill="url(#goldBorderGrad)" filter="url(#shadow3D)"/>
+  <rect x="0" y="22" width="10000" height="6" fill="#451e02" />
+  <rect x="0" y="472" width="10000" height="6" fill="#451e02" />
+  <rect x="0" y="478" width="10000" height="22" fill="url(#goldBorderGrad)" filter="url(#shadow3D)"/>
+  <rect x="0" y="0" width="22" height="500" fill="url(#goldBorderGrad)" />
+  <rect x="9978" y="0" width="22" height="500" fill="url(#goldBorderGrad)" />
+  <rect x="35" y="35" width="9930" height="430" rx="10" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.85" />
+  <rect x="42" y="42" width="9916" height="416" rx="8" fill="none" stroke="#fff" stroke-width="1" opacity="0.4" />
+
+  <!-- ========================================== -->
+  <!-- 3. LEFT WING: GSTIN, FSSAI & FEED BAGS     -->
+  <!-- ========================================== -->
+  <g transform="translate(70, 55)" filter="url(#heavyShadow)">
+    <path d="M 0,0 L 780,0 L 750,70 L 0,70 Z" fill="url(#royalNavyGrad)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <circle cx="15" cy="15" r="4" fill="url(#goldGrad)" />
+    <circle cx="15" cy="55" r="4" fill="url(#goldGrad)" />
+    <text x="35" y="32" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="20" fill="#ffd54f" letter-spacing="1">GSTIN :</text>
+    <text x="135" y="32" font-family="'Consolas', 'Courier New', monospace" font-weight="bold" font-size="22" fill="#ffffff" letter-spacing="2">33AAAAA9999Z1M8</text>
+    <text x="35" y="58" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="16" fill="#81c784" letter-spacing="1">FSSAI LIC :</text>
+    <text x="155" y="58" font-family="'Consolas', 'Courier New', monospace" font-weight="bold" font-size="18" fill="#ffffff" letter-spacing="2">12424005000124</text>
+  </g>
+
+  <!-- Left Side Feed Bags Display (Stacked 50KG Sacks) -->
+  <g transform="translate(900, 190) scale(1.15)">
+    <rect x="-40" y="215" width="460" height="25" rx="4" fill="#5d4037" stroke="#3e2723" stroke-width="2" filter="url(#shadow3D)"/>
+    <use href="#grainSack" x="-20" y="115" transform="scale(1.2)" />
+    <use href="#grainSack" x="270" y="115" transform="scale(1.2)" />
+    <g transform="translate(0, 0)"><use href="#feedBagGreen" /></g>
+    <g transform="translate(110, -10)"><use href="#feedBagGold" /></g>
+    <g transform="translate(220, 5)"><use href="#feedBagGreen" /></g>
+  </g>
+
+  <!-- Left Nutrition & Quality Badges -->
+  <g transform="translate(70, 145)" filter="url(#heavyShadow)">
+    <rect x="0" y="0" width="680" height="60" rx="30" fill="url(#emeraldDarkGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+    <circle cx="30" cy="30" r="22" fill="url(#goldGrad)" />
+    <text x="30" y="37" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#000" text-anchor="middle">★</text>
+    <text x="65" y="32" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#ffffff">100% தூய இயற்கை மாட்டுத்தீவனம்</text>
+    <text x="65" y="50" font-family="Arial, sans-serif" font-weight="bold" font-size="13" fill="#a5d6a7">100% Pure Natural Balanced Cattle Feed &amp; Nutrients</text>
+
+    <g transform="translate(0, 75)">
+      <rect x="0" y="0" width="680" height="60" rx="30" fill="url(#emeraldDarkGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+      <circle cx="30" cy="30" r="22" fill="url(#goldGrad)" />
+      <text x="30" y="37" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#000" text-anchor="middle">✔</text>
+      <text x="65" y="32" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#ffd54f">அதிக பால் வளம் • அதிக வெண்ணெய் &amp; SNF சத்து</text>
+      <text x="65" y="50" font-family="Arial, sans-serif" font-weight="bold" font-size="13" fill="#ffffff">High Milk Fat, Dense SNF Booster &amp; Vital Minerals</text>
+    </g>
+
+    <g transform="translate(0, 150)">
+      <rect x="0" y="0" width="680" height="60" rx="30" fill="url(#royalNavyGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+      <circle cx="30" cy="30" r="22" fill="url(#goldGrad)" />
+      <text x="30" y="37" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#000" text-anchor="middle">⚡</text>
+      <text x="65" y="32" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#ffffff">மொத்த மற்றும் சில்லறை விற்பனை</text>
+      <text x="65" y="50" font-family="Arial, sans-serif" font-weight="bold" font-size="13" fill="#ffe082">Direct Factory Wholesale &amp; Retail Supply Across TN</text>
+    </g>
+  </g>
+
+  <!-- Left Product Pills -->
+  <g transform="translate(70, 395)">
+    <rect x="0" y="0" width="220" height="48" rx="10" fill="#b71c1c" stroke="#fff" stroke-width="2" filter="url(#shadow3D)"/>
+    <text x="110" y="30" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle">சுயம்பு நயம் தீவனம்</text>
+
+    <rect x="235" y="0" width="220" height="48" rx="10" fill="#0d47a1" stroke="#fff" stroke-width="2" filter="url(#shadow3D)"/>
+    <text x="345" y="30" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle">மில்க் மேக்ஸ் பெல்லட்ஸ்</text>
+
+    <rect x="470" y="0" width="220" height="48" rx="10" fill="#1b5e20" stroke="#fff" stroke-width="2" filter="url(#shadow3D)"/>
+    <text x="580" y="30" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle">தூய கடலை புண்ணாக்கு</text>
+  </g>
+
+
+  <!-- ========================================== -->
+  <!-- 4. CENTERPIECE: OFFICIAL RKG SUIAMBU LOGO  -->
+  <!-- ========================================== -->
+  <g transform="translate(5000, 250)" filter="url(#heavyShadow)">
+    <!-- Arch Support Pedestal Shield -->
+    <path d="M -1600,-200 C -900,-235 900,-235 1600,-200 C 1500,215 1000,230 0,230 C -1000,230 -1500,215 -1600,-200 Z" fill="url(#royalNavyGrad)" stroke="url(#goldBorderGrad)" stroke-width="8" />
+    <path d="M -1550,-185 C -880,-218 880,-218 1550,-185 C 1450,198 950,215 0,215 C -950,215 -1450,198 -1550,-185 Z" fill="#030b1e" stroke="url(#goldGrad)" stroke-width="2" />
+
+    <!-- Ornate Side Filigrees -->
+    <g transform="translate(-1450, -140) scale(0.65)" stroke="url(#goldGrad)" stroke-width="3" fill="none">
+      <path d="M 0,0 C 50,-50 150,-20 180,50 C 200,100 120,150 50,120 C 0,100 10,30 80,40" />
+      <circle cx="90" cy="50" r="10" fill="url(#goldGrad)" />
+      <circle cx="160" cy="80" r="6" fill="url(#goldGrad)" />
+    </g>
+    <g transform="translate(1450, -140) scale(-0.65, 0.65)" stroke="url(#goldGrad)" stroke-width="3" fill="none">
+      <path d="M 0,0 C 50,-50 150,-20 180,50 C 200,100 120,150 50,120 C 0,100 10,30 80,40" />
+      <circle cx="90" cy="50" r="10" fill="url(#goldGrad)" />
+      <circle cx="160" cy="80" r="6" fill="url(#goldGrad)" />
+    </g>
+
+    <!-- OFFICIAL CIRCULAR LOGO CREST MEDALLION -->
+    <g transform="translate(0, -60)" filter="url(#goldGlow)">
+      <!-- Outer Sunburst Filigree Rays -->
+      <g stroke="url(#goldGrad)" stroke-width="4" opacity="0.85">
+        <line x1="0" y1="-140" x2="0" y2="-160" />
+        <line x1="55" y1="-125" x2="75" y2="-145" />
+        <line x1="105" y1="-95" x2="130" y2="-115" />
+        <line x1="135" y1="-50" x2="160" y2="-65" />
+        <line x1="-55" y1="-125" x2="-75" y2="-145" />
+        <line x1="-105" y1="-95" x2="-130" y2="-115" />
+        <line x1="-135" y1="-50" x2="-160" y2="-65" />
+      </g>
+
+      <!-- Outer Gold Rings & Dark Emerald Base Circle -->
+      <circle cx="0" cy="0" r="125" fill="url(#emeraldDarkGrad)" stroke="url(#goldBorderGrad)" stroke-width="8" />
+      <circle cx="0" cy="0" r="110" fill="#021a0d" stroke="url(#goldGrad)" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="105" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.7"/>
+
+      <!-- Temple Gopuram Icon at Top of Logo -->
+      <g transform="translate(-18, -100) scale(0.4)">
+        <polygon points="10,0 35,0 45,35 0,35" fill="url(#goldGradV)" stroke="#fff" stroke-width="1"/>
+        <line x1="15" y1="12" x2="30" y2="12" stroke="#451e02" stroke-width="2"/>
+        <line x1="10" y1="24" x2="35" y2="24" stroke="#451e02" stroke-width="2"/>
+        <circle cx="22.5" cy="-4" r="3" fill="#ffeb3b" />
+      </g>
+
+      <!-- Arched "RKG" at top of Official Logo -->
+      <text x="0" y="-55" font-family="'Arial Black', Impact, 'Times New Roman', sans-serif" font-weight="900" font-size="34" fill="url(#goldGradV)" text-anchor="middle" letter-spacing="4" filter="url(#shadow3D)">RKG</text>
+
+      <!-- Sacred White Cow (Left of Shiva Lingam) -->
+      <g transform="translate(-95, -35) scale(0.65)">
+        <use href="#officialLogoGomatha" />
+      </g>
+
+      <!-- Glowing Golden Shiva Lingam (Center of Official Logo) -->
+      <g transform="translate(-45, -45) scale(0.95)">
+        <use href="#officialLogoSuyambuLingam" />
+      </g>
+
+      <!-- Grain Mill / Feed Grinder (Right of Shiva Lingam) -->
+      <g transform="translate(32, -35) scale(0.65)">
+        <use href="#officialLogoGrainMill" />
+      </g>
+
+      <!-- Bottom Ribbon with "SUIAMBU" -->
+      <g transform="translate(0, 72)">
+        <path d="M -85,-18 L 85,-18 L 75,18 L -75,18 Z" fill="#0b5e28" stroke="url(#goldGrad)" stroke-width="2"/>
+        <text x="0" y="9" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="3">SUIAMBU</text>
+      </g>
+
+      <!-- Bottom Arch Subtitle -->
+      <text x="0" y="104" font-family="Arial, sans-serif" font-weight="bold" font-size="8.5" fill="#ffe082" text-anchor="middle" letter-spacing="1.5">CATTLE FEEDS &amp; GRAIN MILL</text>
+    </g>
+
+    <!-- MASTER BRAND TITLE: ENGLISH "RKG SUIAMBU" -->
+    <text x="0" y="58" font-family="'Times New Roman', Georgia, 'Cinzel', serif" font-weight="900" font-size="110" fill="#000000" text-anchor="middle" letter-spacing="8" filter="url(#heavyShadow)">RKG SUIAMBU</text>
+    <text x="3" y="55" font-family="'Times New Roman', Georgia, 'Cinzel', serif" font-weight="900" font-size="110" fill="#4a2600" text-anchor="middle" letter-spacing="8">RKG SUIAMBU</text>
+    <text x="0" y="52" font-family="'Times New Roman', Georgia, 'Cinzel', serif" font-weight="900" font-size="110" fill="url(#goldGradV)" text-anchor="middle" letter-spacing="8" stroke="#ffffff" stroke-width="1.5">RKG SUIAMBU</text>
+
+    <!-- MASTER BRAND TITLE: TAMIL "ஆர்.கே.ஜி சுயம்பு மாட்டுத்தீவனம் & ஆயில் மில்ஸ்" -->
+    <g transform="translate(0, 112)" filter="url(#heavyShadow)">
+      <path d="M -920,-35 L 920,-35 L 880,20 L -880,20 Z" fill="#b71c1c" stroke="url(#goldGrad)" stroke-width="3"/>
+      <text x="0" y="4" font-family="'Latha', 'Mukta Malar', 'Arial Unicode MS', sans-serif" font-weight="900" font-size="44" fill="#ffffff" text-anchor="middle" letter-spacing="2">ஆர்.கே.ஜி சுயம்பு மாட்டுத்தீவனம் &amp; ஆயில் மில்ஸ்</text>
+    </g>
+
+    <!-- BRAND SUBTITLE: SLOGAN & PRODUCTS -->
+    <g transform="translate(0, 168)">
+      <text x="0" y="0" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="28" fill="#ffd54f" text-anchor="middle" letter-spacing="4">SUPREME QUALITY CATTLE FEED • COLD-PRESSED OILS • AGRO PRODUCTS</text>
+      <text x="0" y="24" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#e0f2fe" text-anchor="middle" letter-spacing="2">பால் தரும் கறவை மாடுகளுக்கான பிரீமியம் சமச்சீர் சத்துணவு</text>
+    </g>
+  </g>
+
+
+  <!-- ========================================== -->
+  <!-- 5. RIGHT WING: FEED BAGS & CONTACT DETAILS -->
+  <!-- ========================================== -->
+  <!-- Right Side Feed Bags Display -->
+  <g transform="translate(6350, 190) scale(1.15)">
+    <rect x="-40" y="215" width="460" height="25" rx="4" fill="#5d4037" stroke="#3e2723" stroke-width="2" filter="url(#shadow3D)"/>
+    <use href="#grainSack" x="-20" y="115" transform="scale(1.2)" />
+    <use href="#grainSack" x="270" y="115" transform="scale(1.2)" />
+    <g transform="translate(0, 5)"><use href="#feedBagGold" /></g>
+    <g transform="translate(110, -10)"><use href="#feedBagGreen" /></g>
+    <g transform="translate(220, 0)"><use href="#feedBagGold" /></g>
+  </g>
+
+  <!-- Right Wing Top Banner -->
+  <g transform="translate(9150, 55)" filter="url(#heavyShadow)">
+    <path d="M -750,0 L 780,0 L 780,70 L -720,70 Z" fill="url(#royalNavyGrad)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <circle cx="765" cy="15" r="4" fill="url(#goldGrad)" />
+    <circle cx="765" cy="55" r="4" fill="url(#goldGrad)" />
+    <text x="-40" y="32" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="18" fill="#ffd54f" text-anchor="middle" letter-spacing="1">BOOKING &amp; ENQUIRY / முன்பதிவு &amp; தொடர்புக்கு</text>
+    <text x="-40" y="58" font-family="Arial, sans-serif" font-weight="bold" font-size="15" fill="#ffffff" text-anchor="middle" letter-spacing="2">நேரடி ஆலை விநியோகம் • தமிழ்நாடு முழுவதும் டோர் டெலிவரி</text>
+  </g>
+
+  <!-- Right Wing Contact Cards -->
+  <g transform="translate(9250, 145)" filter="url(#heavyShadow)">
+    <!-- Phone / WhatsApp -->
+    <g transform="translate(-700, 0)">
+      <rect x="0" y="0" width="680" height="65" rx="14" fill="url(#royalNavyGrad)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="42" cy="32" r="24" fill="#25d366" stroke="#fff" stroke-width="2"/>
+      <path d="M 32,24 C 30,28 34,36 42,42 C 48,46 54,44 56,40 L 52,36 L 47,38 C 44,36 40,32 38,29 L 40,24 Z" fill="#fff" />
+      <text x="80" y="28" font-family="'Arial Black', sans-serif" font-weight="900" font-size="14" fill="#81c784">DIRECT CALL / WHATSAPP</text>
+      <text x="80" y="54" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="1">+91 94425 76622</text>
+      <text x="440" y="52" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="24" fill="#ffd54f" letter-spacing="1">/ 84385 39264</text>
+    </g>
+
+    <!-- Address -->
+    <g transform="translate(-700, 80)">
+      <rect x="0" y="0" width="680" height="75" rx="14" fill="url(#emeraldDarkGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+      <circle cx="42" cy="37" r="24" fill="#d32f2f" stroke="#fff" stroke-width="2"/>
+      <path d="M 42,22 C 34,22 28,28 28,36 C 28,46 42,56 42,56 C 42,56 56,46 56,36 C 56,28 50,22 42,22 Z M 42,39 C 39,39 37,37 37,34 C 37,31 39,29 42,29 C 45,29 47,31 47,34 C 47,37 45,39 42,39 Z" fill="#fff" />
+      <text x="80" y="26" font-family="'Arial Black', sans-serif" font-weight="900" font-size="14" fill="#ffd54f">ஆலை &amp; தலைமை விற்பனை நிலையம் / FACTORY &amp; OFFICE:</text>
+      <text x="80" y="47" font-family="'Arial Black', sans-serif" font-weight="bold" font-size="15" fill="#ffffff">SF No. 142/2, Main Road, Erode - Tirupur Agri Corridor,</text>
+      <text x="80" y="66" font-family="Arial, sans-serif" font-weight="bold" font-size="13" fill="#a5d6a7">Tamil Nadu - 638056 • Email: rkgsuyambu@gmail.com</text>
+    </g>
+
+    <!-- Working Hours -->
+    <g transform="translate(-700, 170)">
+      <rect x="0" y="0" width="680" height="50" rx="25" fill="#b71c1c" stroke="#ffffff" stroke-width="2"/>
+      <text x="340" y="32" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#ffffff" text-anchor="middle" letter-spacing="1">இயங்கும் நேரம்: காலை 6:30 முதல் இரவு 8:30 வரை (திங்கள் - சனி)</text>
+    </g>
+  </g>
+
+  <!-- Right Category Tags -->
+  <g transform="translate(9250, 395)">
+    <g transform="translate(-700, 0)">
+      <rect x="0" y="0" width="215" height="48" rx="10" fill="#f57f17" stroke="#fff" stroke-width="2" filter="url(#shadow3D)"/>
+      <text x="107" y="30" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle">கன்றுக்குட்டி தீவனம்</text>
+
+      <rect x="230" y="0" width="215" height="48" rx="10" fill="#00695c" stroke="#fff" stroke-width="2" filter="url(#shadow3D)"/>
+      <text x="337" y="30" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle">செக்கு தேங்காய் எண்ணெய்</text>
+
+      <rect x="460" y="0" width="220" height="48" rx="10" fill="#4e342e" stroke="#fff" stroke-width="2" filter="url(#shadow3D)"/>
+      <text x="570" y="30" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#fff" text-anchor="middle">பருத்தி கொட்டை &amp; தவிடு</text>
+    </g>
+  </g>
+
+  <!-- Print Bleed Marks -->
+  <g stroke="#ffffff" stroke-width="2" opacity="0.7">
+    <line x1="10" y1="0" x2="10" y2="25" />
+    <line x1="0" y1="10" x2="25" y2="10" />
+    <line x1="9990" y1="0" x2="9990" y2="25" />
+    <line x1="9975" y1="10" x2="10000" y2="10" />
+    <line x1="10" y1="475" x2="10" y2="500" />
+    <line x1="0" y1="490" x2="25" y2="490" />
+    <line x1="9990" y1="475" x2="9990" y2="500" />
+    <line x1="9975" y1="490" x2="10000" y2="490" />
+  </g>
+</svg>

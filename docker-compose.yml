@@ -1,0 +1,64 @@
+services:
+  # ── 1. RKG Suyambu Web ERP Backend Service (FastAPI / Python 3.11) ─────────
+  backend:
+    build:
+      context: ./RKG_Suyambu_Public_Website/RKG_Suyambu_Web_ERP_Backend
+      dockerfile: Dockerfile
+    container_name: rkg_suyambu_backend
+    restart: unless-stopped
+    environment:
+      - PORT=8000
+      - DATABASE_URL=sqlite:////app/data/rkg_suyambu.db
+      - AUTH_SECRET_KEY=rkg_suyambu_erp_secure_enterprise_key_2026
+      - CEO_USERNAME=ceo
+      - CEO_MASTER_PASSWORD=RKG@CEO#2026!
+      - CEO_TOKEN_SECRET=rkg_ceo_ultra_secure_master_key_2026_immutable
+      - FIREBASE_PROJECT_ID=rkg-suiambu
+      - FIREBASE_SYNC_ENABLED=true
+    volumes:
+      # Persistent storage for SQLite DB, generated PDFs, and audit logs
+      - backend_data:/app/data
+    ports:
+      - "8000:8000"
+    networks:
+      - rkg-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ── 2. RKG Suyambu Public Frontend & CEO Portal (Nginx Reverse Proxy) ──────
+  frontend:
+    build:
+      context: ./RKG_Suyambu_Public_Website
+      dockerfile: Dockerfile
+    container_name: rkg_suyambu_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - rkg-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+# ── Persistent Storage Volumes ───────────────────────────────────────────────
+volumes:
+  backend_data:
+    driver: local
+    name: rkg_suyambu_backend_data
+
+# ── Isolated Internal Network ────────────────────────────────────────────────
+networks:
+  rkg-network:
+    driver: bridge
+    name: rkg_suyambu_network
